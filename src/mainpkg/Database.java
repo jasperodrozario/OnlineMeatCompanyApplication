@@ -21,7 +21,8 @@ public class Database {
         if (userType == "Regulatory Officer") {
             try {
                 File f1 = new File("RegulatoryOfficerUser.bin");
-                RegulatoryOfficer newUser = new RegulatoryOfficer(userId, userName, gender, password, userDob, userDoj);
+                RegulatoryOfficer newUser = new RegulatoryOfficer(userType, userId, userName, gender, password, userDob, userDoj);
+                System.out.println(newUser.userId);
                 if (f1.exists()) {
                     FileOutputStream fos = new FileOutputStream(f1, true);
                     AppendObjectOutputStream aoos = new AppendObjectOutputStream(fos);
@@ -48,7 +49,7 @@ public class Database {
         else if (userType == "Affiliate Marketer") {
             try {
                 File f2 = new File("AffiliateOfficerUser.bin");
-                AffiliateMarketer newUser = new AffiliateMarketer(userId, userName, gender, password, userDob, userDoj);
+                AffiliateMarketer newUser = new AffiliateMarketer(userType, userId, userName, gender, password, userDob, userDoj);
                 if (f2.exists()) {
                     FileOutputStream fos = new FileOutputStream(f2, true);
                     AppendObjectOutputStream aoos = new AppendObjectOutputStream(fos);
@@ -117,18 +118,7 @@ public class Database {
     
     
     public static boolean verifyUserPassword(String userType, int userId, String password) throws FileNotFoundException, IOException, ClassNotFoundException {
-        boolean flag = false;
-        String fileName = "";
-        
-        if(userType.equals("Customer")) {
-            fileName = "CustomerUser.bin";
-        }
-        else if(userType.equals("Regulatory Officer")) {
-            fileName = "RegulatoryOfficerUser.bin";
-        }        
-        else if(userType.equals("Affiliate Marketer")) {
-            fileName = "AffiliateMarketerUser.bin";
-        }
+        boolean flag;
 //        else if(userType.equals("Regulatory Officer")) {
 //            fileName = "RegulatoryOfficerUser.bin";
 //        }        
@@ -145,7 +135,8 @@ public class Database {
 //            fileName = "RegulatoryOfficerUser.bin";
 //        }        
         if(userType.equals("Customer")) {
-            File userFile = new File(fileName);
+            flag = false;
+            File userFile = new File("CustomerUser.bin");
             Customer tempInst;
             if(userFile.exists()) {
                 FileInputStream fis = new FileInputStream(userFile);
@@ -153,29 +144,27 @@ public class Database {
                 while(true) {
                     tempInst = (Customer)ois.readObject();
                     if(tempInst.userId == userId) {
-                        if(tempInst.password == password) {
-                            System.out.println("ekhane shomossha hocche");
+                        if(tempInst.password.equals(password)) {
+                            System.out.println("password milla gese!");
                             flag = true;
-                            return flag;
+                            break;
                         }
                         else {
-                            System.out.println("else e shomossha hocche");
-
+                            System.out.println("password milenai :)");
                             flag = false;
                         }
                     }
-                return flag;
                 }
+                return flag;
             }
             else {
-                System.out.println("last else e shomossha hocche");
-
+                System.out.println("File e to nai beta!");
                 return false;
             }
         }
-        
         else if(userType.equals("Regulatory Officer")) {
-            File userFile = new File(fileName);
+            flag = false;
+            File userFile = new File("RegulatoryOfficerUser.bin");
             RegulatoryOfficer tempInst;
             if(userFile.exists()) {
                 FileInputStream fis = new FileInputStream(userFile);
@@ -183,24 +172,27 @@ public class Database {
                 while(true) {
                     tempInst = (RegulatoryOfficer)ois.readObject();
                     if(tempInst.userId == userId) {
-                        if(tempInst.password == password) {
+                        if(tempInst.password.equals(password)) {
+                            System.out.println("password milla gese!");
                             flag = true;
-                            return flag;
+                            break;
                         }
                         else {
+                            System.out.println("password milenai :)");
                             flag = false;
                         }
                     }
-                return flag;
                 }
+                return flag;
             }
             else {
+                System.out.println("File e to nai beta!");
                 return false;
             }
         }
-        
         else if(userType.equals("Affiliate Marketer")) {
-            File userFile = new File(fileName);
+            flag = false;
+            File userFile = new File("AffiliateMarketerUser.bin");
             AffiliateMarketer tempInst;
             if(userFile.exists()) {
                 FileInputStream fis = new FileInputStream(userFile);
@@ -208,24 +200,27 @@ public class Database {
                 while(true) {
                     tempInst = (AffiliateMarketer)ois.readObject();
                     if(tempInst.userId == userId) {
-                        if(tempInst.password == password) {
+                        if(tempInst.password.equals(password)) {
+                            System.out.println("password milla gese!");
                             flag = true;
-                            return flag;
+                            break;
                         }
                         else {
+                            System.out.println("password milenai :)");
                             flag = false;
                         }
                     }
-                return flag;
                 }
+                return flag;
             }
             else {
+                System.out.println("File e to nai beta!");
                 return false;
             }
         }
-        
         else {
-            return flag;
+            System.out.println("UserType e to thik nai hala!");
+            return false;
         }
     }
     

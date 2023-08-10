@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 
 /**
@@ -19,6 +20,10 @@ public class RegulatoryOfficerDashboardSceneController implements Initializable 
     
     
     public SceneLoader sceneLoader;
+    @FXML
+    private MenuItem viewProdSpecsMenuItemOnClick;
+    @FXML
+    private MenuItem viewProdSpecsMenuItemOnClick1;
     
     
     @Override
@@ -31,7 +36,6 @@ public class RegulatoryOfficerDashboardSceneController implements Initializable 
         regulatoryOfficerDashboardBorderPane.setCenter(sceneLoader.getSceneRoot("QualityControlScene.fxml"));
     }
 
-    @FXML
     private void viewProductLabelsMenuOnClick(ActionEvent event) {
         regulatoryOfficerDashboardBorderPane.setCenter(sceneLoader.getSceneRoot("ViewProductLabelsScene.fxml"));
     }
@@ -59,6 +63,14 @@ public class RegulatoryOfficerDashboardSceneController implements Initializable 
     @FXML
     private void DocumentationsMenuOnClick(ActionEvent event) {
         regulatoryOfficerDashboardBorderPane.setCenter(sceneLoader.getSceneRoot("DocumentationsAndRegulationsScene.fxml"));
+    }
+
+    @FXML
+    private void viewProdSpecsMenuItemOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void verifyProdLblsMenuItemOnClick(ActionEvent event) {
     }
     
 }

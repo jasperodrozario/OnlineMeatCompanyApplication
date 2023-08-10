@@ -32,7 +32,7 @@ public class ViewBinFileContentSceneController implements Initializable {
     }    
 
     @FXML
-    private void openBinFileBtnOnClick(MouseEvent event) throws FileNotFoundException, IOException, ClassNotFoundException {
+    private void openCustBinFileBtnOnClick(MouseEvent event) throws FileNotFoundException, IOException, ClassNotFoundException {
         Customer tempObj;
         File fileInst = new File("CustomerUser.bin");
         String tempStr = "";
@@ -42,6 +42,28 @@ public class ViewBinFileContentSceneController implements Initializable {
             while(true) {
                 tempObj = (Customer)ois.readObject();
                 tempStr += "Customer ID: " + tempObj.userId + ", Name: " + tempObj.userName + ", Gender: " + tempObj.gender + ", Password: " + tempObj.password + "\n";
+                displayTextArea.setText(tempStr);
+            }
+
+        }
+        else {
+            anAlert.setContentText("File Not Found!");
+            anAlert.show();
+        }
+    }
+
+    @FXML
+    private void openRegOffBinFileBtnOnClick(MouseEvent event) throws FileNotFoundException, IOException, ClassNotFoundException {
+        RegulatoryOfficer tempObj;
+        File fileInst = new File("RegulatoryOfficerUser.bin");
+        String tempStr = "";
+        if(fileInst.exists()) {
+            FileInputStream fis = new FileInputStream(fileInst);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            while(true) {
+                tempObj = (RegulatoryOfficer)ois.readObject();
+                System.out.println(tempObj.userId);
+                tempStr += "Regulatory Officer ID: " + tempObj.userId + ", Name: " + tempObj.userName + ", Gender: " + tempObj.gender + ", Password: " + tempObj.password + "\n";
                 displayTextArea.setText(tempStr);
             }
 

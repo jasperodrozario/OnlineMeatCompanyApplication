@@ -9,7 +9,9 @@ import java.time.LocalDate;
 
 public class AffiliateMarketer extends Employee {
     
-    public AffiliateMarketer(int userId, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
+    public AffiliateMarketer(String userType, int userId, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
+        this.userType = userType;
+        this.userId = userId;
         this.userName = userName;
         this.password = password;
         this.userDob = userDob;

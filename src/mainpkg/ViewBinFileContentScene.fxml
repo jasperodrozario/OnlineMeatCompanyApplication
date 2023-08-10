@@ -7,6 +7,7 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.ViewBinFileContentSceneController">
    <children>
       <TextArea fx:id="displayTextArea" layoutX="16.0" layoutY="14.0" prefHeight="279.0" prefWidth="569.0" />
-      <Button layoutX="236.0" layoutY="314.0" mnemonicParsing="false" onMouseClicked="#openBinFileBtnOnClick" prefHeight="50.0" prefWidth="130.0" text="Open a bin file" />
+      <Button layoutX="16.0" layoutY="322.0" mnemonicParsing="false" onMouseClicked="#openCustBinFileBtnOnClick" prefHeight="41.0" prefWidth="192.0" text="Open a CustomerUser.bin file" />
+      <Button layoutX="227.0" layoutY="322.0" mnemonicParsing="false" onMouseClicked="#openRegOffBinFileBtnOnClick" prefHeight="41.0" prefWidth="216.0" text="Open a RegulatoryOfficerUser.bin file" />
    </children>
 </AnchorPane>

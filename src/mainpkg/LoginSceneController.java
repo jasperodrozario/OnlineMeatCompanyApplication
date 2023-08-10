@@ -46,48 +46,93 @@ public class LoginSceneController implements Initializable {
 
     @FXML
     private void loginOnMouseClick(MouseEvent event) throws IOException, FileNotFoundException, ClassNotFoundException {
-        if(userTypeComboBox.getValue().equals(null)) {
+
+        if(userTypeComboBox.getValue() == null) {
             anAlert.setContentText("Select a user type first");
             anAlert.showAndWait();
         }
-        else if(userIdTextField.equals(null) || passwordTextField.equals(null)) {
+        else if(userIdTextField.getText().isEmpty()) {
             anAlert.setContentText("Enter a user ID and a password to login");
             anAlert.showAndWait();
         }
+        else if(passwordTextField.getText().isEmpty()) {
+            anAlert.setContentText("Enter a user ID and a password to login");
+            anAlert.showAndWait();
+        } 
         else {
             if(userTypeComboBox.getValue().equals("Customer")) {
                 if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
                     newSceneLoader.loadScene("CustomerDashboardScene.fxml");
                 }
                 else {
-                    System.out.println("Kaaj kore nai");
+                    anAlert.setContentText("The combination of userId and password is incorrect. Try again!");
+                    anAlert.show();
                 }
             }
             else if(userTypeComboBox.getValue().equals("Rider")) {
-                Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText());
+                if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
+                    newSceneLoader.loadScene("RiderDashboardScene.fxml");
+                }
+                else {
+                    anAlert.setContentText("The combination of userId and password is incorrect. Try again!");
+                    anAlert.show();
+                }
             }
             else if(userTypeComboBox.getValue().equals("Vendor")) {
-                Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText());
+                if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
+                    newSceneLoader.loadScene("VendorDashboardScene.fxml");
+                }
+                else {
+                    anAlert.setContentText("The combination of userId and password is incorrect. Try again!");
+                    anAlert.show();
+                }
             }
             else if(userTypeComboBox.getValue().equals("Affiliate Marketer")) {
-                Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText());
+                if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
+                    newSceneLoader.loadScene("AffiliateMarketerDashboardScene.fxml");
+                }
+                else {
+                    anAlert.setContentText("The combination of userId and password is incorrect. Try again!");
+                    anAlert.show();
+                }
             }
             else if(userTypeComboBox.getValue().equals("CEO")) {
-                Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText());
+                if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
+                    newSceneLoader.loadScene("CustomerDashboardScene.fxml");
+                }
+                else {
+                    anAlert.setContentText("The combination of userId and password is incorrect. Try again!");
+                    anAlert.show();
+                }
             }
             else if(userTypeComboBox.getValue().equals("Accountant")) {
-                Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText());
+                if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
+                    newSceneLoader.loadScene("CustomerDashboardScene.fxml");
+                }
+                else {
+                    anAlert.setContentText("The combination of userId and password is incorrect. Try again!");
+                    anAlert.show();
+                }
             }
             else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
-                Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText());
-                newSceneLoader.loadScene("RegulatoryOfficerScene.fxml");
-
+                if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
+                    newSceneLoader.loadScene("RegulatoryOfficerDashboardScene.fxml");
+                }
+                else {
+                    anAlert.setContentText("The combination of userId and password is incorrect. Try again!");
+                    anAlert.show();
+                }
             }
-            else if(userTypeComboBox.getValue().equals("Affiliate Marketer")) {
-                Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText());
+            else if(userTypeComboBox.getValue().equals("Customer Care Executive")) {
+                if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
+                    newSceneLoader.loadScene("CustomerDashboardScene.fxml");
+                }
+                else {
+                    anAlert.setContentText("The combination of userId and password is incorrect. Try again!");
+                    anAlert.show();
+                }
             }
         }
-       
     }
 
     @FXML

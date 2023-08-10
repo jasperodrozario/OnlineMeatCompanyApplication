@@ -8,7 +8,9 @@ import java.time.LocalDate;
  */
 public class RegulatoryOfficer extends Employee {
     
-    public RegulatoryOfficer(int userId, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
+    public RegulatoryOfficer(String userType, int userId, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
+        this.userType = userType;
+        this.userId = userId;
         this.userName = userName;
         this.password = password;
         this.userDob = userDob;

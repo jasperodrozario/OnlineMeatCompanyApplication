@@ -60,6 +60,12 @@ public class RegisterUserSceneController implements Initializable {
                 salaryTextField.setDisable(true);
                 addressTextField.setDisable(false);
             }
+            else {
+                dobDatePicker.setDisable(false);
+                dojDatePicker.setDisable(false);
+                salaryTextField.setDisable(false);
+                addressTextField.setDisable(true);
+            }
         });
     }
 
@@ -89,9 +95,11 @@ public class RegisterUserSceneController implements Initializable {
         
         if(addUserStatus) {
             anAlert.setContentText("User Added Successfully!");
+            anAlert.show();
         }
         else {
             anAlert.setContentText("Oops! Something went wrong. Try Again.");
+            anAlert.show();
         }
     }
     
