@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.FishSceneController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="227.0" layoutX="46.0" layoutY="351.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="227.0" layoutX="519.0" layoutY="100.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="227.0" layoutX="40.0" layoutY="100.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="40.0" layoutY="45.0" text="Fish">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="bbiAddToCartBtn" layoutX="156.0" layoutY="290.0" mnemonicParsing="false" onMouseClicked="#bbiAddToCartBtnOnClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: FECB00;" text="Add To Cart">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="bbiQuantityComboBox" layoutX="38.0" layoutY="290.0" prefHeight="31.0" prefWidth="114.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
+      <ImageView fitHeight="129.0" fitWidth="188.0" layoutX="77.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/fish.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="99.0" fitWidth="203.0" layoutX="273.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="227.0" layoutX="279.0" layoutY="100.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="290.0" layoutY="243.0" prefHeight="17.0" prefWidth="126.0" text="Hilsha 1kg">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="btcAddToCartBtn" layoutX="390.0" layoutY="290.0" mnemonicParsing="false" onMouseClicked="#btcAddToCartBtnOnClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: FECB00;" text="Add To Cart">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="btcQuantityComboBox" layoutX="276.0" layoutY="290.0" prefHeight="31.0" prefWidth="114.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
+      <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="307.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/hilsha.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="529.0" layoutY="242.0" prefHeight="17.0" prefWidth="167.0" text="Prawn 1kg">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="btsAddToCartBtn" layoutX="629.0" layoutY="290.0" mnemonicParsing="false" onMouseClicked="#btsAddToCartBtnOnClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: FECB00;" text="Add To Cart">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="btsQuantityComboBox" layoutX="519.0" layoutY="290.0" prefHeight="31.0" prefWidth="114.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
+      <Label layoutX="51.0" layoutY="494.0" prefHeight="17.0" prefWidth="149.0" text="Squid 400gm">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="btbsAddToCartBtn" layoutX="154.0" layoutY="545.0" mnemonicParsing="false" onMouseClicked="#btbsAddToCartBtnOnClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: FECB00;" text="Add To Cart">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="btbsQuantityComboBox" layoutX="38.0" layoutY="542.0" prefHeight="31.0" prefWidth="114.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
+      <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="46.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/images%20(5).jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="51.0" layoutY="243.0" prefHeight="17.0" prefWidth="101.0" text="Rui 1kg">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="50.0" layoutY="266.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 400" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="290.0" layoutY="266.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 800" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="51.0" layoutY="518.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 600" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="529.0" layoutY="266.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 1000" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="524.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/prawn.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

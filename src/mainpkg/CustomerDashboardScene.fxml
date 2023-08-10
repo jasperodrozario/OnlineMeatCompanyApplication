@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="customerBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.CustomerDashboardSceneController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Meat">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#beefMenuItemOnClick" text="Beef" />
+                  <MenuItem mnemonicParsing="false" onAction="#muttonMenuItemOnClick" text="Mutton" />
+                  <MenuItem mnemonicParsing="false" onAction="#poultryMenuItemOnClick" text="Poultry" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" onAction="#fishMenuOnClick" text="Fish" />
+          <Menu mnemonicParsing="false" onAction="#groceryItemOnClick" text="Grocery" />
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

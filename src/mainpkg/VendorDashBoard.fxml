@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="vendorDashboardBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.VendorDashBoardController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Reports">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#productRequirementsMenuItemOnClick" text="Product Requirements" />
+                  <MenuItem mnemonicParsing="false" onAction="#productQualityMenuItemOnClick" text="Product Quality" />
+                  <MenuItem mnemonicParsing="false" onAction="#quotationReportsMenuItemOnClick" text="Quotation Reports" />
+                  <MenuItem mnemonicParsing="false" onAction="#productDemandMenuItemOnClick" text="Product Demand" />
+                  <MenuItem mnemonicParsing="false" onAction="#farmCostMenuItemOnClick" text="Monthly Farm Cost" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Updates">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#vaccinationMenuItemOnClick" text="Vaccination" />
+                  <MenuItem mnemonicParsing="false" onAction="#transactionMenuItemOnClick" text="Transaction" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Contacts">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About Us" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="485.0" prefWidth="700.0" style="-fx-background-color: #B8D8E5; -fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.LoginSceneController">
+   <children>
+      <ImageView fitHeight="224.0" fitWidth="261.0" layoutX="-19.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/bengal_meat_logo.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GOLD" height="495.0" layoutX="189.0" layoutY="-8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="556.0" />
+      <TextField fx:id="userIdTextField" layoutX="392.0" layoutY="255.0" prefHeight="27.0" prefWidth="150.0" style="-fx-border-color: grey; -fx-background-radius: 23; -fx-border-radius: 23;" />
+      <Button layoutX="408.0" layoutY="369.0" mnemonicParsing="false" onMouseClicked="#loginOnMouseClick" prefHeight="37.0" prefWidth="94.0" style="-fx-background-color: #0B3954; -fx-background-radius: 25;" text="Login" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="userTypeComboBox" layoutX="392.0" layoutY="206.0" prefHeight="27.0" prefWidth="150.0" promptText="Select a user type" style="-fx-background-color: #ffffff; -fx-background-radius: 23; -fx-border-radius: 23; -fx-border-color: grey;" />
+      <Label layoutX="318.0" layoutY="210.0" text="User Type" textFill="#0b3954">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="325.0" layoutY="259.0" text="User ID" textFill="#0b3954">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="319.0" layoutY="306.0" text="Password" textFill="#0b3954">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="passwordTextField" layoutX="392.0" layoutY="302.0" prefHeight="27.0" prefWidth="150.0" style="-fx-border-color: grey; -fx-background-radius: 23; -fx-border-radius: 23;" />
+      <ImageView fitHeight="174.0" fitWidth="556.0" layoutX="189.0" layoutY="-11.0" opacity="0.85" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/meat2.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="270.0" layoutY="36.0" text="Welcome to Bengal Meat" textFill="GOLD">
+         <font>
+            <Font name="Century Gothic Bold" size="32.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="380.0" layoutY="86.0" prefHeight="19.0" prefWidth="174.0" text="Login with your credentials" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></Label>
+      <Label alignment="CENTER" layoutX="8.0" layoutY="221.0" prefHeight="37.0" prefWidth="174.0" text="BANGLADESH’S" textAlignment="CENTER" textFill="#0b3954" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="30.0" layoutY="255.0" prefHeight="37.0" prefWidth="130.0" text="First &amp; Only" textAlignment="CENTER" textFill="#0b3954" wrapText="true">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="20.0" layoutY="274.0" prefHeight="93.0" prefWidth="150.0" text="International Standard Abattoir" textAlignment="CENTER" textFill="GOLD" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="resetPassLabel" layoutX="455.0" layoutY="335.0" onMouseClicked="#resetPassLabelOnClick" onMouseEntered="#resetPassLabelOnHover" text="Forgot Password?" textFill="#0b3954">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="395.0" layoutY="441.0" onMouseEntered="#resetPassLabelOnHover" text="Need an account?" textFill="#0b3954">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="regLabel" layoutX="485.0" layoutY="441.0" onMouseClicked="#regLabelOnClick" onMouseEntered="#resetPassLabelOnHover" text="Register" textFill="#0b3954">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Label>
+      <Button layoutX="643.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#customerBtnOnClick" text="Customer" />
+      <Button layoutX="551.0" layoutY="394.0" mnemonicParsing="false" onMouseClicked="#switchToViewBinFileSceneOnClick" prefHeight="25.0" prefWidth="184.0" text="Go to ViewBinFileContentScene" />
+      <Button layoutX="620.0" layoutY="328.0" mnemonicParsing="false" onAction="#accountOnClick" text="Accountant" />
+   </children>
+</AnchorPane>

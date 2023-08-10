@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="721.0" prefWidth="1043.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <Label layoutX="294.0" layoutY="77.0" text="Customer care Excutive - create Survey">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TableView layoutX="148.0" layoutY="153.0" prefHeight="482.0" prefWidth="732.0">
+        <columns>
+          <TableColumn prefWidth="111.0" text="Product Info" />
+          <TableColumn prefWidth="103.0" text="Date" />
+            <TableColumn prefWidth="122.0" text="Rider Name" />
+            <TableColumn prefWidth="188.0" text="Total sell" />
+            <TableColumn prefWidth="205.0" text="comment" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

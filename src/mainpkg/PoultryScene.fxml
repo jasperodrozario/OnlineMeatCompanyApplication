@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="212.0" layoutX="30.0" layoutY="90.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="30.0" layoutY="35.0" text="Poultry">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="233.0" prefHeight="17.0" prefWidth="101.0" text="Beef Bone In 1kg">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="addToCartBtn" layoutX="141.0" layoutY="262.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: yellow;" text="Add To Cart">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="quantityBBIComboBox" layoutX="41.0" layoutY="262.0" prefHeight="25.0" prefWidth="89.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
+      <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="30.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/BeefBoneIn.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="99.0" fitWidth="203.0" layoutX="263.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="212.0" layoutX="269.0" layoutY="90.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="280.0" layoutY="233.0" prefHeight="17.0" prefWidth="126.0" text="Beef Tehari Cut 1kg">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="addToCartBtn2" layoutX="380.0" layoutY="262.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: yellow;" text="Add To Cart">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="quantityBBIComboBox2" layoutX="280.0" layoutY="262.0" prefHeight="25.0" prefWidth="89.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
+      <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="269.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/BeefTehariCut.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="212.0" layoutX="508.0" layoutY="89.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="519.0" layoutY="232.0" prefHeight="17.0" prefWidth="126.0" text="Beef Tehari Cut 1kg">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="addToCartBtn21" layoutX="619.0" layoutY="261.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: yellow;" text="Add To Cart">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="quantityBBIComboBox21" layoutX="519.0" layoutY="261.0" prefHeight="25.0" prefWidth="89.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
+      <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="508.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/BeefTehariCut.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

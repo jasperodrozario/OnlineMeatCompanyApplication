@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="1054.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.CEOdashboardController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Audit Report" />
+          <Menu mnemonicParsing="false" text="Employee List" />
+          <Menu mnemonicParsing="false" text="Stakeholder Management">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Vendor" />
+                  <MenuItem mnemonicParsing="false" text="Investor" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Financial Management" />
+            <Menu mnemonicParsing="false" text="Sale Report" />
+            <Menu mnemonicParsing="false" text="Live Chat" />
+            <Menu mnemonicParsing="false" text="Customers Feedback" />
+            <Menu mnemonicParsing="false" text="Partners" />
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Label prefHeight="21.0" prefWidth="239.0" text="Welcome" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="50.0" />
+         </font>
+      </Label>
+   </center>
+</BorderPane>
