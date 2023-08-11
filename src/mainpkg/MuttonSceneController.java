@@ -38,7 +38,9 @@ public class MuttonSceneController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        quantityBBIComboBox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        quantityBBIComboBox2.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        quantityBBIComboBox21.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     }    
 
     @FXML
