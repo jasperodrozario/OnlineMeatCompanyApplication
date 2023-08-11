@@ -33,38 +33,27 @@ public class CustomerDashboardSceneController implements Initializable {
 
     @FXML
     private void beefMenuItemOnClick(ActionEvent event) {
-
         customerBorderPane.setCenter(newSceneOpener.getSceneRoot("BeefScene.fxml"));
-        
     }
 
     @FXML
     private void muttonMenuItemOnClick(ActionEvent event) {
-        
-        customerBorderPane.setCenter(newSceneOpener.getSceneRoot("MuttonScene.fxml"));
-        
+        customerBorderPane.setCenter(newSceneOpener.getSceneRoot("MuttonScene.fxml")); 
     }
 
     @FXML
     private void poultryMenuItemOnClick(ActionEvent event) {
-        
-        customerBorderPane.setCenter(newSceneOpener.getSceneRoot("PoultryScene.fxml"));    
-        
-    }
-
-    @FXML
-    private void groceryItemOnClick(ActionEvent event) {
-        customerBorderPane.setCenter(newSceneOpener.getSceneRoot("GroceryScene.fxml"));
-    }
-
-    @FXML
-    private void fishMenuOnClick(ActionEvent event) {
-        customerBorderPane.setCenter(newSceneOpener.getSceneRoot("FishScene.fxml"));
+        customerBorderPane.setCenter(newSceneOpener.getSceneRoot("PoultryScene.fxml"));
     }
 
     @FXML
     private void fishMenuItemOnClick(ActionEvent event) {
         customerBorderPane.setCenter(newSceneOpener.getSceneRoot("FishScene.fxml"));
+    }
+
+    @FXML
+    private void groceryMenuItemOnClick(ActionEvent event) {
+        customerBorderPane.setCenter(newSceneOpener.getSceneRoot("GroceryScene.fxml"));
     }
     
 }
