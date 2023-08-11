@@ -18,7 +18,7 @@ import javafx.scene.control.TableColumn;
 public class CCEOrderHistorySceneController implements Initializable {
 
     @FXML
-    private TableColumn<, ?> serialColumn;
+    private TableColumn<?, ?> serialColumn;
     @FXML
     private TableColumn<?, ?> productColumn;
     @FXML
