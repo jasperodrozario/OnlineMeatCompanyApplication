@@ -21,7 +21,7 @@ public class AuditReportAccountant {
         ObjectOutputStream oos = null;
         
         try{
-            f1 = new File("Audit Report");
+            f1 = new File("AuditReport.bin");
             
             if (f1.exists()){
                 fos = new FileOutputStream(f1, true);

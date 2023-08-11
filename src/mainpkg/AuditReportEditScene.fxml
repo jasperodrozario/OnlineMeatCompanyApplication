@@ -13,7 +13,7 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <TextArea fx:id="auditReportTextField" layoutX="54.0" layoutY="110.0" prefHeight="274.0" prefWidth="765.0" />
+      <TextArea fx:id="auditReportTextField" layoutX="54.0" layoutY="105.0" prefHeight="274.0" prefWidth="765.0" />
       <Button layoutX="730.0" layoutY="503.0" mnemonicParsing="false" onAction="#auditSubmitButtonOnClick" prefHeight="57.0" prefWidth="132.0" text="Submit">
          <font>
             <Font name="System Bold" size="24.0" />
