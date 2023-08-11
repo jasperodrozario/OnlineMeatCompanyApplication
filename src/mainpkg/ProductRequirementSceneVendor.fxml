@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="507.0" prefWidth="750.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="mainpkg.ProductRequirementSceneVendorController">
+   <children>
+      <Label layoutX="24.0" layoutY="23.0" prefHeight="35.0" prefWidth="204.0" text="Required Product:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TableView layoutX="134.0" layoutY="132.0" prefHeight="200.0" prefWidth="475.0">
+        <columns>
+          <TableColumn prefWidth="237.0" text="Product Name" />
+          <TableColumn prefWidth="236.0" text="Product Quantity" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

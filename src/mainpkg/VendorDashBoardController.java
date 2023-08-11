@@ -21,6 +21,7 @@ public class VendorDashBoardController implements Initializable {
     @FXML
     private BorderPane vendorDashboardBorderPane;
 
+    SceneLoader newSceneOpener = new SceneLoader();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -29,31 +30,48 @@ public class VendorDashBoardController implements Initializable {
 
     @FXML
     private void productRequirementsMenuItemOnClick(ActionEvent event) {
+        vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("ProductRequirementSceneVendor.fxml"));
         
     }
 
     @FXML
     private void productQualityMenuItemOnClick(ActionEvent event) {
+        vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("ProductQualitySceneVendor.fxml"));
     }
 
     @FXML
     private void quotationReportsMenuItemOnClick(ActionEvent event) {
+        vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("QuotationReportSceneVendor.fxml"));
     }
 
     @FXML
     private void productDemandMenuItemOnClick(ActionEvent event) {
+        vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("ProductDemandSceneVendor.fxml"));
     }
 
     @FXML
     private void farmCostMenuItemOnClick(ActionEvent event) {
+        vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("MonthlyFarmCostSceneVendor.fxml"));
     }
 
     @FXML
     private void vaccinationMenuItemOnClick(ActionEvent event) {
+        vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("ProductQualitySceneVendor.fxml"));
     }
 
     @FXML
     private void transactionMenuItemOnClick(ActionEvent event) {
+        vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("ProductQualitySceneVendor.fxml"));
+    }
+
+    @FXML
+    private void reportButtonOnClick(ActionEvent event) {
+        vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("ProductQualitySceneVendor.fxml"));
+    }
+
+    @FXML
+    private void contactInfoMenuItemOnClick(ActionEvent event) {
+        vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("ProductQualitySceneVendor.fxml"));
     }
     
 }
