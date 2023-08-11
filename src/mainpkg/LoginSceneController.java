@@ -41,7 +41,7 @@ public class LoginSceneController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        userTypeComboBox.getItems().addAll("Customer","Regulatory Officer", "Affiliate Marketer");
+        userTypeComboBox.getItems().addAll("Customer","Regulatory Officer", "Affiliate Marketer", "Rider", "Account Officer", "Vendor", "CEO", "CCE");
     }    
 
     @FXML
