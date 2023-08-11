@@ -12,16 +12,28 @@
    <top>
       <MenuBar prefHeight="25.0" prefWidth="663.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" onAction="#qualityControlMenuOnClick" style="-fx-background-color: #FECB00; -fx-background-radius: 5;" text="Quality Control">
+          <Menu mnemonicParsing="false" style="-fx-background-color: #FECB00; -fx-background-radius: 5;" text="Quality Control">
                <items>
-                  <MenuItem fx:id="viewProdSpecsMenuItemOnClick" mnemonicParsing="false" onAction="#viewProdSpecsMenuItemOnClick" text="View Product Details" />
-                  <MenuItem fx:id="viewProdSpecsMenuItemOnClick1" mnemonicParsing="false" onAction="#verifyProdLblsMenuItemOnClick" text="Verify Product Labels" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewProdSpecsMenuItemOnClick" text="View Product Details" />
+                  <MenuItem mnemonicParsing="false" onAction="#verifyProdLblsMenuItemOnClick" text="Verify Product Labels" />
                </items></Menu>
-            <Menu mnemonicParsing="false" onAction="#trainingSessionsMenuOnClick" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Training Sessions" />
-            <Menu mnemonicParsing="false" onAction="#supplierProductsOnClick" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Supplier Products" />
-            <Menu mnemonicParsing="false" onAction="#riskAssessmentOnClick" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Risk Assessment" />
-            <Menu mnemonicParsing="false" onAction="#viewRegulationsOnClick" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="View Regulations" />
-            <Menu mnemonicParsing="false" onAction="#DocumentationsMenuOnClick" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Documentations and Records" />
+            <Menu mnemonicParsing="false" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Training Sessions">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#strtInstMeetMenuItemOnClick" text="Start an Instant Meeting" />
+                  <MenuItem mnemonicParsing="false" onAction="#schSessMenuItemOnClick" text="Schedule Session" />
+                  <MenuItem mnemonicParsing="false" onAction="#sessHistMenuItemOnClick" text="Session History" />
+               </items></Menu>
+            <Menu mnemonicParsing="false" onAction="#supplierProductsOnClick" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Supplier Products">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#viewSuppProdMenuItemOnClick" text="View Supplier Products" />
+               </items></Menu>
+            <Menu mnemonicParsing="false" onAction="#DocumentationsMenuOnClick" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Documentations and Records">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="View Health Concern Report" />
+                  <MenuItem mnemonicParsing="false" text="View Regulation Report" />
+                  <MenuItem mnemonicParsing="false" text="View Animal Condition Report" />
+                  <MenuItem mnemonicParsing="false" text="View Vaccination Report" />
+               </items></Menu>
         </menus>
       </MenuBar>
    </top>

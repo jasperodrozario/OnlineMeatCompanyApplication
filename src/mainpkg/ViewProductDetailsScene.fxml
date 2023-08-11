@@ -97,7 +97,6 @@
             <Font size="11.0" />
          </font>
       </Label>
-      <ComboBox fx:id="bbiDetailsComboBox" layoutX="51.0" layoutY="292.0" prefHeight="25.0" prefWidth="101.0" promptText="Details" />
       <ComboBox fx:id="btcDetailsComboBox" layoutX="290.0" layoutY="292.0" prefHeight="25.0" prefWidth="101.0" promptText="Details" />
       <ComboBox fx:id="btsDetailsComboBox" layoutX="529.0" layoutY="292.0" prefHeight="25.0" prefWidth="101.0" promptText="Details" />
       <ComboBox fx:id="btbsDetailsComboBox" layoutX="51.0" layoutY="545.0" prefHeight="25.0" prefWidth="101.0" promptText="Details" />

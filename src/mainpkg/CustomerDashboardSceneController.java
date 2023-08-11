@@ -54,7 +54,7 @@ public class CustomerDashboardSceneController implements Initializable {
 
     @FXML
     private void groceryItemOnClick(ActionEvent event) {
-        customerBorderPane.setCenter(newSceneOpener.getSceneRoot("Grocery.fxml"));
+        customerBorderPane.setCenter(newSceneOpener.getSceneRoot("GroceryScene.fxml"));
     }
 
     @FXML
