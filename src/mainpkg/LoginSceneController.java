@@ -65,7 +65,7 @@ public class LoginSceneController implements Initializable {
                     newSceneLoader.loadScene("CustomerDashboardScene.fxml");
                 }
                 else {
-                    anAlert.setContentText("The combination of userId and password is incorrect. Try again!");
+                    anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
                     anAlert.show();
                 }
             }
@@ -74,7 +74,7 @@ public class LoginSceneController implements Initializable {
                     newSceneLoader.loadScene("RiderDashboardScene.fxml");
                 }
                 else {
-                    anAlert.setContentText("The combination of userId and password is incorrect. Try again!");
+                    anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
                     anAlert.show();
                 }
             }
@@ -83,7 +83,7 @@ public class LoginSceneController implements Initializable {
                     newSceneLoader.loadScene("VendorDashboardScene.fxml");
                 }
                 else {
-                    anAlert.setContentText("The combination of userId and password is incorrect. Try again!");
+                    anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
                     anAlert.show();
                 }
             }
@@ -92,7 +92,7 @@ public class LoginSceneController implements Initializable {
                     newSceneLoader.loadScene("AffiliateMarketerDashboardScene.fxml");
                 }
                 else {
-                    anAlert.setContentText("The combination of userId and password is incorrect. Try again!");
+                    anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
                     anAlert.show();
                 }
             }
@@ -101,7 +101,7 @@ public class LoginSceneController implements Initializable {
                     newSceneLoader.loadScene("CustomerDashboardScene.fxml");
                 }
                 else {
-                    anAlert.setContentText("The combination of userId and password is incorrect. Try again!");
+                    anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
                     anAlert.show();
                 }
             }
@@ -110,7 +110,7 @@ public class LoginSceneController implements Initializable {
                     newSceneLoader.loadScene("CustomerDashboardScene.fxml");
                 }
                 else {
-                    anAlert.setContentText("The combination of userId and password is incorrect. Try again!");
+                    anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
                     anAlert.show();
                 }
             }
@@ -119,7 +119,7 @@ public class LoginSceneController implements Initializable {
                     newSceneLoader.loadScene("RegulatoryOfficerDashboardScene.fxml");
                 }
                 else {
-                    anAlert.setContentText("The combination of userId and password is incorrect. Try again!");
+                    anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
                     anAlert.show();
                 }
             }
@@ -128,7 +128,7 @@ public class LoginSceneController implements Initializable {
                     newSceneLoader.loadScene("CustomerDashboardScene.fxml");
                 }
                 else {
-                    anAlert.setContentText("The combination of userId and password is incorrect. Try again!");
+                    anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
                     anAlert.show();
                 }
             }

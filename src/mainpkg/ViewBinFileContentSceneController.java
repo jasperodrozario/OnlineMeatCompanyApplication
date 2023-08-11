@@ -32,45 +32,105 @@ public class ViewBinFileContentSceneController implements Initializable {
     }    
 
     @FXML
-    private void openCustBinFileBtnOnClick(MouseEvent event) throws FileNotFoundException, IOException, ClassNotFoundException {
+    private void openCustBinFileBtnOnClick(MouseEvent event) {
         Customer tempObj;
         File fileInst = new File("CustomerUser.bin");
         String tempStr = "";
-        if(fileInst.exists()) {
-            FileInputStream fis = new FileInputStream(fileInst);
-            ObjectInputStream ois = new ObjectInputStream(fis);
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(fileInst);
+            ois = new ObjectInputStream(fis);
             while(true) {
                 tempObj = (Customer)ois.readObject();
                 tempStr += "Customer ID: " + tempObj.userId + ", Name: " + tempObj.userName + ", Gender: " + tempObj.gender + ", Password: " + tempObj.password + "\n";
                 displayTextArea.setText(tempStr);
             }
-
         }
-        else {
+        catch(FileNotFoundException e) {
             anAlert.setContentText("File Not Found!");
             anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
         }
     }
 
     @FXML
-    private void openRegOffBinFileBtnOnClick(MouseEvent event) throws FileNotFoundException, IOException, ClassNotFoundException {
+    private void openRegOffBinFileBtnOnClick(MouseEvent event) {
         RegulatoryOfficer tempObj;
         File fileInst = new File("RegulatoryOfficerUser.bin");
         String tempStr = "";
-        if(fileInst.exists()) {
-            FileInputStream fis = new FileInputStream(fileInst);
-            ObjectInputStream ois = new ObjectInputStream(fis);
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(fileInst);
+            ois = new ObjectInputStream(fis);
             while(true) {
                 tempObj = (RegulatoryOfficer)ois.readObject();
-                System.out.println(tempObj.userId);
                 tempStr += "Regulatory Officer ID: " + tempObj.userId + ", Name: " + tempObj.userName + ", Gender: " + tempObj.gender + ", Password: " + tempObj.password + "\n";
                 displayTextArea.setText(tempStr);
             }
-
         }
-        else {
+        catch(FileNotFoundException e) {
             anAlert.setContentText("File Not Found!");
             anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+        }
+    }
+
+    @FXML
+    private void openAffMrkBinFileBtnOnClick(MouseEvent event) {
+        AffiliateMarketer tempObj;
+        File fileInst = new File("AffiliateMarketerUser.bin");
+        String tempStr = "";
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(fileInst);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempObj = (AffiliateMarketer)ois.readObject();
+                tempStr += "AffiliateMarketer ID: " + tempObj.userId + ", Name: " + tempObj.userName + ", Gender: " + tempObj.gender + ", Password: " + tempObj.password + "\n";
+                displayTextArea.setText(tempStr);
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("File Not Found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            e.printStackTrace();
+            System.out.println("cnfex");
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
         }
     }
 }

@@ -6,5 +6,7 @@ package mainpkg;
  */
 
 public class Order {
-    public void Order(int orderId, String )
+    public void Order(int orderId, String productName) {
+        
+    }
 }

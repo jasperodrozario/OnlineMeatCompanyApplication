@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
+import javafx.scene.control.Alert;
 
 /**
  *
@@ -15,6 +16,8 @@ import java.time.LocalDate;
  */
 
 public class Database {
+    
+    static Alert anAlert = new Alert(Alert.AlertType.ERROR);
     
     public static boolean addEmployee(String userType, int userId, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
         
@@ -35,6 +38,40 @@ public class Database {
                     oos = new ObjectOutputStream(fos);
                 }
                 oos.writeObject(newUser);
+                oos.close();
+                return true;
+            }
+            catch (FileNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
+            finally {
+                try {
+                    if(oos != null) oos.close();
+                }
+                catch(IOException e) {
+                }
+            }
+        }
+        
+        else if (userType == "Affiliate Marketer") {
+            try {
+                f1 = new File("AffiliateMarketerUser.bin");
+                AffiliateMarketer newUser = new AffiliateMarketer(userType, userId, userName, gender, password, userDob, userDoj);
+                if (f1.exists()) {
+                    fos = new FileOutputStream(f1, true);
+                    oos = new AppendObjectOutputStream(fos);
+                }
+                else {
+                    fos = new FileOutputStream(f1);
+                    oos = new ObjectOutputStream(fos);
+                }
+                oos.writeObject(newUser);
+                oos.close();
                 return true;
             }
             catch (FileNotFoundException e) {
@@ -50,29 +87,37 @@ public class Database {
                     if(oos != null) oos.close();
                 } 
                 catch (IOException e) {
-                    e.printStackTrace();
                 }
             }   
         }
+        else {
+            anAlert.setContentText("Unknown user type");
+            anAlert.show();
+            return false;
+        }
+    }
+
+    
+    public static boolean addCustomer(String userType, int userId, String userName, boolean gender, String password, String address) {
+        File f1 = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;
         
-        else if (userType == "Affiliate Marketer") {
+        if (userType == "Customer") {
             try {
-                File f2 = new File("AffiliateOfficerUser.bin");
-                AffiliateMarketer newUser = new AffiliateMarketer(userType, userId, userName, gender, password, userDob, userDoj);
-                if (f2.exists()) {
-                    FileOutputStream fos = new FileOutputStream(f2, true);
-                    AppendObjectOutputStream aoos = new AppendObjectOutputStream(fos);
-                    aoos.writeObject(newUser);
-                    aoos.close();
-                    return true;
+                f1 = new File("CustomerUser.bin");
+                Customer newUser = new Customer(userType, userId, userName, gender, password, address);
+                if (f1.exists()) {
+                    fos = new FileOutputStream(f1, true);
+                    oos = new AppendObjectOutputStream(fos);
                 }
                 else {
-                    FileOutputStream fos = new FileOutputStream(f2);
-                    ObjectOutputStream oos = new ObjectOutputStream(fos);
-                    oos.writeObject(newUser);
-                    oos.close();
-                    return true;
+                    fos = new FileOutputStream(f1);
+                    oos = new ObjectOutputStream(fos);
                 }
+                oos.writeObject(newUser);
+                oos.close();
+                return true;
             }
             catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -82,78 +127,34 @@ public class Database {
                 e.printStackTrace();
                 return false;
             }
+            finally {
+                try {
+                    if(oos != null) oos.close();
+                } 
+                catch (IOException e) {
+                }
+            }   
         }
         else {
-            return false;
-        }
-        
-        
-//        if(userType == "Regulatory Officer") {
-//            RegulatoryOfficer obj;
-//            File fileInst = ""
-//        }
-//        else if(userType == "Affiliate Marketer") {
-//            AffiliateMarketer obj;
-//        }
-//        
-        
-    }
-
-    
-    public static boolean addCustomer(String userType, int userId, String userName, boolean gender, String password, String address) {
-        try {
-            File f1 = new File("CustomerUser.bin");
-            Customer newUser = new Customer(userType, userId, userName, gender, password, address);
-            if (f1.exists()) {
-                FileOutputStream fos = new FileOutputStream(f1, true);
-                AppendObjectOutputStream aoos = new AppendObjectOutputStream(fos);
-                aoos.writeObject(newUser);
-                aoos.close();
-                return true;
-            }
-            else {
-                FileOutputStream fos = new FileOutputStream(f1);
-                ObjectOutputStream oos = new ObjectOutputStream(fos);
-                oos.writeObject(newUser);
-                oos.close();
-                return true;
-            }
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return false;
-        }
-        catch (IOException e) {
-            e.printStackTrace();
+            anAlert.setContentText("Unknown user type");
+            anAlert.show();
             return false;
         }
     }
     
     
-    public static boolean verifyUserPassword(String userType, int userId, String password) throws FileNotFoundException, IOException, ClassNotFoundException {
+    public static boolean verifyUserPassword(String userType, int userId, String password) {
         boolean flag;
-//        else if(userType.equals("Regulatory Officer")) {
-//            fileName = "RegulatoryOfficerUser.bin";
-//        }        
-//        else if(userType.equals("Regulatory Officer")) {
-//            fileName = "RegulatoryOfficerUser.bin";
-//        }        
-//        else if(userType.equals("Regulatory Officer")) {
-//            fileName = "RegulatoryOfficerUser.bin";
-//        }        
-//        else if(userType.equals("Regulatory Officer")) {
-//            fileName = "RegulatoryOfficerUser.bin";
-//        }        
-//        else if(userType.equals("Regulatory Officer")) {
-//            fileName = "RegulatoryOfficerUser.bin";
-//        }        
+        
         if(userType.equals("Customer")) {
             flag = false;
-            File userFile = new File("CustomerUser.bin");
             Customer tempInst;
-            if(userFile.exists()) {
-                FileInputStream fis = new FileInputStream(userFile);
-                ObjectInputStream ois = new ObjectInputStream(fis);
+            File userFile = new File("CustomerUser.bin");
+            FileInputStream fis = null;
+            ObjectInputStream ois = null;
+            try {            
+                fis = new FileInputStream(userFile);
+                ois = new ObjectInputStream(fis);
                 while(true) {
                     tempInst = (Customer)ois.readObject();
                     if(tempInst.userId == userId) {
@@ -170,18 +171,36 @@ public class Database {
                 }
                 return flag;
             }
-            else {
-                System.out.println("File e to nai beta!");
+            catch(FileNotFoundException e) {
+                anAlert.setContentText("User file not found!");
+                anAlert.show();
                 return false;
+            }
+            catch(ClassNotFoundException e) {
+                anAlert.setContentText("Class not found in user file!");
+                anAlert.show();
+                return false;
+            }
+            catch(IOException e) {
+                return false;
+            }
+            finally {
+                try {
+                    if(ois != null) ois.close();
+                }
+                catch(IOException e) {
+                }
             }
         }
         else if(userType.equals("Regulatory Officer")) {
             flag = false;
-            File userFile = new File("RegulatoryOfficerUser.bin");
             RegulatoryOfficer tempInst;
-            if(userFile.exists()) {
-                FileInputStream fis = new FileInputStream(userFile);
-                ObjectInputStream ois = new ObjectInputStream(fis);
+            File userFile = new File("RegulatoryOfficerUser.bin");
+            FileInputStream fis = null;
+            ObjectInputStream ois = null;
+            try {            
+                fis = new FileInputStream(userFile);
+                ois = new ObjectInputStream(fis);
                 while(true) {
                     tempInst = (RegulatoryOfficer)ois.readObject();
                     if(tempInst.userId == userId) {
@@ -198,18 +217,36 @@ public class Database {
                 }
                 return flag;
             }
-            else {
-                System.out.println("File e to nai beta!");
+            catch(FileNotFoundException e) {
+                anAlert.setContentText("User file not found!");
+                anAlert.show();
                 return false;
+            }
+            catch(ClassNotFoundException e) {
+                anAlert.setContentText("Class not found in user file!");
+                anAlert.show();
+                return false;
+            }
+            catch(IOException e) {
+                return false;
+            }
+            finally {
+                try {
+                    if(ois != null) ois.close();
+                }
+                catch(IOException e) {
+                }
             }
         }
         else if(userType.equals("Affiliate Marketer")) {
             flag = false;
-            File userFile = new File("AffiliateMarketerUser.bin");
             AffiliateMarketer tempInst;
-            if(userFile.exists()) {
-                FileInputStream fis = new FileInputStream(userFile);
-                ObjectInputStream ois = new ObjectInputStream(fis);
+            File userFile = new File("AffiliateMarketerUser.bin");
+            FileInputStream fis = null;
+            ObjectInputStream ois = null;
+            try {            
+                fis = new FileInputStream(userFile);
+                ois = new ObjectInputStream(fis);
                 while(true) {
                     tempInst = (AffiliateMarketer)ois.readObject();
                     if(tempInst.userId == userId) {
@@ -226,15 +263,30 @@ public class Database {
                 }
                 return flag;
             }
-            else {
-                System.out.println("File e to nai beta!");
+            catch(FileNotFoundException e) {
+                anAlert.setContentText("User file not found!");
+                anAlert.show();
                 return false;
+            }
+            catch(ClassNotFoundException e) {
+                anAlert.setContentText("Class not found in user file!");
+                anAlert.show();
+                return false;
+            }
+            catch(IOException e) {
+                return false;
+            }
+            finally {
+                try {
+                    if(ois != null) ois.close();
+                }
+                catch(IOException e) {
+                }
             }
         }
         else {
-            System.out.println("UserType e to thik nai hala!");
+            anAlert.setContentText("Unknown user type!");
             return false;
-        }
+        } 
     }
-    
 }
