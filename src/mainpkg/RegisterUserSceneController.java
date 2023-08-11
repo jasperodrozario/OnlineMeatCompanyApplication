@@ -52,7 +52,7 @@ public class RegisterUserSceneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         addressTextField.setDisable(true);
-        userTypeComboBox.getItems().addAll("Customer", "Regulatory Officer", "Affiliate Marketer");
+        userTypeComboBox.getItems().addAll("Customer", "Regulatory Officer", "Affiliate Marketer", "Rider", "Account Officer", "Vendor", "CEO", "CCE");
         userTypeComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if(userTypeComboBox.getValue().equals("Customer")) {
                 dobDatePicker.setDisable(true);

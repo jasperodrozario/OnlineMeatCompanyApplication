@@ -10,6 +10,7 @@ import java.time.LocalDate;
  *
  * @author DELL
  */
+
 public class Vendor extends Employee {
     
         public Vendor(String userType, int userId, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
@@ -20,6 +21,7 @@ public class Vendor extends Employee {
         this.userDob = userDob;
         this.gender = gender;
         this.userDoj = userDoj;
+        
     };
     
     @Override

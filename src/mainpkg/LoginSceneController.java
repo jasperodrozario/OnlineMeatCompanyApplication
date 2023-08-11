@@ -123,9 +123,9 @@ public class LoginSceneController implements Initializable {
                     anAlert.show();
                 }
             }
-            else if(userTypeComboBox.getValue().equals("Customer Care Executive")) {
+            else if(userTypeComboBox.getValue().equals("CCE")) {
                 if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
-                    newSceneLoader.loadScene("CustomerDashboardScene.fxml");
+                    newSceneLoader.loadScene("CCE Dashboard.fxml");
                 }
                 else {
                     anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
