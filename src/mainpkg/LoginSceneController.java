@@ -166,4 +166,9 @@ public class LoginSceneController implements Initializable {
     private void vendorOnClick(ActionEvent event) {
         newSceneLoader.loadScene("VendorDashBoard.fxml");
     }
+
+    @FXML
+    private void openEmpListOnClick(ActionEvent event) {
+        newSceneLoader.loadScene("EmployeeList.fxml");
+    }
 }
