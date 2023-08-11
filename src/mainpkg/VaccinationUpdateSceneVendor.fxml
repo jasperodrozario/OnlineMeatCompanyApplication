@@ -6,14 +6,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="523.0" prefWidth="768.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="mainpkg.VaccinationUpdateSceneVendorController">
+<AnchorPane id="AnchorPane" prefHeight="523.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.VaccinationUpdateSceneVendorController">
    <children>
       <Label layoutX="35.0" layoutY="14.0" prefHeight="21.0" prefWidth="147.0" text="Vaccination Update:" />
       <Label layoutX="35.0" layoutY="63.0" prefHeight="21.0" prefWidth="108.0" text="Vaccine Name:" />
       <TextField fx:id="vaccineNameTextField" layoutX="143.0" layoutY="58.0" />
       <Label layoutX="374.0" layoutY="63.0" prefHeight="21.0" prefWidth="45.0" text="Date:" />
-      <DatePicker fx:id="dateTextField" layoutX="410.0" layoutY="58.0" />
-      <Button layoutX="287.0" layoutY="209.0" mnemonicParsing="false" onAction="#vaccineNameAddOnClick" prefHeight="87.0" prefWidth="140.0" text="Add" />
+      <DatePicker fx:id="vaccinationDatePicker" layoutX="410.0" layoutY="58.0" />
+      <Button layoutX="287.0" layoutY="209.0" mnemonicParsing="false" onAction="#addVaccineUpdateOnClick" prefHeight="48.0" prefWidth="140.0" text="Add" />
    </children>
 </AnchorPane>

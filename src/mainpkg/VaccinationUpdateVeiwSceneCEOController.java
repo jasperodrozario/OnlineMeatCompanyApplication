@@ -35,11 +35,11 @@ public class VaccinationUpdateVeiwSceneCEOController implements Initializable {
     @FXML
     private void veiwVaccineBinOnClick(ActionEvent event) {
         
-        
-        File fileInst = new File("VaccinationUpdate.bin");
-        String tempStr = "";
-        FileInputStream fis = null;
-        ObjectInputStream ois = null;
+//        
+//        File fileInst = new File("VaccinationUpdate.bin");
+//        String tempStr = "";
+//        FileInputStream fis = null;
+//        ObjectInputStream ois = null;
     }
     
 }

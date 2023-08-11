@@ -4,7 +4,11 @@
  */
 package mainpkg;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -24,38 +28,58 @@ public class VaccinationUpdateSceneVendorController implements Initializable {
 
     @FXML
     private TextField vaccineNameTextField;
+    
     @FXML
-    private DatePicker dateTextField;
-
-    /**
-     * Initializes the controller class.
-     */
+    private DatePicker vaccinationDatePicker;
     
     
     Alert anAlert = new Alert(Alert.AlertType.INFORMATION);
-    boolean vaccineStatus;
-    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
-    private void vaccineNameAddOnClick(ActionEvent event) throws IOException {
+    private void addVaccineUpdateOnClick(ActionEvent event) {
         
-        vaccineStatus = VaccineUpdate.addVaccine(vaccineNameTextField.getText(), dateTextField.getValue());
-        
-        if (vaccineStatus){
-            
+        File vaccinationUpdateFile = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+
+        try {
+            VaccinationUpdate newVaccinationUpdate = new VaccinationUpdate(vaccineNameTextField.getText(), vaccinationDatePicker.getValue());
+            vaccinationUpdateFile = new File("VaccinationUpdate.bin");
+            if(vaccinationUpdateFile.exists()) {
+                fos = new FileOutputStream(vaccinationUpdateFile, true);
+                oos = new AppendObjectOutputStream(fos);
+            }
+            else {
+                fos = new FileOutputStream(vaccinationUpdateFile);
+                oos = new ObjectOutputStream(fos);
+            }
+            oos.writeObject(newVaccinationUpdate);
+            oos.close();
             anAlert.setContentText("Vaccine update Successfully!");
             anAlert.show();
         }
-        else{
-            anAlert.setContentText("Oops! Something went wrong. Try Again.");
+        catch (FileNotFoundException e) {
+            anAlert.setAlertType(Alert.AlertType.ERROR);
+            anAlert.setContentText("Oops! Something went wrong. Vaccination report was not updated.");
             anAlert.show();
         }
-        
+        catch(IOException e) {
+            anAlert.setAlertType(Alert.AlertType.ERROR);
+            anAlert.setContentText("Oops! Something went wrong. Vaccination report was not updated.");
+            anAlert.show();
+        }
+        finally {
+            try {
+                if(oos != null) oos.close();
+            }
+            catch(IOException e) {
+            }
+        }
     }
     
 }
