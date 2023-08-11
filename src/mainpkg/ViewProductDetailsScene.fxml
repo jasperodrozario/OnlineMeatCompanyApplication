@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="609.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.ViewProductDetailsSceneController">
+<AnchorPane id="AnchorPane" prefHeight="609.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.ViewProductDetailsSceneController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="227.0" layoutX="40.0" layoutY="100.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
          <effect>
@@ -98,5 +98,8 @@
          </font>
       </Label>
       <ComboBox fx:id="bbiDetailsComboBox" layoutX="51.0" layoutY="292.0" prefHeight="25.0" prefWidth="101.0" promptText="Details" />
+      <ComboBox fx:id="btcDetailsComboBox" layoutX="290.0" layoutY="292.0" prefHeight="25.0" prefWidth="101.0" promptText="Details" />
+      <ComboBox fx:id="btsDetailsComboBox" layoutX="529.0" layoutY="292.0" prefHeight="25.0" prefWidth="101.0" promptText="Details" />
+      <ComboBox fx:id="btbsDetailsComboBox" layoutX="51.0" layoutY="545.0" prefHeight="25.0" prefWidth="101.0" promptText="Details" />
    </children>
 </AnchorPane>

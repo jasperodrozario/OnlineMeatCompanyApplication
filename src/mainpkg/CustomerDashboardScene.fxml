@@ -16,7 +16,10 @@
                   <MenuItem mnemonicParsing="false" onAction="#poultryMenuItemOnClick" text="Poultry" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" onAction="#fishMenuOnClick" text="Fish" />
+          <Menu mnemonicParsing="false" onAction="#fishMenuOnClick" text="Fish">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#fishMenuItemOnClick" text="FishMenuItem" />
+               </items></Menu>
           <Menu mnemonicParsing="false" onAction="#groceryItemOnClick" text="Grocery" />
         </menus>
       </MenuBar>

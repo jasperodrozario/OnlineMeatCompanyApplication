@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="673.0" prefWidth="1117.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="673.0" prefWidth="1117.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.CCEOrderHistorySceneController">
    <children>
       <TableView layoutX="74.0" layoutY="116.0" prefHeight="479.0" prefWidth="842.0">
         <columns>
@@ -19,7 +19,7 @@
             <TableColumn fx:id="dateColumn" prefWidth="144.0" text="Date" />
         </columns>
       </TableView>
-      <Label layoutX="212.0" layoutY="34.0" prefHeight="59.0" prefWidth="498.0" text="Customer Care Executive - Order History">
+      <Label layoutX="212.0" layoutY="34.0" prefHeight="59.0" prefWidth="498.0" text="Customer care executive - Order history">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

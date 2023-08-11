@@ -59,7 +59,12 @@ public class CustomerDashboardSceneController implements Initializable {
 
     @FXML
     private void fishMenuOnClick(ActionEvent event) {
-        customerBorderPane.setCenter(newSceneOpener.getSceneRoot("Fish.fxml"));
+        customerBorderPane.setCenter(newSceneOpener.getSceneRoot("FishScene.fxml"));
+    }
+
+    @FXML
+    private void fishMenuItemOnClick(ActionEvent event) {
+        customerBorderPane.setCenter(newSceneOpener.getSceneRoot("FishScene.fxml"));
     }
     
 }

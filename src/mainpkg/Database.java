@@ -18,23 +18,24 @@ public class Database {
     
     public static boolean addEmployee(String userType, int userId, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
         
+        File f1 = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;
+        
         if (userType == "Regulatory Officer") {
             try {
-                File f1 = new File("RegulatoryOfficerUser.bin");
+                f1 = new File("RegulatoryOfficerUser.bin");
                 RegulatoryOfficer newUser = new RegulatoryOfficer(userType, userId, userName, gender, password, userDob, userDoj);
-                System.out.println(newUser.userId);
                 if (f1.exists()) {
-                    FileOutputStream fos = new FileOutputStream(f1, true);
-                    AppendObjectOutputStream aoos = new AppendObjectOutputStream(fos);
-                    aoos.writeObject(newUser);
-                    return true;
+                    fos = new FileOutputStream(f1, true);
+                    oos = new AppendObjectOutputStream(fos);
                 }
                 else {
-                    FileOutputStream fos = new FileOutputStream(f1);
-                    ObjectOutputStream oos = new ObjectOutputStream(fos);
-                    oos.writeObject(newUser);
-                    return true;
+                    fos = new FileOutputStream(f1);
+                    oos = new ObjectOutputStream(fos);
                 }
+                oos.writeObject(newUser);
+                return true;
             }
             catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -44,6 +45,14 @@ public class Database {
                 e.printStackTrace();
                 return false;
             }
+            finally {
+                try {
+                    if(oos != null) oos.close();
+                } 
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }   
         }
         
         else if (userType == "Affiliate Marketer") {
@@ -54,12 +63,14 @@ public class Database {
                     FileOutputStream fos = new FileOutputStream(f2, true);
                     AppendObjectOutputStream aoos = new AppendObjectOutputStream(fos);
                     aoos.writeObject(newUser);
+                    aoos.close();
                     return true;
                 }
                 else {
                     FileOutputStream fos = new FileOutputStream(f2);
                     ObjectOutputStream oos = new ObjectOutputStream(fos);
                     oos.writeObject(newUser);
+                    oos.close();
                     return true;
                 }
             }
@@ -97,12 +108,14 @@ public class Database {
                 FileOutputStream fos = new FileOutputStream(f1, true);
                 AppendObjectOutputStream aoos = new AppendObjectOutputStream(fos);
                 aoos.writeObject(newUser);
+                aoos.close();
                 return true;
             }
             else {
                 FileOutputStream fos = new FileOutputStream(f1);
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
                 oos.writeObject(newUser);
+                oos.close();
                 return true;
             }
         }
