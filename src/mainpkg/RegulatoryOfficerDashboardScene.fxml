@@ -23,29 +23,29 @@
                   <MenuItem mnemonicParsing="false" onAction="#schSessMenuItemOnClick" text="Schedule Session" />
                   <MenuItem mnemonicParsing="false" onAction="#sessHistMenuItemOnClick" text="Session History" />
                </items></Menu>
-            <Menu mnemonicParsing="false" onAction="#supplierProductsOnClick" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Supplier Products">
+            <Menu mnemonicParsing="false" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Supplier Products">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#viewSuppProdMenuItemOnClick" text="View Supplier Products" />
                </items></Menu>
-            <Menu mnemonicParsing="false" onAction="#DocumentationsMenuOnClick" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Documentations and Records">
+            <Menu mnemonicParsing="false" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Documentations and Records">
                <items>
-                  <MenuItem mnemonicParsing="false" text="View Health Concern Report" />
-                  <MenuItem mnemonicParsing="false" text="View Regulation Report" />
-                  <MenuItem mnemonicParsing="false" text="View Animal Condition Report" />
-                  <MenuItem mnemonicParsing="false" text="View Vaccination Report" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewHlthConcRprtMenuItemOnClick" text="View Health Concern Report" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewRegRprtMenuItemOnClick" text="View Regulation Report" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewAnmlCondRprtMenuItemOnClick" text="View Animal Condition Report" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewVaccRprtMenuItemOnClick" text="View Vaccination Report" />
                </items></Menu>
         </menus>
       </MenuBar>
    </top>
    <center>
-      <AnchorPane prefHeight="575.0" prefWidth="0.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="575.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="62.0" layoutY="243.0" text="Welcome to Regulatory Officer Dashboard">
+            <Label layoutX="62.0" layoutY="246.0" text="Welcome to Regulatory Officer Dashboard">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="217.0" layoutY="305.0" text="Select an option from above to display here">
+            <Label layoutX="217.0" layoutY="308.0" text="Select an option from above to display here">
                <font>
                   <Font size="15.0" />
                </font>

@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
  *
  * @author Jasper
  */
-public class ViewProductLabelsSceneController implements Initializable {
+public class ProductDetailsSceneController implements Initializable {
 
     /**
      * Initializes the controller class.
