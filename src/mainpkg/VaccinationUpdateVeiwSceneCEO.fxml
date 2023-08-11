@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="531.0" prefWidth="742.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="mainpkg.VaccinationUpdateVeiwSceneCEOController">
+   <children>
+      <Label layoutX="25.0" layoutY="24.0" prefHeight="36.0" prefWidth="220.0" text="Vaccine Update:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="vaccineUpdateArea" layoutX="31.0" layoutY="79.0" prefHeight="200.0" prefWidth="649.0" />
+      <Button layoutX="272.0" layoutY="344.0" mnemonicParsing="false" onAction="#veiwVaccineBinOnClick" prefHeight="118.0" prefWidth="210.0" text="Veiw Vaccine Update" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
