@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="1054.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.CEOdashboardController">
+<BorderPane fx:id="ceoDashboardBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="1054.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.CEOdashboardController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -20,7 +20,10 @@
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Financial Management" />
-            <Menu mnemonicParsing="false" text="Sale Report" />
+            <Menu mnemonicParsing="false" text="Sale Report">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#viewSaleRprtMenuItemOnClick" text="View Sale Report" />
+               </items></Menu>
             <Menu mnemonicParsing="false" text="Live Chat" />
             <Menu mnemonicParsing="false" text="Customers Feedback" />
             <Menu mnemonicParsing="false" text="Partners" />

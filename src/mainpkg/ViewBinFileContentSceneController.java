@@ -194,6 +194,7 @@ public class ViewBinFileContentSceneController implements Initializable {
             e.printStackTrace();
         }
         catch(IOException e) {
+            System.out.println("unga");
         }
         finally {
             try {

@@ -13,7 +13,6 @@ public class Cart {
     
     public static void addToCart(String productName, int quantity, float price) {
         Product thisProduct = new Product(productName, quantity, price);
-        Database.addToProductPurchaseLogFile(thisProduct);
         int i;
         
         if(!cartList.isEmpty()) {
