@@ -716,4 +716,40 @@ public class Database {
         }
     }
     
+    public static void addToProductPurchaseLogFile(Product thisProduct) {
+        
+        File f1 = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;
+
+        try {
+            f1 = new File("ProductPurchaseLog.bin");
+            if (f1.exists()) {
+                fos = new FileOutputStream(f1, true);
+                oos = new AppendObjectOutputStream(fos);
+            }
+            else {
+                fos = new FileOutputStream(f1);
+                oos = new ObjectOutputStream(fos);
+            }
+            oos.writeObject(thisProduct);
+            oos.close();
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("fnfex");
+            e.printStackTrace();
+        }
+        catch (IOException e) {
+            System.out.println("ioex");
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                if(oos != null) oos.close();
+            } 
+            catch (IOException e) {
+            }
+        }
+    }
+    
 }

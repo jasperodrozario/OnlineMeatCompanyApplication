@@ -1,10 +1,12 @@
 package mainpkg;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Dell
  */
-public class Product {
+public class Product implements Serializable{
     String name;
     int quantity, vatRate;
     float price;

@@ -169,4 +169,38 @@ public class ViewBinFileContentSceneController implements Initializable {
             }
         }
     }
+
+    @FXML
+    private void openPPLbtnOnClick(ActionEvent event) {
+        Product tempObj;
+        File fileInst = new File("ProductPurchaseLog.bin");
+        String tempStr = "";
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(fileInst);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempObj = (Product)ois.readObject();
+                tempStr += tempObj.getProductInfoStr() + "\n";
+                displayTextArea.setText(tempStr);
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("File Not Found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+        }
+    }
 }
