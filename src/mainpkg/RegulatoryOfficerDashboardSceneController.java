@@ -74,7 +74,7 @@ public class RegulatoryOfficerDashboardSceneController implements Initializable 
 
     @FXML
     private void viewVaccRprtMenuItemOnClick(ActionEvent event) {
-        regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("VaccinationReportScene.fxml"));
+        regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("VaccinationUpdateSceneRegulatoryOfficer.fxml"));
     }
     
 }

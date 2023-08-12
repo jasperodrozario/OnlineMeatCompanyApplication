@@ -49,7 +49,7 @@ public class VaccinationUpdateSceneVendorController implements Initializable {
 
         try {
             VaccinationUpdate newVaccinationUpdate = new VaccinationUpdate(vaccineNameTextField.getText(), vaccinationDatePicker.getValue());
-            vaccinationUpdateFile = new File("VaccinationUpdate.bin");
+            vaccinationUpdateFile = new File("VaccinationUpdates.bin");
             if(vaccinationUpdateFile.exists()) {
                 fos = new FileOutputStream(vaccinationUpdateFile, true);
                 oos = new AppendObjectOutputStream(fos);
@@ -59,7 +59,6 @@ public class VaccinationUpdateSceneVendorController implements Initializable {
                 oos = new ObjectOutputStream(fos);
             }
             oos.writeObject(newVaccinationUpdate);
-            oos.close();
             anAlert.setContentText("Vaccine update Successfully!");
             anAlert.show();
         }

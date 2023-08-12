@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import javafx.scene.control.Alert;
 
 /**
@@ -679,4 +680,5 @@ public class Database {
             return false;
         } 
     }
+    
 }

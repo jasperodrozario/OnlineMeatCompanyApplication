@@ -1,5 +1,6 @@
 package mainpkg;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
@@ -7,7 +8,7 @@ import java.time.LocalDate;
  * @author DELL
  */
 
-public class VaccinationUpdate {
+public class VaccinationUpdate implements Serializable {
     String vaccineName;
     LocalDate vaccinationDate;
     
