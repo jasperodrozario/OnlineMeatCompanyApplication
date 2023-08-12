@@ -11,7 +11,7 @@
       <Button layoutX="215.0" layoutY="322.0" mnemonicParsing="false" onMouseClicked="#openRegOffBinFileBtnOnClick" prefHeight="41.0" prefWidth="213.0" text="Open a RegulatoryOfficerUser.bin file" />
       <Button layoutX="16.0" layoutY="378.0" mnemonicParsing="false" onMouseClicked="#openAffMrkBinFileBtnOnClick" prefHeight="41.0" prefWidth="192.0" text="Open a AffiliateMarketerUser.bin file" />
       <Button layoutX="215.0" layoutY="378.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="213.0" text="Open VendorUser.bin" />
-      <Button layoutX="435.0" layoutY="322.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="213.0" text="Button" />
+      <Button layoutX="435.0" layoutY="322.0" mnemonicParsing="false" onAction="#openULHbtnOnClick" prefHeight="41.0" prefWidth="213.0" text="Open UserLoginHistory.bin file" />
       <Button layoutX="435.0" layoutY="378.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="213.0" text="Button" />
    </children>
 </AnchorPane>

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package mainpkg;
 
 /**
@@ -10,17 +6,19 @@ package mainpkg;
  */
 public class Product {
     String name;
-    int quantity;
+    int quantity, vatRate;
     float price;
+    
     public Product(String name, int quantity, float price) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
+//        this.vatRate = vatRate;
     }
     
-    public String getProductInfo() {
-        String tempStr;
-        tempStr = "Product Name: " + name;
-        return tempStr;
+    public String getProductInfoStr() {
+        String toStr;
+        toStr = "Product Name: " + name + ", Product Quantity: " + quantity + ", Product Price: " + price;
+        return toStr;
     }
 }

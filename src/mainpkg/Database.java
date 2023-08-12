@@ -681,4 +681,39 @@ public class Database {
         } 
     }
     
+    public static Customer getCustomerUserInstance(int userId) {
+        Customer tempInst = null;
+        File userFile = new File("CustomerUser.bin");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(userFile);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (Customer)ois.readObject();
+                if(tempInst.userId == userId) {
+                    return tempInst;
+                }
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("'CustomerUser.bin' file not found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            anAlert.setContentText("Class not found in 'CustomerUser.bin' file!");
+            anAlert.show();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+            return tempInst;
+        }
+    }
+    
 }

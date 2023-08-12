@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -112,6 +113,41 @@ public class ViewBinFileContentSceneController implements Initializable {
             while(true) {
                 tempObj = (AffiliateMarketer)ois.readObject();
                 tempStr += "AffiliateMarketer ID: " + tempObj.userId + ", Name: " + tempObj.userName + ", Gender: " + tempObj.gender + ", Password: " + tempObj.password + "\n";
+                displayTextArea.setText(tempStr);
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("File Not Found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            e.printStackTrace();
+            System.out.println("cnfex");
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+        }
+    }
+
+    @FXML
+    private void openULHbtnOnClick(ActionEvent event) {
+        Customer tempObj;
+        File fileInst = new File("UserLoginHistory.bin");
+        String tempStr = "";
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(fileInst);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempObj = (Customer)ois.readObject();
+                tempStr += "Customer ID: " + tempObj.userId + ", Name: " + tempObj.userName + ", Gender: " + tempObj.gender + ", Password: " + tempObj.password + "\n";
                 displayTextArea.setText(tempStr);
             }
         }
