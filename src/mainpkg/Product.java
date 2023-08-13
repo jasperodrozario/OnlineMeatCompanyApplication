@@ -81,6 +81,7 @@ public class Product implements Serializable{
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         Product tempInst = null;
+        
         try{
             thisFile = new File("ProductPurchaseLog.bin");
             fis = new FileInputStream(thisFile);
@@ -117,6 +118,7 @@ public class Product implements Serializable{
             pieDataSet.add(new PieChart.Data("Beef T-Bone Steak", beefTBoneSteakCount)); 
             return pieDataSet;
         }
+        
     }
     
     
