@@ -73,13 +73,15 @@ public class RegisterUserSceneController implements Initializable {
     private void registerButtonOnClick(MouseEvent event) {
         
         if(userTypeComboBox.getValue().equals("Customer")) {
-            addUserStatus = Database.addCustomer(
-                    userTypeComboBox.getValue(),
+            Customer newCustomer = new Customer(userTypeComboBox.getValue(),
                     Integer.parseInt(newUserIdTextField.getText()), 
                     nameTextField.getText(), 
                     true, 
                     passwordTextField.getText(), 
                     addressTextField.getText());
+            
+            addUserStatus = Database.addUser(newCustomer, newCustomer.userType);
+
         }
         else {
             addUserStatus = Database.addEmployee(

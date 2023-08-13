@@ -64,6 +64,7 @@ public class LoginSceneController implements Initializable {
                     newSceneLoader.loadScene("CustomerDashboardScene.fxml");
                 }
                 else {
+                    anAlert.setAlertType(Alert.AlertType.ERROR);
                     anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
                     anAlert.show();
                 }

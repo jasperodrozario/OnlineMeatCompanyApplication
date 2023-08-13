@@ -20,6 +20,10 @@ public class Customer extends User{
         this.address = address;
     };
    
+    public void login() {
+        
+    }
+    
     public void changePassword() {
         
     }
