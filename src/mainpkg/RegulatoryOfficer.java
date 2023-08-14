@@ -23,6 +23,11 @@ public class RegulatoryOfficer extends Employee {
         return true;
     }
     
+    public boolean login() { 
+        LogUserInstance<Customer> logUser = new LogUserInstance(this);
+        return true;
+    }
+    
     @Override
     public void changePassword() {
         

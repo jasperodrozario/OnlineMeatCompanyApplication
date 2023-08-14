@@ -20,8 +20,9 @@ public class Customer extends User{
         this.address = address;
     };
    
-    public void login() {
-        
+    public boolean login() { 
+        LogUserInstance<Customer> logUser = new LogUserInstance(this);
+        return true;
     }
     
     public void changePassword() {

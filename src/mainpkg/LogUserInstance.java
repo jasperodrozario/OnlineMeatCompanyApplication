@@ -14,19 +14,19 @@ import java.time.LocalTime;
  * @author Jasper
  */
 
-public class UserLoginHistory<classType> {
+public class LogUserInstance<classType> {
     LocalTime now;
     LocalDate today;
     classType userInst;
     
-    public UserLoginHistory(classType userInst) {
+    public LogUserInstance(classType userInst) {
         this.userInst = userInst;
         
         File thisFile = null;
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
-            thisFile = new File("UserLoginHistory.bin");
+            thisFile = new File("LogUserInstance.bin");
             if (thisFile.exists()) {
                 fos = new FileOutputStream(thisFile, true);
                 oos = new AppendObjectOutputStream(fos);

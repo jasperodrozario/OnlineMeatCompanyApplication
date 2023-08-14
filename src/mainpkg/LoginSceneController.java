@@ -60,7 +60,7 @@ public class LoginSceneController implements Initializable {
         else {
             if(userTypeComboBox.getValue().equals("Customer")) {
                 if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
-                    UserLoginHistory<Customer> loggedUser = new UserLoginHistory(Database.getCustomerUserInstance(Integer.parseInt(userIdTextField.getText())));
+                    LogUserInstance<Customer> loggedUser = new LogUserInstance(Database.getCustomerUserInstance(Integer.parseInt(userIdTextField.getText())));
                     newSceneLoader.loadScene("CustomerDashboardScene.fxml");
                 }
                 else {

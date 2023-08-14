@@ -339,14 +339,14 @@ public class Database {
     }
     
     public static boolean verifyUserPassword(String userType, int userId, String password) {
-        boolean flag;
+        boolean flag = false;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
         
         if(userType.equals("Customer")) {
-            flag = false;
             Customer tempInst;
             File userFile = new File("CustomerUser.bin");
-            FileInputStream fis = null;
-            ObjectInputStream ois = null;
+
             try {            
                 fis = new FileInputStream(userFile);
                 ois = new ObjectInputStream(fis);
@@ -355,7 +355,7 @@ public class Database {
                     if(tempInst.userId == userId) {
                         if(tempInst.password.equals(password)) {
                             System.out.println("password milla gese!");
-                            flag = true;
+                            flag = tempInst.login();
                             break;
                         }
                         else {
@@ -388,11 +388,9 @@ public class Database {
             }
         }
         else if(userType.equals("Regulatory Officer")) {
-            flag = false;
             RegulatoryOfficer tempInst;
             File userFile = new File("RegulatoryOfficerUser.bin");
-            FileInputStream fis = null;
-            ObjectInputStream ois = null;
+            
             try {            
                 fis = new FileInputStream(userFile);
                 ois = new ObjectInputStream(fis);
@@ -401,7 +399,7 @@ public class Database {
                     if(tempInst.userId == userId) {
                         if(tempInst.password.equals(password)) {
                             System.out.println("password milla gese!");
-                            flag = true;
+                            flag = tempInst.login();
                             break;
                         }
                         else {
@@ -434,11 +432,9 @@ public class Database {
             }
         }
         else if(userType.equals("Affiliate Marketer")) {
-            flag = false;
             AffiliateMarketer tempInst;
             File userFile = new File("AffiliateMarketerUser.bin");
-            FileInputStream fis = null;
-            ObjectInputStream ois = null;
+            
             try {            
                 fis = new FileInputStream(userFile);
                 ois = new ObjectInputStream(fis);
@@ -480,11 +476,9 @@ public class Database {
             }
         }
         else if(userType.equals("Rider")) {
-            flag = false;
             Rider tempInst;
             File userFile = new File("RiderUser.bin");
-            FileInputStream fis = null;
-            ObjectInputStream ois = null;
+
             try {            
                 fis = new FileInputStream(userFile);
                 ois = new ObjectInputStream(fis);
@@ -526,11 +520,9 @@ public class Database {
             }
         }
         else if(userType.equals("Account Officer")) {
-            flag = false;
             AccountOfficer tempInst;
             File userFile = new File("AccountOfficerUser.bin");
-            FileInputStream fis = null;
-            ObjectInputStream ois = null;
+
             try {            
                 fis = new FileInputStream(userFile);
                 ois = new ObjectInputStream(fis);
@@ -572,11 +564,9 @@ public class Database {
             }
         }
         else if(userType.equals("Vendor")) {
-            flag = false;
             Vendor tempInst;
             File userFile = new File("VendorUser.bin");
-            FileInputStream fis = null;
-            ObjectInputStream ois = null;
+            
             try {            
                 fis = new FileInputStream(userFile);
                 ois = new ObjectInputStream(fis);
@@ -618,11 +608,9 @@ public class Database {
             }
         }
         else if(userType.equals("CEO")) {
-            flag = false;
             CEO tempInst;
             File userFile = new File("CEOUser.bin");
-            FileInputStream fis = null;
-            ObjectInputStream ois = null;
+            
             try {            
                 fis = new FileInputStream(userFile);
                 ois = new ObjectInputStream(fis);
@@ -664,11 +652,9 @@ public class Database {
             }
         }
         else if(userType.equals("CCE")) {
-            flag = false;
             CCE tempInst;
             File userFile = new File("CCEUser.bin");
-            FileInputStream fis = null;
-            ObjectInputStream ois = null;
+
             try {            
                 fis = new FileInputStream(userFile);
                 ois = new ObjectInputStream(fis);
@@ -713,6 +699,7 @@ public class Database {
             anAlert.setContentText("Unknown user type!");
             return false;
         } 
+
     }
     
     public static Customer getCustomerUserInstance(int userId) {
