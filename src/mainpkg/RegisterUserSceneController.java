@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package mainpkg;
 
 import java.net.URL;
@@ -21,6 +17,7 @@ import javafx.scene.input.MouseEvent;
  *
  * @author Jasper
  */
+
 public class RegisterUserSceneController implements Initializable {
 
     @FXML
@@ -71,29 +68,41 @@ public class RegisterUserSceneController implements Initializable {
 
     @FXML
     private void registerButtonOnClick(MouseEvent event) {
+        String userType = userTypeComboBox.getValue();
+        int userId = Integer.parseInt(newUserIdTextField.getText());
+        String name = nameTextField.getText();
+        String password = passwordTextField.getText();
+        String address = addressTextField.getText();
+        LocalDate dob = dobDatePicker.getValue();
+        LocalDate doj = dojDatePicker.getValue();
         
         if(userTypeComboBox.getValue().equals("Customer")) {
-            Customer newCustomer = new Customer(userTypeComboBox.getValue(),
-                    Integer.parseInt(newUserIdTextField.getText()), 
-                    nameTextField.getText(), 
-                    true, 
-                    passwordTextField.getText(), 
-                    addressTextField.getText());
-            
-            addUserStatus = Database.addUser(newCustomer, newCustomer.userType);
-
+            addUserStatus = Database.addCustomer(userType, userId, name, true, password, address);
         }
         else {
-            addUserStatus = Database.addEmployee(
-                userTypeComboBox.getValue(), 
-                Integer.parseInt(newUserIdTextField.getText()), 
-                nameTextField.getText(), 
-                true, 
-                passwordTextField.getText(), 
-                dobDatePicker.getValue(),
-                dojDatePicker.getValue()
-                );
+            addUserStatus = Database.addEmployee(userType, userId, name, true, password, dob, doj);
         }
+//        else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
+//            RegulatoryOfficer newEmployee = new RegulatoryOfficer(userType, userId, name, true, password, dob, doj);
+//        }
+//        else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
+//            AffiliateMarketer newEmployee = new AffiliateMarketer(userType, userId, name, true, password, dob, doj);
+//        }
+//        else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
+//            RegulatoryOfficer newEmployee = new RegulatoryOfficer(userType, userId, name, true, password, dob, doj);
+//        }
+//        else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
+//            RegulatoryOfficer newEmployee = new RegulatoryOfficer(userType, userId, name, true, password, dob, doj);
+//        }
+//        else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
+//            RegulatoryOfficer newEmployee = new RegulatoryOfficer(userType, userId, name, true, password, dob, doj);
+//        }
+//        else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
+//            RegulatoryOfficer newEmployee = new RegulatoryOfficer(userType, userId, name, true, password, dob, doj);
+//        }
+//        else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
+//            RegulatoryOfficer newEmployee = new RegulatoryOfficer(userType, userId, name, true, password, dob, doj);
+//        }
         
         if(addUserStatus) {
             anAlert.setContentText("User Added Successfully!");
@@ -104,6 +113,7 @@ public class RegisterUserSceneController implements Initializable {
             anAlert.show();
         }
     }
+    
     
     
     

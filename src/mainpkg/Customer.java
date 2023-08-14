@@ -21,7 +21,7 @@ public class Customer extends User{
     };
    
     public boolean login() { 
-        LogUserInstance<Customer> logUser = new LogUserInstance(this);
+        LoggedUserInstance.logUserInstance(userType, userId);
         return true;
     }
     

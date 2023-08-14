@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package mainpkg;
 
 import java.time.LocalDate;
@@ -13,7 +9,7 @@ import java.time.LocalDate;
 
 public class Vendor extends Employee {
     
-        public Vendor(String userType, int userId, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
+    public Vendor(String userType, int userId, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
         this.userType = userType;
         this.userId = userId;
         this.userName = userName;
@@ -26,6 +22,11 @@ public class Vendor extends Employee {
     
     @Override
     public boolean applyForLeave() {
+        return true;
+    }
+    
+    public boolean login() { 
+        LoggedUserInstance.logUserInstance(userType, userId);
         return true;
     }
     

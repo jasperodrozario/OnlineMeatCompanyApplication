@@ -24,6 +24,11 @@ public class AffiliateMarketer extends Employee {
         return true;
     }
     
+    public boolean login() { 
+        LoggedUserInstance.logUserInstance(userType, userId);
+        return true;
+    }
+    
     @Override
     public void changePassword() {
         

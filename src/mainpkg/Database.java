@@ -302,41 +302,69 @@ public class Database {
         }
     }
     
-    public static <T> boolean addUser(T userInst, String userType) {
-        File f1 = null;
-        FileOutputStream fos = null;      
-        ObjectOutputStream oos = null;
-        
-        try {
-            f1 = new File("CustomerUser.bin");
-                if (f1.exists()) {
-                    fos = new FileOutputStream(f1, true);
-                    oos = new AppendObjectOutputStream(fos);
-                }
-                else {
-                    fos = new FileOutputStream(f1);
-                    oos = new ObjectOutputStream(fos);
-                }
-                oos.writeObject(userInst);
-                oos.close();
-                return true;
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return false;
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-        finally {
-            try {
-                if(oos != null) oos.close();
-            } 
-            catch (IOException e) {
-            }
-        }
-    }
+//    public static <T> boolean addUser(T userInst, String userType) {
+//        File f1 = null;
+//        FileOutputStream fos = null;      
+//        ObjectOutputStream oos = null;
+//        
+//        if(userType.equals("Customer")) {
+//            f1 = new File("CustomerUser.bin");
+//        }
+//        else if(userType.equals("Rider")) {
+//            f1 = new File("RiderUser.bin");
+//        }
+//        else if(userType.equals("Regulatory Officer")) {
+//            f1 = new File("RegulatoryOfficerUser.bin");
+//        }
+//        else if(userType.equals("Account Officer")) {
+//            f1 = new File("AccountOfficerUser.bin");
+//        }
+//        else if(userType.equals("Vendor")) {
+//            f1 = new File("VendorUser.bin");
+//        }
+//        else if(userType.equals("Affiliate Marketer")) {
+//            f1 = new File("AffiliateMarketerUser.bin");
+//        }
+//        else if(userType.equals("CEO")) {
+//            f1 = new File("CEOUser.bin");
+//        }
+//        else if(userType.equals("CCE")) {
+//            f1 = new File("CCEUser.bin");
+//        }
+//        else {
+//            anAlert.setContentText("Unknown user type");
+//            anAlert.show();
+//        }
+//        
+//        try {
+//            if (f1.exists()) {
+//                fos = new FileOutputStream(f1, true);
+//                oos = new AppendObjectOutputStream(fos);
+//            }
+//            else {
+//                fos = new FileOutputStream(f1);
+//                oos = new ObjectOutputStream(fos);
+//            }
+//            oos.writeObject(userInst);
+//            oos.close();
+//            return true;
+//        }
+//        catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//            return false;
+//        }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//            return false;
+//        }
+//        finally {
+//            try {
+//                if(oos != null) oos.close();
+//            } 
+//            catch (IOException e) {
+//            }
+//        }
+//    }
     
     public static boolean verifyUserPassword(String userType, int userId, String password) {
         boolean flag = false;
@@ -354,12 +382,10 @@ public class Database {
                     tempInst = (Customer)ois.readObject();
                     if(tempInst.userId == userId) {
                         if(tempInst.password.equals(password)) {
-                            System.out.println("password milla gese!");
                             flag = tempInst.login();
                             break;
                         }
                         else {
-                            System.out.println("password milenai :)");
                             flag = false;
                         }
                     }
@@ -396,16 +422,13 @@ public class Database {
                 ois = new ObjectInputStream(fis);
                 while(true) {
                     tempInst = (RegulatoryOfficer)ois.readObject();
-                    if(tempInst.userId == userId) {
-                        if(tempInst.password.equals(password)) {
-                            System.out.println("password milla gese!");
+                    if(tempInst.userId == userId && tempInst.password.equals(password)) {
+
                             flag = tempInst.login();
                             break;
-                        }
-                        else {
-                            System.out.println("password milenai :)");
-                            flag = false;
-                        }
+                    }
+                    else {
+                        flag = false;
                     }
                 }
                 return flag;
@@ -442,12 +465,10 @@ public class Database {
                     tempInst = (AffiliateMarketer)ois.readObject();
                     if(tempInst.userId == userId) {
                         if(tempInst.password.equals(password)) {
-                            System.out.println("password milla gese!");
-                            flag = true;
+                            flag = tempInst.login();
                             break;
                         }
                         else {
-                            System.out.println("password milenai :)");
                             flag = false;
                         }
                     }
@@ -486,12 +507,10 @@ public class Database {
                     tempInst = (Rider)ois.readObject();
                     if(tempInst.userId == userId) {
                         if(tempInst.password.equals(password)) {
-                            System.out.println("password milla gese!");
-                            flag = true;
+                            flag = tempInst.login();
                             break;
                         }
                         else {
-                            System.out.println("password milenai :)");
                             flag = false;
                         }
                     }
@@ -530,12 +549,10 @@ public class Database {
                     tempInst = (AccountOfficer)ois.readObject();
                     if(tempInst.userId == userId) {
                         if(tempInst.password.equals(password)) {
-                            System.out.println("password milla gese!");
-                            flag = true;
+                            flag = tempInst.login();
                             break;
                         }
                         else {
-                            System.out.println("password milenai :)");
                             flag = false;
                         }
                     }
@@ -574,12 +591,10 @@ public class Database {
                     tempInst = (Vendor)ois.readObject();
                     if(tempInst.userId == userId) {
                         if(tempInst.password.equals(password)) {
-                            System.out.println("password milla gese!");
-                            flag = true;
+                            flag = tempInst.login();
                             break;
                         }
                         else {
-                            System.out.println("password milenai :)");
                             flag = false;
                         }
                     }
@@ -618,12 +633,10 @@ public class Database {
                     tempInst = (CEO)ois.readObject();
                     if(tempInst.userId == userId) {
                         if(tempInst.password.equals(password)) {
-                            System.out.println("password milla gese!");
-                            flag = true;
+                            flag = tempInst.login();
                             break;
                         }
                         else {
-                            System.out.println("password milenai :)");
                             flag = false;
                         }
                     }
@@ -662,12 +675,10 @@ public class Database {
                     tempInst = (CCE)ois.readObject();
                     if(tempInst.userId == userId) {
                         if(tempInst.password.equals(password)) {
-                            System.out.println("password milla gese!");
-                            flag = true;
+                            flag = tempInst.login();
                             break;
                         }
                         else {
-                            System.out.println("password milenai :)");
                             flag = false;
                         }
                     }
@@ -736,4 +747,246 @@ public class Database {
             return tempInst;
         }
     }
+    
+    public static RegulatoryOfficer getRegulatoryOfficerUserInstance(int userId) {
+        RegulatoryOfficer tempInst = null;
+        File userFile = new File("RegulatoryOfficerUser.bin");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(userFile);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (RegulatoryOfficer)ois.readObject();
+                if(tempInst.userId == userId) {
+                    return tempInst;
+                }
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("'RegulatoryOfficerUser.bin' file not found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            anAlert.setContentText("Class not found in 'RegulatoryOfficerUser.bin' file!");
+            anAlert.show();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+            return tempInst;
+        }
+    }
+    public static Rider getRiderUserInstance(int userId) {
+        Rider tempInst = null;
+        File userFile = new File("RiderUser.bin");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(userFile);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (Rider)ois.readObject();
+                if(tempInst.userId == userId) {
+                    return tempInst;
+                }
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("'RiderUser.bin' file not found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            anAlert.setContentText("Class not found in 'RiderUser.bin' file!");
+            anAlert.show();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+            return tempInst;
+        }
+    }
+    public static AccountOfficer getAccountOfficerUserInstance(int userId) {
+        AccountOfficer tempInst = null;
+        File userFile = new File("AccountOfficerUser.bin");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(userFile);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (AccountOfficer)ois.readObject();
+                if(tempInst.userId == userId) {
+                    return tempInst;
+                }
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("'AccountOfficerUser.bin' file not found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            anAlert.setContentText("Class not found in 'AccountOfficerUser.bin' file!");
+            anAlert.show();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+            return tempInst;
+        }
+    }
+    public static Vendor getVendorUserInstance(int userId) {
+        Vendor tempInst = null;
+        File userFile = new File("VendorUser.bin");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(userFile);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (Vendor)ois.readObject();
+                if(tempInst.userId == userId) {
+                    return tempInst;
+                }
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("'VendorUser.bin' file not found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            anAlert.setContentText("Class not found in 'VendorUser.bin' file!");
+            anAlert.show();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+            return tempInst;
+        }
+    }
+    public static AffiliateMarketer getAffiliateMarketerUserInstance(int userId) {
+        AffiliateMarketer tempInst = null;
+        File userFile = new File("AffiliateMarketerUser.bin");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(userFile);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (AffiliateMarketer)ois.readObject();
+                if(tempInst.userId == userId) {
+                    return tempInst;
+                }
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("'AffiliateMarketerUser.bin' file not found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            anAlert.setContentText("Class not found in 'AffiliateMarketerUser.bin' file!");
+            anAlert.show();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+            return tempInst;
+        }
+    }
+    public static CEO getCEOUserInstance(int userId) {
+        CEO tempInst = null;
+        File userFile = new File("CEOUser.bin");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(userFile);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (CEO)ois.readObject();
+                if(tempInst.userId == userId) {
+                    return tempInst;
+                }
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("'CEOUser.bin' file not found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            anAlert.setContentText("Class not found in 'CEOUser.bin' file!");
+            anAlert.show();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+            return tempInst;
+        }
+    }
+    public static CCE getCCEUserInstance(int userId) {
+        CCE tempInst = null;
+        File userFile = new File("CCEUser.bin");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(userFile);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (CCE)ois.readObject();
+                if(tempInst.userId == userId) {
+                    return tempInst;
+                }
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("'CCEUser.bin' file not found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            anAlert.setContentText("Class not found in 'CCEUser.bin' file!");
+            anAlert.show();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+            return tempInst;
+        }
+    }
+    
+    
+    
 }

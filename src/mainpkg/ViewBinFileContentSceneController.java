@@ -137,8 +137,8 @@ public class ViewBinFileContentSceneController implements Initializable {
 
     @FXML
     private void openULHbtnOnClick(ActionEvent event) {
-        Customer tempObj;
-        File fileInst = new File("UserLoginHistory.bin");
+        RegulatoryOfficer tempObj;
+        File fileInst = new File("UserInstanceLog.bin");
         String tempStr = "";
         FileInputStream fis = null;
         ObjectInputStream ois = null;
@@ -146,8 +146,8 @@ public class ViewBinFileContentSceneController implements Initializable {
             fis = new FileInputStream(fileInst);
             ois = new ObjectInputStream(fis);
             while(true) {
-                tempObj = (Customer)ois.readObject();
-                tempStr += "Customer ID: " + tempObj.userId + ", Name: " + tempObj.userName + ", Gender: " + tempObj.gender + ", Password: " + tempObj.password + "\n";
+                tempObj = (RegulatoryOfficer)ois.readObject();
+                tempStr += "ID: " + tempObj.userId + ", Name: " + tempObj.userName + ", Gender: " + tempObj.gender + ", Password: " + tempObj.password + "\n";
                 displayTextArea.setText(tempStr);
             }
         }

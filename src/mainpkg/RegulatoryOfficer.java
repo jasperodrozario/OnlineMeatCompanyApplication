@@ -24,7 +24,7 @@ public class RegulatoryOfficer extends Employee {
     }
     
     public boolean login() { 
-        LogUserInstance<Customer> logUser = new LogUserInstance(this);
+        LoggedUserInstance.logUserInstance(userType, userId);
         return true;
     }
     
