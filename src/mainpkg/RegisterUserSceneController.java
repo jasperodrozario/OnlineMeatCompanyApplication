@@ -75,34 +75,8 @@ public class RegisterUserSceneController implements Initializable {
         String address = addressTextField.getText();
         LocalDate dob = dobDatePicker.getValue();
         LocalDate doj = dojDatePicker.getValue();
-        
-        if(userTypeComboBox.getValue().equals("Customer")) {
-            addUserStatus = Database.addCustomer(userType, userId, name, true, password, address);
-        }
-        else {
-            addUserStatus = Database.addEmployee(userType, userId, name, true, password, dob, doj);
-        }
-//        else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
-//            RegulatoryOfficer newEmployee = new RegulatoryOfficer(userType, userId, name, true, password, dob, doj);
-//        }
-//        else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
-//            AffiliateMarketer newEmployee = new AffiliateMarketer(userType, userId, name, true, password, dob, doj);
-//        }
-//        else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
-//            RegulatoryOfficer newEmployee = new RegulatoryOfficer(userType, userId, name, true, password, dob, doj);
-//        }
-//        else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
-//            RegulatoryOfficer newEmployee = new RegulatoryOfficer(userType, userId, name, true, password, dob, doj);
-//        }
-//        else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
-//            RegulatoryOfficer newEmployee = new RegulatoryOfficer(userType, userId, name, true, password, dob, doj);
-//        }
-//        else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
-//            RegulatoryOfficer newEmployee = new RegulatoryOfficer(userType, userId, name, true, password, dob, doj);
-//        }
-//        else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
-//            RegulatoryOfficer newEmployee = new RegulatoryOfficer(userType, userId, name, true, password, dob, doj);
-//        }
+
+        addUserStatus = Database.addUser(userType, userId, name, true, password, dob, doj, address);
         
         if(addUserStatus) {
             anAlert.setContentText("User Added Successfully!");

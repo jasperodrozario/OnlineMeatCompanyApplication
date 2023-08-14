@@ -19,12 +19,44 @@ public class Database {
     
     static Alert anAlert = new Alert(Alert.AlertType.ERROR);
     
-    public static boolean addEmployee(String userType, int userId, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
+    public static boolean addUser(String userType, int userId, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj, String address) {
         
         File f1 = null;
         FileOutputStream fos = null;      
         ObjectOutputStream oos = null;
         
+        if (userType == "Customer") {
+            try {
+                f1 = new File("CustomerUser.bin");
+                Customer newUser = new Customer(userType, userId, userName, gender, password, address);
+                if (f1.exists()) {
+                    fos = new FileOutputStream(f1, true);
+                    oos = new AppendObjectOutputStream(fos);
+                }
+                else {
+                    fos = new FileOutputStream(f1);
+                    oos = new ObjectOutputStream(fos);
+                }
+                oos.writeObject(newUser);
+                oos.close();
+                return true;
+            }
+            catch (FileNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
+            finally {
+                try {
+                    if(oos != null) oos.close();
+                } 
+                catch (IOException e) {
+                }
+            }
+        }
         if (userType == "Regulatory Officer") {
             try {
                 f1 = new File("RegulatoryOfficerUser.bin");
@@ -52,12 +84,11 @@ public class Database {
             finally {
                 try {
                     if(oos != null) oos.close();
-                }
-                catch(IOException e) {
+                } 
+                catch (IOException e) {
                 }
             }
         }
-        
         else if (userType == "Affiliate Marketer") {
             try {
                 f1 = new File("AffiliateMarketerUser.bin");
@@ -258,49 +289,49 @@ public class Database {
     }
 
     
-    public static boolean addCustomer(String userType, int userId, String userName, boolean gender, String password, String address) {
-        File f1 = null;
-        FileOutputStream fos = null;      
-        ObjectOutputStream oos = null;
-        
-        if (userType == "Customer") {
-            try {
-                f1 = new File("CustomerUser.bin");
-                Customer newUser = new Customer(userType, userId, userName, gender, password, address);
-                if (f1.exists()) {
-                    fos = new FileOutputStream(f1, true);
-                    oos = new AppendObjectOutputStream(fos);
-                }
-                else {
-                    fos = new FileOutputStream(f1);
-                    oos = new ObjectOutputStream(fos);
-                }
-                oos.writeObject(newUser);
-                oos.close();
-                return true;
-            }
-            catch (FileNotFoundException e) {
-                e.printStackTrace();
-                return false;
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-                return false;
-            }
-            finally {
-                try {
-                    if(oos != null) oos.close();
-                } 
-                catch (IOException e) {
-                }
-            }   
-        }
-        else {
-            anAlert.setContentText("Unknown user type");
-            anAlert.show();
-            return false;
-        }
-    }
+//    public static boolean addCustomer(String userType, int userId, String userName, boolean gender, String password, String address) {
+//        File f1 = null;
+//        FileOutputStream fos = null;      
+//        ObjectOutputStream oos = null;
+//        
+//        if (userType == "Customer") {
+//            try {
+//                f1 = new File("CustomerUser.bin");
+//                Customer newUser = new Customer(userType, userId, userName, gender, password, address);
+//                if (f1.exists()) {
+//                    fos = new FileOutputStream(f1, true);
+//                    oos = new AppendObjectOutputStream(fos);
+//                }
+//                else {
+//                    fos = new FileOutputStream(f1);
+//                    oos = new ObjectOutputStream(fos);
+//                }
+//                oos.writeObject(newUser);
+//                oos.close();
+//                return true;
+//            }
+//            catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//                return false;
+//            }
+//            catch (IOException e) {
+//                e.printStackTrace();
+//                return false;
+//            }
+//            finally {
+//                try {
+//                    if(oos != null) oos.close();
+//                } 
+//                catch (IOException e) {
+//                }
+//            }   
+//        }
+//        else {
+//            anAlert.setContentText("Unknown user type");
+//            anAlert.show();
+//            return false;
+//        }
+//    }
     
 //    public static <T> boolean addUser(T userInst, String userType) {
 //        File f1 = null;
@@ -709,8 +740,7 @@ public class Database {
         else {
             anAlert.setContentText("Unknown user type!");
             return false;
-        } 
-
+        }
     }
     
     public static Customer getCustomerUserInstance(int userId) {

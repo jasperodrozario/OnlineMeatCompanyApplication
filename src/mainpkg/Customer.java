@@ -1,7 +1,5 @@
 package mainpkg;
 
-import java.time.LocalDate;
-
 /**
  *
  * @author Jasper
@@ -20,14 +18,18 @@ public class Customer extends User{
         this.address = address;
     };
    
+    @Override
     public boolean login() { 
         LoggedUserInstance.logUserInstance(userType, userId);
         return true;
     }
     
-    public void changePassword() {
+    @Override
+    public boolean changePassword() {
+        return true;
         
     }
+    
     
     
 }

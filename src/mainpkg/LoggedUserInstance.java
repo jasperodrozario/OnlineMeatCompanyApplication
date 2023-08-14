@@ -43,7 +43,6 @@ public class LoggedUserInstance {
         else if(userType.equals("CCE")) {
             cceInst = Database.getCCEUserInstance(userId);
         }
-
         
 //        File thisFile = new File("UserLoginHistory.bin");
 //        FileOutputStream fos = null;
