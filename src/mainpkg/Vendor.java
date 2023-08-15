@@ -36,7 +36,8 @@ public class Vendor extends Employee {
         return true;
     }
     
-    public static boolean updateVaccine(String vaccineName, LocalDate vaccinationDate) {
-        return VaccinationUpdate.addVaccine(vaccineName, vaccinationDate);
+    public static boolean updateVaccineStatus(String vaccineName, LocalDate vaccinationDate) {
+        Vaccine newVaccine = new Vaccine(vaccineName, vaccinationDate);
+        return newVaccine.addVaccine();
     }
 }
