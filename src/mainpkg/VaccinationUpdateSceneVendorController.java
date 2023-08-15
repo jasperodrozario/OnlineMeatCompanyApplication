@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import static mainpkg.Database.anAlert;
 
 /**
  * FXML Controller class
@@ -42,7 +43,14 @@ public class VaccinationUpdateSceneVendorController implements Initializable {
 
     @FXML
     private void addVaccineUpdateOnClick(ActionEvent event) {
-        Vendor.updateVaccine(vaccineNameTextField.getText(), vaccinationDatePicker.getValue());
+        if(Vendor.updateVaccineStatus(vaccineNameTextField.getText(), vaccinationDatePicker.getValue())) {
+            anAlert.setContentText("Vaccine status successfully updated!");
+            anAlert.show();
+        }
+        else {
+            anAlert.setContentText("Oops! Couldn't update vaccine status. Try again.");
+            anAlert.show();
+        }
     }
     
 }
