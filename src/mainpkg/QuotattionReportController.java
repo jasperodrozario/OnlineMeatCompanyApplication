@@ -6,7 +6,11 @@ package mainpkg;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextArea;
+import static mainpkg.Database.anAlert;
 
 /**
  * FXML Controller class
@@ -15,6 +19,9 @@ import javafx.fxml.Initializable;
  */
 public class QuotattionReportController implements Initializable {
 
+    @FXML
+    private TextArea quotationReportTextArea;
+
     /**
      * Initializes the controller class.
      */
@@ -22,5 +29,20 @@ public class QuotattionReportController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void quotetionReportSubmitButtonOnClick(ActionEvent event) {
+        
+        if (AccountOfficer.submitQuotationReport(quotationReportTextArea.getText())){
+            anAlert.setContentText("Audit report submitted successfully!");
+            anAlert.show();
+        }
+        else{
+            anAlert.setContentText("Oops! Something went wrong. Try Again.");
+            anAlert.show();
+        }
+        
+    }
+
     
 }

@@ -25,7 +25,7 @@ public class AuditReportEditSceneController implements Initializable {
 
     LocalDate curDate = LocalDate.now();
     Alert anAlert = new Alert(Alert.AlertType.INFORMATION);
-    boolean auditfile;
+//    boolean auditfile;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
