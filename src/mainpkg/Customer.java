@@ -30,6 +30,14 @@ public class Customer extends User{
         
     }
     
+    public void addToCart(String productName, int productQuantity, float productPrice) {
+        Product newProduct = new Product(productName, productQuantity, productPrice);
+        Cart.addProduct(newProduct);
+    }
     
+    public boolean confirmOrder() {
+        Order newOrder = new Order(userId, userName, Cart.getCart(), LoggedUserInstance.curDate, address);
+        return Order.addOrder(newOrder);
+    }
     
 }

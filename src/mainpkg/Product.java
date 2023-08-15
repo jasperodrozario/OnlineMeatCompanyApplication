@@ -11,6 +11,7 @@ import java.io.Serializable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
+import static mainpkg.Database.anAlert;
 
 /**
  *
@@ -119,6 +120,39 @@ public class Product implements Serializable{
         }
     }
     
-    
+    public static Product getProductInstance(String productName) {
+        Product tempInst = null;
+        File userFile = new File("Cart.bin");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(userFile);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (Product)ois.readObject();
+                if(tempInst.name == productName) {
+                    return tempInst;
+                }
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("'Cart.bin' file not found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            anAlert.setContentText("Class not found in 'Cart.bin' file!");
+            anAlert.show();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+            return tempInst;
+        }
+    }
     
 }

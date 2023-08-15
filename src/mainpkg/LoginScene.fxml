@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="485.0" prefWidth="700.0" style="-fx-background-color: #B8D8E5; -fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.LoginSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="485.0" prefWidth="700.0" style="-fx-background-color: #B8D8E5; -fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.LoginSceneController">
    <children>
       <ImageView fitHeight="224.0" fitWidth="261.0" layoutX="-19.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true">
          <image>

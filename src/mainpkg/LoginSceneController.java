@@ -79,7 +79,7 @@ public class LoginSceneController implements Initializable {
             }
             else if(userTypeComboBox.getValue().equals("Vendor")) {
                 if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
-                    newSceneLoader.loadScene("VendorDashboardScene.fxml");
+                    newSceneLoader.loadScene("VendorDashBoard.fxml");
                 }
                 else {
                     anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
@@ -104,9 +104,9 @@ public class LoginSceneController implements Initializable {
                     anAlert.show();
                 }
             }
-            else if(userTypeComboBox.getValue().equals("Accountant")) {
+            else if(userTypeComboBox.getValue().equals("Account Officer")) {
                 if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
-                    newSceneLoader.loadScene("AccountOfficerDashboard.fxml");
+                    newSceneLoader.loadScene("AccountOfficerDashBoard.fxml");
                 }
                 else {
                     anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");

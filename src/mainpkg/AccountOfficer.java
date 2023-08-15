@@ -8,7 +8,7 @@ import java.time.LocalDate;
  */
 public class AccountOfficer extends Employee {
     
-        public AccountOfficer(String userType, int userId, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
+    public AccountOfficer(String userType, int userId, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
         this.userType = userType;
         this.userId = userId;
         this.userName = userName;
@@ -23,13 +23,18 @@ public class AccountOfficer extends Employee {
         return true;
     }
     
+    @Override
     public boolean login() { 
         LoggedUserInstance.logUserInstance(userType, userId);
         return true;
     }
     
     @Override
-    public void changePassword() {
-        
+    public boolean changePassword() {
+        return true;
+    }
+    
+    public static boolean submitAuditReport(String auditReportStr, LocalDate curDate) {
+        return AuditReportEditAccountant.addReport(auditReportStr, curDate);
     }
 }

@@ -23,14 +23,15 @@ public class CEO extends Employee{
         return true;
     }
     
+    @Override
     public boolean login() { 
         LoggedUserInstance.logUserInstance(userType, userId);
         return true;
     }
     
     @Override
-    public void changePassword() {
-        
+    public boolean changePassword() {
+        return true;
     }
     
 }

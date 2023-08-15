@@ -5,6 +5,7 @@
 package mainpkg;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +23,7 @@ public class AuditReportEditSceneController implements Initializable {
     @FXML
     private TextArea auditReportTextField;
 
+    LocalDate curDate = LocalDate.now();
     Alert anAlert = new Alert(Alert.AlertType.INFORMATION);
     boolean auditfile;
     @Override
@@ -31,10 +33,9 @@ public class AuditReportEditSceneController implements Initializable {
 
     @FXML
     private void auditSubmitButtonOnClick(ActionEvent event) {
-        auditfile = AuditReportAccountant.auditReport(auditReportTextField.getText());
         
-        if (auditfile){
-            anAlert.setContentText("Vaccine update Successfully!");
+        if (AccountOfficer.submitAuditReport(auditReportTextField.getText(), curDate)){
+            anAlert.setContentText("Audit report submitted successfully!");
             anAlert.show();
         }
         else{

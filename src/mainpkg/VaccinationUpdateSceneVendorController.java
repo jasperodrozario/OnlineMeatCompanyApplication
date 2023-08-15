@@ -42,43 +42,7 @@ public class VaccinationUpdateSceneVendorController implements Initializable {
 
     @FXML
     private void addVaccineUpdateOnClick(ActionEvent event) {
-        
-        File vaccinationUpdateFile = null;
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;
-
-        try {
-            VaccinationUpdate newVaccinationUpdate = new VaccinationUpdate(vaccineNameTextField.getText(), vaccinationDatePicker.getValue());
-            vaccinationUpdateFile = new File("VaccinationUpdates.bin");
-            if(vaccinationUpdateFile.exists()) {
-                fos = new FileOutputStream(vaccinationUpdateFile, true);
-                oos = new AppendObjectOutputStream(fos);
-            }
-            else {
-                fos = new FileOutputStream(vaccinationUpdateFile);
-                oos = new ObjectOutputStream(fos);
-            }
-            oos.writeObject(newVaccinationUpdate);
-            anAlert.setContentText("Vaccine update Successfully!");
-            anAlert.show();
-        }
-        catch (FileNotFoundException e) {
-            anAlert.setAlertType(Alert.AlertType.ERROR);
-            anAlert.setContentText("Oops! Something went wrong. Vaccination report was not updated.");
-            anAlert.show();
-        }
-        catch(IOException e) {
-            anAlert.setAlertType(Alert.AlertType.ERROR);
-            anAlert.setContentText("Oops! Something went wrong. Vaccination report was not updated.");
-            anAlert.show();
-        }
-        finally {
-            try {
-                if(oos != null) oos.close();
-            }
-            catch(IOException e) {
-            }
-        }
+        Vendor.updateVaccine(vaccineNameTextField.getText(), vaccinationDatePicker.getValue());
     }
     
 }

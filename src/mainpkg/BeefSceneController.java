@@ -6,6 +6,7 @@ package mainpkg;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -36,7 +37,9 @@ public class BeefSceneController implements Initializable {
     private Button btbsAddToCartBtn;
     @FXML
     private ComboBox<Integer> btbsQuantityComboBox;
-
+    
+    SceneLoader newSceneLoader = new SceneLoader();
+    Customer loggedCustInst;
     Product thisProduct;
     int i;
     
@@ -46,26 +49,32 @@ public class BeefSceneController implements Initializable {
         btcQuantityComboBox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         btsQuantityComboBox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         btbsQuantityComboBox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        loggedCustInst = LoggedUserInstance.custInst;
     }    
 
     @FXML
     private void bbiAddToCartBtnOnClick(MouseEvent event) {
-        Cart.addToCart("Beef Bone In", bbiQuantityComboBox.getValue(), 800);
+        loggedCustInst.addToCart("Beef Bone In", bbiQuantityComboBox.getValue(), 800);
     }
 
     @FXML
     private void btcAddToCartBtnOnClick(MouseEvent event) {
-        Cart.addToCart("Beef Tehari Cut", btcQuantityComboBox.getValue(), 800);
+        loggedCustInst.addToCart("Beef Tehari Cut", btcQuantityComboBox.getValue(), 800);
     }
 
     @FXML
     private void btsAddToCartBtnOnClick(MouseEvent event) {
-        Cart.addToCart("Beef Tenderloin Steak", btsQuantityComboBox.getValue(), 800);
+        loggedCustInst.addToCart("Beef Tenderloin Steak", btsQuantityComboBox.getValue(), 800);
     }
 
     @FXML
     private void btbsAddToCartBtnOnClick(MouseEvent event) {
-        Cart.addToCart("Beef T-Bone Steak", btbsQuantityComboBox.getValue(), 800);
+        loggedCustInst.addToCart("Beef T-Bone Steak", btbsQuantityComboBox.getValue(), 800);
+    }
+
+    @FXML
+    private void checkoutBtnOnClick(ActionEvent event) {
+        newSceneLoader.loadScene("CheckoutScene.fxml");
     }
     
 }

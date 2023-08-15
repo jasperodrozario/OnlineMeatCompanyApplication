@@ -32,33 +32,33 @@ public class VaccinationUpdateSceneRegulatoryOfficerController implements Initia
 
     @FXML
     private void viewVaccineUpdatesBtnOnClick(ActionEvent event) {
-        VaccinationUpdate tempInst;
-        FileInputStream fis = null;
-        ObjectInputStream ois = null;
-        String dispStr = "";
-        try{
-            File f1 = new File("VaccinationUpdates.bin");
-            fis = new FileInputStream(f1);
-            ois = new ObjectInputStream(fis);
-            while(true) {
-                tempInst = (VaccinationUpdate)ois.readObject();
-                dispStr += "Vaccine Name: " + tempInst.vaccineName + ", Vaccination Date: " + tempInst.vaccinationDate + "\n";
-            }
-        }
-        catch(IOException e) { 
-        }
-        catch(ClassNotFoundException e) {
-        }
-        finally {
-            vaccineUpdateDisplayTA.setText(dispStr);
-            try {
-                if(ois != null) {
-                    ois.close();
-                }
-            }
-            catch(IOException e) {
-            }
-        }
+//        Vaccine tempInst;
+//        FileInputStream fis = null;
+//        ObjectInputStream ois = null;
+//        String dispStr = "";
+//        try{
+//            File f1 = new File("VaccinationUpdates.bin");
+//            fis = new FileInputStream(f1);
+//            ois = new ObjectInputStream(fis);
+//            while(true) {
+//                tempInst = (VaccinationUpdate)ois.readObject();
+//                dispStr += "Vaccine Name: " + tempInst.vaccineName + ", Vaccination Date: " + tempInst.vaccinationDate + "\n";
+//            }
+//        }
+//        catch(IOException e) { 
+//        }
+//        catch(ClassNotFoundException e) {
+//        }
+//        finally {
+//            vaccineUpdateDisplayTA.setText(dispStr);
+//            try {
+//                if(ois != null) {
+//                    ois.close();
+//                }
+//            }
+//            catch(IOException e) {
+//            }
+//        }
     }
     
 }

@@ -1,5 +1,7 @@
 package mainpkg;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author Jasper
@@ -15,6 +17,7 @@ public class LoggedUserInstance {
     static AffiliateMarketer affiliateMarketerInst;
     static CEO ceoInst;
     static CCE cceInst;
+    static LocalDate curDate = LocalDate.now();
     
     
     public static void logUserInstance(String userType, int userId) {
