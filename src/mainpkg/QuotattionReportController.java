@@ -34,7 +34,7 @@ public class QuotattionReportController implements Initializable {
     private void quotetionReportSubmitButtonOnClick(ActionEvent event) {
         
         if (AccountOfficer.submitQuotationReport(quotationReportTextArea.getText())){
-            anAlert.setContentText("Audit report submitted successfully!");
+            anAlert.setContentText("Quotation report submitted successfully!");
             anAlert.show();
         }
         else{
