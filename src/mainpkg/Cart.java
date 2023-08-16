@@ -27,39 +27,42 @@ public class Cart {
         ObservableList<Product> tempProdList;
         
         int i;
+        boolean flag = false;
         
         if(cartFile.exists()) {
             tempProdList = Cart.getCart();
             for(i=0; i<tempProdList.size(); i++) {
                 if(tempProdList.get(i).name == newProduct.name) {
+                    flag = true;
                     tempProdList.get(i).quantity += newProduct.quantity;
+                    break;
+                }
+            }
+        }
+        if(!flag){
+            try {
+                if(cartFile.exists()) {
+                    fos = new FileOutputStream(cartFile, true);
+                    oos = new AppendObjectOutputStream(fos);
                 }
                 else {
-                    try {
-                        if (cartFile.exists()) {
-                            fos = new FileOutputStream(cartFile, true);
-                            oos = new AppendObjectOutputStream(fos);
-                        }
-                        else {
-                            fos = new FileOutputStream(cartFile);
-                            oos = new ObjectOutputStream(fos);
-                        }
-                        oos.writeObject(newProduct);
-                        oos.close();
-                    }
-                    catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                    catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    finally {
-                        try {
-                            if(oos != null) oos.close();
-                        } 
-                        catch (IOException e) {
-                        }
-                    }
+                    fos = new FileOutputStream(cartFile);
+                    oos = new ObjectOutputStream(fos);
+                }
+                oos.writeObject(newProduct);
+                oos.close();
+            }
+            catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+            finally {
+                try {
+                    if(oos != null) oos.close();
+                } 
+                catch (IOException e) {
                 }
             }
         }

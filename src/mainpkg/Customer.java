@@ -19,7 +19,7 @@ public class Customer extends User{
     };
    
     @Override
-    public boolean login() { 
+    public boolean login() {
         LoggedUserInstance.logUserInstance(userType, userId);
         return true;
     }
@@ -27,7 +27,6 @@ public class Customer extends User{
     @Override
     public boolean changePassword() {
         return true;
-        
     }
     
     public void addToCart(String productName, int productQuantity, float productPrice) {
@@ -36,6 +35,7 @@ public class Customer extends User{
     }
     
     public boolean confirmOrder() {
+        System.out.println(Cart.getCart().get(1));
         Order newOrder = new Order(userId, userName, Cart.getCart(), LoggedUserInstance.curDate, address);
         return Order.addOrder(newOrder);
     }

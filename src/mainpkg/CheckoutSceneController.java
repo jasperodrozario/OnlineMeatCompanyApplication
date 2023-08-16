@@ -4,11 +4,6 @@
  */
 package mainpkg;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -51,6 +46,7 @@ public class CheckoutSceneController implements Initializable {
         quantityCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("quantity"));
         vatRateCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("vatRate"));
         priceCol.setCellValueFactory(new PropertyValueFactory<Cart, Float>("price"));
+//        cartItemListTableView.getItems().add()
     }    
 
     @FXML
