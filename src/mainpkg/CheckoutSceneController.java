@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package mainpkg;
 
 import java.net.URL;
@@ -46,7 +42,8 @@ public class CheckoutSceneController implements Initializable {
         quantityCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("quantity"));
         vatRateCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("vatRate"));
         priceCol.setCellValueFactory(new PropertyValueFactory<Cart, Float>("price"));
-//        cartItemListTableView.getItems().add()
+        System.out.println(Cart.getCart().get(1));
+//        cartItemListTableView.getItems().add(Cart.getCart());
     }    
 
     @FXML

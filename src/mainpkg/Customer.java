@@ -35,8 +35,8 @@ public class Customer extends User{
     }
     
     public boolean confirmOrder() {
-        System.out.println(Cart.getCart().get(1));
         Order newOrder = new Order(userId, userName, Cart.getCart(), LoggedUserInstance.curDate, address);
+        System.out.println(newOrder.customerId);
         return Order.addOrder(newOrder);
     }
     

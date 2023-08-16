@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import static mainpkg.Database.anAlert;
@@ -24,7 +25,7 @@ public class Cart {
         ObjectOutputStream oos = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
-        ObservableList<Product> tempProdList;
+        ArrayList<Product> tempProdList;
         
         int i;
         boolean flag = false;
@@ -66,13 +67,10 @@ public class Cart {
                 }
             }
         }
-        
-        
-        
     }
     
-    public static ObservableList<Product> getCart() {
-        ObservableList<Product> cartItemsList = FXCollections.observableArrayList();
+    public static ArrayList<Product> getCart() {
+        ArrayList<Product> cartItemsList = new ArrayList();
         Product tempInst;
         File cartFile = new File("Cart.bin");
         FileInputStream fis = null;

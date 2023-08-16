@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import javafx.collections.ObservableList;
 import static mainpkg.Database.anAlert;
 
@@ -20,10 +21,10 @@ public class Order {
     int orderId;
     int customerId, riderId;
     String customerName, customerAddress, riderName;
-    ObservableList<Product> cartList;
+    ArrayList<Product> cartList;
     LocalDate orderDate;
     
-    public Order(int customerId, String customerName, ObservableList<Product> cartList, LocalDate orderDate, String customerAddress) {
+    public Order(int customerId, String customerName, ArrayList<Product> cartList, LocalDate orderDate, String customerAddress) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.cartList = cartList;
@@ -49,14 +50,19 @@ public class Order {
     }
     
     public static boolean addOrder(Order newOrder) {
-        System.out.println(newOrder);
         File orderFile;
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
             orderFile = new File("Order.bin");
-            fos = new FileOutputStream(orderFile);
-            oos = new ObjectOutputStream(fos);
+            if (orderFile.exists()) {
+                fos = new FileOutputStream(orderFile, true);
+                oos = new AppendObjectOutputStream(fos);
+            }
+            else {
+                fos = new FileOutputStream(orderFile);
+                oos = new ObjectOutputStream(fos);
+            }
             oos.writeObject(newOrder);
             oos.close();
             return true;
@@ -121,30 +127,35 @@ public class Order {
         File orderFile = new File("Order.bin");
         FileInputStream fis = null;
         ObjectInputStream ois = null;
-        try {            
-            fis = new FileInputStream(orderFile);
-            ois = new ObjectInputStream(fis);
-            while(true) {
-                tempInst = (Order)ois.readObject();
+        if(orderFile.exists()) {
+            try {            
+                fis = new FileInputStream(orderFile);
+                ois = new ObjectInputStream(fis);
+                while(true) {
+                    tempInst = (Order)ois.readObject();
+                }
             }
-        }
-        catch(FileNotFoundException e) {
-            anAlert.setContentText("'Order.bin' file not found!");
-            anAlert.show();
-        }
-        catch(ClassNotFoundException e) {
-            anAlert.setContentText("Class not found in 'Order.bin' file!");
-            anAlert.show();
-        }
-        catch(IOException e) {
-        }
-        finally {
-            try {
-                if(ois != null) ois.close();
+            catch(FileNotFoundException e) {
+                anAlert.setContentText("'Order.bin' file not found!");
+                anAlert.show();
+            }
+            catch(ClassNotFoundException e) {
+                anAlert.setContentText("Class not found in 'Order.bin' file!");
+                anAlert.show();
             }
             catch(IOException e) {
             }
-            return tempInst;
+            finally {
+                try {
+                    if(ois != null) ois.close();
+                }
+                catch(IOException e) {
+                }
+                return tempInst;
+            }
+        }
+        else {
+            return null;
         }
     }
     
@@ -164,7 +175,7 @@ public class Order {
         return customerAddress;
     }
 
-    public ObservableList<Product> getCartList() {
+    public ArrayList<Product> getCartList() {
         return cartList;
     }
 
