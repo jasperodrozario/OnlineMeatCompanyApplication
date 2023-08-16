@@ -18,24 +18,24 @@ import javafx.scene.input.MouseEvent;
  *
  * @author Dell
  */
-public class FishSceneController implements Initializable {
+public class GrocerySceneController implements Initializable {
 
     @FXML
     private Button bbiAddToCartBtn;
     @FXML
-    private ComboBox<Integer> bbiQuantityComboBox;
+    private ComboBox<?> bbiQuantityComboBox;
     @FXML
     private Button btcAddToCartBtn;
     @FXML
-    private ComboBox<Integer> btcQuantityComboBox;
+    private ComboBox<?> btcQuantityComboBox;
     @FXML
     private Button btsAddToCartBtn;
     @FXML
-    private ComboBox<Integer> btsQuantityComboBox;
+    private ComboBox<?> btsQuantityComboBox;
     @FXML
     private Button btbsAddToCartBtn;
     @FXML
-    private ComboBox<Integer> btbsQuantityComboBox;
+    private ComboBox<?> btbsQuantityComboBox;
 
     /**
      * Initializes the controller class.

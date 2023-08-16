@@ -42,7 +42,7 @@ public class CheckoutSceneController implements Initializable {
         quantityCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("quantity"));
         vatRateCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("vatRate"));
         priceCol.setCellValueFactory(new PropertyValueFactory<Cart, Float>("price"));
-        System.out.println(Cart.getCart().get(1));
+//        System.out.println(Cart.getCart().get(1));
 //        cartItemListTableView.getItems().add(Cart.getCart());
     }    
 

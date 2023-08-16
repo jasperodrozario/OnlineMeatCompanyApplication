@@ -11,31 +11,30 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
  *
  * @author Dell
  */
-public class FishSceneController implements Initializable {
+public class PoultrySceneController implements Initializable {
 
     @FXML
-    private Button bbiAddToCartBtn;
+    private Button addToCartBtn;
     @FXML
-    private ComboBox<Integer> bbiQuantityComboBox;
+    private ComboBox<?> quantityBBIComboBox;
     @FXML
-    private Button btcAddToCartBtn;
+    private Button addToCartBtn2;
     @FXML
-    private ComboBox<Integer> btcQuantityComboBox;
+    private ComboBox<?> quantityBBIComboBox2;
     @FXML
-    private Button btsAddToCartBtn;
+    private Button addToCartBtn21;
     @FXML
-    private ComboBox<Integer> btsQuantityComboBox;
+    private ComboBox<?> quantityBBIComboBox21;
     @FXML
-    private Button btbsAddToCartBtn;
+    private Button addToCartBtn211;
     @FXML
-    private ComboBox<Integer> btbsQuantityComboBox;
+    private ComboBox<?> quantityBBIComboBox211;
 
     /**
      * Initializes the controller class.
@@ -44,22 +43,6 @@ public class FishSceneController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    @FXML
-    private void bbiAddToCartBtnOnClick(MouseEvent event) {
-    }
-
-    @FXML
-    private void btcAddToCartBtnOnClick(MouseEvent event) {
-    }
-
-    @FXML
-    private void btsAddToCartBtnOnClick(MouseEvent event) {
-    }
-
-    @FXML
-    private void btbsAddToCartBtnOnClick(MouseEvent event) {
-    }
 
     @FXML
     private void checkoutBtnOnClick(ActionEvent event) {

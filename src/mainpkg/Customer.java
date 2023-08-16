@@ -29,9 +29,10 @@ public class Customer extends User{
         return true;
     }
     
-    public void addToCart(String productName, int productQuantity, float productPrice) {
+    public boolean addToCart(String productName, int productQuantity, float productPrice) {
         Product newProduct = new Product(productName, productQuantity, productPrice);
         Cart.addProduct(newProduct);
+        return true;
     }
     
     public boolean confirmOrder() {

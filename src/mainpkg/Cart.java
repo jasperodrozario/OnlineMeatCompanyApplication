@@ -36,7 +36,6 @@ public class Cart {
                 if(tempProdList.get(i).name == newProduct.name) {
                     flag = true;
                     tempProdList.get(i).quantity += newProduct.quantity;
-                    break;
                 }
             }
         }
