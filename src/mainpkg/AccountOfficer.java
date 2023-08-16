@@ -39,6 +39,6 @@ public class AccountOfficer extends Employee {
     }
     
     public static boolean submitQuotationReport(String quotatioReportStr){
-        return QuotationReportAccountant.addReport(quotatioReportStr);
+        return QuotationReport.addReport(quotatioReportStr);
     }
 }

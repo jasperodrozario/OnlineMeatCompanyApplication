@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import javafx.collections.ObservableList;
 import static mainpkg.Database.anAlert;
 
@@ -50,19 +49,14 @@ public class Order {
     }
     
     public static boolean addOrder(Order newOrder) {
+        System.out.println(newOrder);
         File orderFile;
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
             orderFile = new File("Order.bin");
-            if (orderFile.exists()) {
-                fos = new FileOutputStream(orderFile, true);
-                oos = new AppendObjectOutputStream(fos);
-            }
-            else {
-                fos = new FileOutputStream(orderFile);
-                oos = new ObjectOutputStream(fos);
-            }
+            fos = new FileOutputStream(orderFile);
+            oos = new ObjectOutputStream(fos);
             oos.writeObject(newOrder);
             oos.close();
             return true;

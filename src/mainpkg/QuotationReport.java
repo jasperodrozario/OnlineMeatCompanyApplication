@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package mainpkg;
 
 import java.io.File;
@@ -13,11 +9,11 @@ import javafx.scene.control.Alert;
  *
  * @author DELL
  */
-public class QuotationReportAccountant {
+public class QuotationReport {
     static Alert anAlert = new Alert(Alert.AlertType.ERROR);
     
     public static boolean addReport(String quotationReportStr){
-        String newFileName = "QuotatioReportAccountant.txt";
+        String newFileName = "QuotationReportAccountant.txt";
         File f1 = null;
         
         try{
