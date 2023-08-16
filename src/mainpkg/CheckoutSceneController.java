@@ -2,6 +2,8 @@ package mainpkg;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,8 +20,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 
 public class CheckoutSceneController implements Initializable {
-    Alert anAlert = new Alert(Alert.AlertType.INFORMATION);
-    Customer loggedUserInst;
     
     @FXML
     private TableView<Product> cartItemListTableView;
@@ -30,20 +30,23 @@ public class CheckoutSceneController implements Initializable {
     @FXML
     private TableColumn<Product, Integer> vatRateCol;
     @FXML
-    private TableColumn<Cart, Float> priceCol;
+    private TableColumn<Product, Float> priceCol;
     @FXML
     private TextField totalPriceTextField;
     
-
+    ObservableList<Product> cartItemsList = FXCollections.observableArrayList(Cart.getCart());
+    Alert anAlert = new Alert(Alert.AlertType.INFORMATION);
+    Customer loggedUserInst;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         prodNameCol.setCellValueFactory(new PropertyValueFactory<Product, String>("name"));
         quantityCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("quantity"));
         vatRateCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("vatRate"));
-        priceCol.setCellValueFactory(new PropertyValueFactory<Cart, Float>("price"));
-//        System.out.println(Cart.getCart().get(1));
-//        cartItemListTableView.getItems().add(Cart.getCart());
+        priceCol.setCellValueFactory(new PropertyValueFactory<Product, Float>("price"));
+        
+        cartItemsList = Cart.getCart();
+        cartItemListTableView.setItems(cartItemsList);
     }    
 
     @FXML

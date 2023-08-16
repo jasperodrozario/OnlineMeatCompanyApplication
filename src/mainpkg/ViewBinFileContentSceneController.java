@@ -136,41 +136,6 @@ public class ViewBinFileContentSceneController implements Initializable {
     }
 
     @FXML
-    private void openULHbtnOnClick(ActionEvent event) {
-        RegulatoryOfficer tempObj;
-        File fileInst = new File("UserInstanceLog.bin");
-        String tempStr = "";
-        FileInputStream fis = null;
-        ObjectInputStream ois = null;
-        try {            
-            fis = new FileInputStream(fileInst);
-            ois = new ObjectInputStream(fis);
-            while(true) {
-                tempObj = (RegulatoryOfficer)ois.readObject();
-                tempStr += "ID: " + tempObj.userId + ", Name: " + tempObj.userName + ", Gender: " + tempObj.gender + ", Password: " + tempObj.password + "\n";
-                displayTextArea.setText(tempStr);
-            }
-        }
-        catch(FileNotFoundException e) {
-            anAlert.setContentText("File Not Found!");
-            anAlert.show();
-        }
-        catch(ClassNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("cnfex");
-        }
-        catch(IOException e) {
-        }
-        finally {
-            try {
-                if(ois != null) ois.close();
-            }
-            catch(IOException e) {
-            }
-        }
-    }
-
-    @FXML
     private void openPPLbtnOnClick(ActionEvent event) {
         Product tempObj;
         File fileInst = new File("ProductPurchaseLog.bin");
@@ -195,6 +160,40 @@ public class ViewBinFileContentSceneController implements Initializable {
         }
         catch(IOException e) {
             System.out.println("unga");
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+        }
+    }
+
+    @FXML
+    private void openCartbtnOnClick(ActionEvent event) {
+        Product tempObj;
+        File fileInst = new File("Cart.bin");
+        String tempStr = "";
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(fileInst);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempObj = (Product)ois.readObject();
+                tempStr += tempObj.getProductInfoStr() + "\n";
+                displayTextArea.setText(tempStr);
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("File Not Found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch(IOException e) {
         }
         finally {
             try {

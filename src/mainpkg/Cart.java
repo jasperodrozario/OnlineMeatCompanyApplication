@@ -19,57 +19,58 @@ import static mainpkg.Database.anAlert;
 
 public class Cart {
     
-    public static void addProduct(Product newProduct) {
+    public static boolean addProduct(Product newProduct) {
         File cartFile = new File("Cart.bin");
+        ObservableList<Product> tempCartItemsList = FXCollections.observableArrayList();
         FileOutputStream fos = null;      
         ObjectOutputStream oos = null;
-        FileInputStream fis = null;
-        ObjectInputStream ois = null;
-        ArrayList<Product> tempProdList;
-        
-        int i;
-        boolean flag = false;
-        
-        if(cartFile.exists()) {
-            tempProdList = Cart.getCart();
-            for(i=0; i<tempProdList.size(); i++) {
-                if(tempProdList.get(i).name == newProduct.name) {
-                    flag = true;
-                    tempProdList.get(i).quantity += newProduct.quantity;
+
+        boolean flag = true;
+        try {
+            if(cartFile.exists()) {
+                tempCartItemsList = Cart.getCart();
+                for(Product item: tempCartItemsList) {
+                    if(item.name == newProduct.name) {
+                        flag = false;
+                        item.quantity += newProduct.quantity;
+                        item.price += newProduct.price * item.quantity;
+                        return true;
+                    }
                 }
-            }
-        }
-        if(!flag){
-            try {
-                if(cartFile.exists()) {
+                if(flag){
                     fos = new FileOutputStream(cartFile, true);
                     oos = new AppendObjectOutputStream(fos);
+                    oos.writeObject(newProduct);
+                    oos.close();
+                    return true;
                 }
-                else {
-                    fos = new FileOutputStream(cartFile);
-                    oos = new ObjectOutputStream(fos);
-                }
+            }
+            else {
+                fos = new FileOutputStream(cartFile);
+                oos = new ObjectOutputStream(fos);
                 oos.writeObject(newProduct);
                 oos.close();
+                return true;
             }
-            catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+        }
+        catch (FileNotFoundException e) {
+           e.printStackTrace();
+        }
+        catch (IOException e) {
+           e.printStackTrace();
+        }
+        finally {
+            try {
+               if(oos != null) oos.close();
+            } 
             catch (IOException e) {
-                e.printStackTrace();
             }
-            finally {
-                try {
-                    if(oos != null) oos.close();
-                } 
-                catch (IOException e) {
-                }
-            }
+            return false;
         }
     }
     
-    public static ArrayList<Product> getCart() {
-        ArrayList<Product> cartItemsList = new ArrayList();
+    public static ObservableList<Product> getCart() {
+        ObservableList<Product> cartItemsList = FXCollections.observableArrayList();
         Product tempInst;
         File cartFile = new File("Cart.bin");
         FileInputStream fis = null;

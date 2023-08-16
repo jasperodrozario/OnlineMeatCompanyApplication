@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import javafx.collections.ObservableList;
 import static mainpkg.Database.anAlert;
 
@@ -21,10 +20,10 @@ public class Order {
     int orderId;
     int customerId, riderId;
     String customerName, customerAddress, riderName;
-    ArrayList<Product> cartList;
+    ObservableList<Product> cartList;
     LocalDate orderDate;
     
-    public Order(int customerId, String customerName, ArrayList<Product> cartList, LocalDate orderDate, String customerAddress) {
+    public Order(int customerId, String customerName, ObservableList<Product> cartList, LocalDate orderDate, String customerAddress) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.cartList = cartList;
@@ -175,7 +174,7 @@ public class Order {
         return customerAddress;
     }
 
-    public ArrayList<Product> getCartList() {
+    public ObservableList<Product> getCartList() {
         return cartList;
     }
 

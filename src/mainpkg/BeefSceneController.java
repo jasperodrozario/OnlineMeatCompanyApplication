@@ -54,9 +54,9 @@ public class BeefSceneController implements Initializable {
     @FXML
     private void bbiAddToCartBtnOnClick(MouseEvent event) {
         if(bbiQuantityComboBox.getValue() != null) {
-            loggedCustInst.addToCart("Beef Bone In", bbiQuantityComboBox.getValue(), 800);
+            loggedCustInst.addToCart("Beef Bone In", bbiQuantityComboBox.getValue(), 10, 800);
             
-            anInfoAlert.setContentText("Order successfully added.");
+            anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
         else {
@@ -68,8 +68,8 @@ public class BeefSceneController implements Initializable {
     @FXML
     private void btcAddToCartBtnOnClick(MouseEvent event) {
         if(btcQuantityComboBox.getValue() != null) {
-            loggedCustInst.addToCart("Beef Tehari Cut", btcQuantityComboBox.getValue(), 800);
-            anInfoAlert.setContentText("Order successfully added.");
+            loggedCustInst.addToCart("Beef Tehari Cut", btcQuantityComboBox.getValue(), 10, 800f);
+            anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
         else {
@@ -82,8 +82,8 @@ public class BeefSceneController implements Initializable {
     @FXML
     private void btsAddToCartBtnOnClick(MouseEvent event) {
         if(btsQuantityComboBox.getValue() != null) {
-            loggedCustInst.addToCart("Beef Tenderloin Steak", btsQuantityComboBox.getValue(), 800);
-            anInfoAlert.setContentText("Order successfully added.");
+            loggedCustInst.addToCart("Beef Tenderloin Steak", btsQuantityComboBox.getValue(), 10, 800f);
+            anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
         else {
@@ -95,8 +95,8 @@ public class BeefSceneController implements Initializable {
     @FXML
     private void btbsAddToCartBtnOnClick(MouseEvent event) {
         if(btbsQuantityComboBox.getValue() != null) {
-            loggedCustInst.addToCart("Beef T-Bone Steak", btbsQuantityComboBox.getValue(), 800);
-            anInfoAlert.setContentText("Order successfully added.");
+            loggedCustInst.addToCart("Beef T-Bone Steak", btbsQuantityComboBox.getValue(), 10, 800f);
+            anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
         else {
@@ -107,7 +107,13 @@ public class BeefSceneController implements Initializable {
 
     @FXML
     private void checkoutBtnOnClick(ActionEvent event) {
-        newSceneLoader.loadScene("CheckoutScene.fxml");
+        if(loggedCustInst.checkOut()) {
+            newSceneLoader.loadScene("CheckoutScene.fxml");
+        }
+        else {
+            anInfoAlert.setContentText("Your cart is empty. Add an item to the cart to checkout.");
+            anInfoAlert.show();
+        }
     }
     
 }
