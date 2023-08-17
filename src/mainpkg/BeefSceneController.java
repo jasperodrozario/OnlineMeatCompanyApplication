@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package mainpkg;
 
 import java.net.URL;
@@ -9,6 +5,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
@@ -38,6 +35,8 @@ public class BeefSceneController implements Initializable {
     @FXML
     private ComboBox<Integer> btbsQuantityComboBox;
     
+    Alert anErrorAlert = new Alert(Alert.AlertType.ERROR);
+    Alert anInfoAlert = new Alert(Alert.AlertType.INFORMATION);
     SceneLoader newSceneLoader = new SceneLoader();
     Customer loggedCustInst;
     Product thisProduct;
@@ -54,27 +53,67 @@ public class BeefSceneController implements Initializable {
 
     @FXML
     private void bbiAddToCartBtnOnClick(MouseEvent event) {
-        loggedCustInst.addToCart("Beef Bone In", bbiQuantityComboBox.getValue(), 800);
+        if(bbiQuantityComboBox.getValue() != null) {
+            loggedCustInst.addToCart("Beef Bone In", bbiQuantityComboBox.getValue(), 10, 800);
+            
+            anInfoAlert.setContentText("Item(s) has been added to your cart.");
+            anInfoAlert.show();
+        }
+        else {
+            anErrorAlert.setContentText("Select quantity first!");
+            anErrorAlert.show();
+        }
     }
 
     @FXML
     private void btcAddToCartBtnOnClick(MouseEvent event) {
-        loggedCustInst.addToCart("Beef Tehari Cut", btcQuantityComboBox.getValue(), 800);
+        if(btcQuantityComboBox.getValue() != null) {
+            loggedCustInst.addToCart("Beef Tehari Cut", btcQuantityComboBox.getValue(), 10, 800f);
+            anInfoAlert.setContentText("Item(s) has been added to your cart.");
+            anInfoAlert.show();
+        }
+        else {
+            anErrorAlert.setContentText("Select quantity first!");
+            anErrorAlert.show();
+        }
+        
     }
 
     @FXML
     private void btsAddToCartBtnOnClick(MouseEvent event) {
-        loggedCustInst.addToCart("Beef Tenderloin Steak", btsQuantityComboBox.getValue(), 800);
+        if(btsQuantityComboBox.getValue() != null) {
+            loggedCustInst.addToCart("Beef Tenderloin Steak", btsQuantityComboBox.getValue(), 10, 800f);
+            anInfoAlert.setContentText("Item(s) has been added to your cart.");
+            anInfoAlert.show();
+        }
+        else {
+            anErrorAlert.setContentText("Select quantity first!");
+            anErrorAlert.show();
+        }
     }
 
     @FXML
     private void btbsAddToCartBtnOnClick(MouseEvent event) {
-        loggedCustInst.addToCart("Beef T-Bone Steak", btbsQuantityComboBox.getValue(), 800);
+        if(btbsQuantityComboBox.getValue() != null) {
+            loggedCustInst.addToCart("Beef T-Bone Steak", btbsQuantityComboBox.getValue(), 10, 800f);
+            anInfoAlert.setContentText("Item(s) has been added to your cart.");
+            anInfoAlert.show();
+        }
+        else {
+            anErrorAlert.setContentText("Select quantity first!");
+            anErrorAlert.show();
+        }
     }
 
     @FXML
     private void checkoutBtnOnClick(ActionEvent event) {
-        newSceneLoader.loadScene("CheckoutScene.fxml");
+        if(loggedCustInst.checkOut()) {
+            newSceneLoader.loadScene("CheckoutScene.fxml");
+        }
+        else {
+            anInfoAlert.setContentText("Your cart is empty. Add an item to the cart to checkout.");
+            anInfoAlert.show();
+        }
     }
     
 }

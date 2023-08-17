@@ -22,12 +22,11 @@ public class Product implements Serializable{
     int quantity, vatRate;
     float price;
     
-    public Product(String name, int quantity, float price) {
+    public Product(String name, int quantity, int vatRate, float price) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
-//        this.vatRate = vatRate;
-        Product.addToProductPurchaseLogFile(this);
+        this.vatRate = vatRate;
     }
     
     public String getProductInfoStr() {
@@ -89,16 +88,16 @@ public class Product implements Serializable{
             while(true) {
                 tempInst = (Product)ois.readObject();
                 if(tempInst.name.equals("Beef Bone In")) {
-                    beefBoneInCount++;
+                    beefBoneInCount += tempInst.quantity;
                 }
                 else if(tempInst.name.equals("Beef Tehari Cut")) {
-                    beefTehariCutCount++;
+                    beefTehariCutCount += tempInst.quantity;
                 }
                 else if(tempInst.name.equals("Beef Tenderloin Steak")) {
-                    beefTenderloinSteakCount++;
+                    beefTenderloinSteakCount += tempInst.quantity;
                 }
                 else if(tempInst.name.equals("Beef T-Bone Steak")) {
-                    beefTBoneSteakCount++;
+                    beefTBoneSteakCount += tempInst.quantity;
                 }
             }
 

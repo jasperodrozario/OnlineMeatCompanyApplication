@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import javafx.collections.ObservableList;
 import static mainpkg.Database.anAlert;
 
@@ -127,30 +126,35 @@ public class Order {
         File orderFile = new File("Order.bin");
         FileInputStream fis = null;
         ObjectInputStream ois = null;
-        try {            
-            fis = new FileInputStream(orderFile);
-            ois = new ObjectInputStream(fis);
-            while(true) {
-                tempInst = (Order)ois.readObject();
+        if(orderFile.exists()) {
+            try {            
+                fis = new FileInputStream(orderFile);
+                ois = new ObjectInputStream(fis);
+                while(true) {
+                    tempInst = (Order)ois.readObject();
+                }
             }
-        }
-        catch(FileNotFoundException e) {
-            anAlert.setContentText("'Order.bin' file not found!");
-            anAlert.show();
-        }
-        catch(ClassNotFoundException e) {
-            anAlert.setContentText("Class not found in 'Order.bin' file!");
-            anAlert.show();
-        }
-        catch(IOException e) {
-        }
-        finally {
-            try {
-                if(ois != null) ois.close();
+            catch(FileNotFoundException e) {
+                anAlert.setContentText("'Order.bin' file not found!");
+                anAlert.show();
+            }
+            catch(ClassNotFoundException e) {
+                anAlert.setContentText("Class not found in 'Order.bin' file!");
+                anAlert.show();
             }
             catch(IOException e) {
             }
-            return tempInst;
+            finally {
+                try {
+                    if(ois != null) ois.close();
+                }
+                catch(IOException e) {
+                }
+                return tempInst;
+            }
+        }
+        else {
+            return null;
         }
     }
     

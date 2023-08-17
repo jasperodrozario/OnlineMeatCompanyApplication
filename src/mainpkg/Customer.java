@@ -1,5 +1,7 @@
 package mainpkg;
 
+import java.io.File;
+
 /**
  *
  * @author Jasper
@@ -19,7 +21,7 @@ public class Customer extends User{
     };
    
     @Override
-    public boolean login() { 
+    public boolean login() {
         LoggedUserInstance.logUserInstance(userType, userId);
         return true;
     }
@@ -27,16 +29,28 @@ public class Customer extends User{
     @Override
     public boolean changePassword() {
         return true;
-        
     }
     
-    public void addToCart(String productName, int productQuantity, float productPrice) {
-        Product newProduct = new Product(productName, productQuantity, productPrice);
+    public boolean addToCart(String productName, int productQuantity, int vatRate, float productPrice) {
+        Product newProduct = new Product(productName, productQuantity, vatRate, productPrice);
+        System.out.println(newProduct.price);
         Cart.addProduct(newProduct);
+        return true;
+    }
+    
+    public boolean checkOut() {
+        File cartFile = new File("Cart.bin");
+        if(cartFile.exists()) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     
     public boolean confirmOrder() {
         Order newOrder = new Order(userId, userName, Cart.getCart(), LoggedUserInstance.curDate, address);
+        System.out.println(newOrder.customerId);
         return Order.addOrder(newOrder);
     }
     
