@@ -15,7 +15,7 @@
       <Label layoutX="183.0" layoutY="121.0" text="Name" />
       <Label alignment="CENTER" layoutX="177.0" layoutY="196.0" prefHeight="17.0" prefWidth="39.0" text="Gender" textAlignment="CENTER" />
       <Label layoutX="149.0" layoutY="310.0" text="Date of Birth" />
-      <TextField fx:id="newUserIdTextField" layoutX="243.0" layoutY="83.0" prefHeight="25.0" prefWidth="111.0" />
+      <TextField fx:id="newUserIdTextField" editable="false" layoutX="243.0" layoutY="83.0" prefHeight="25.0" prefWidth="111.0" />
       <TextField fx:id="nameTextField" layoutX="243.0" layoutY="119.0" prefHeight="25.0" prefWidth="173.0" />
       <Button layoutX="269.0" layoutY="421.0" mnemonicParsing="false" onMouseClicked="#registerButtonOnClick" text="Register" />
       <ComboBox fx:id="userTypeComboBox" layoutX="243.0" layoutY="40.0" prefHeight="27.0" prefWidth="150.0" promptText="Select a user type" style="-fx-background-color: #ffffff; -fx-background-radius: 23; -fx-border-radius: 23; -fx-border-color: grey;" />

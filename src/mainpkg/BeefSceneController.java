@@ -68,7 +68,7 @@ public class BeefSceneController implements Initializable {
     @FXML
     private void btcAddToCartBtnOnClick(MouseEvent event) {
         if(btcQuantityComboBox.getValue() != null) {
-            loggedCustInst.addToCart("Beef Tehari Cut", btcQuantityComboBox.getValue(), 10, 800f);
+            loggedCustInst.addToCart("Beef Tehari Cut", btcQuantityComboBox.getValue(), 10, 800);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -82,7 +82,7 @@ public class BeefSceneController implements Initializable {
     @FXML
     private void btsAddToCartBtnOnClick(MouseEvent event) {
         if(btsQuantityComboBox.getValue() != null) {
-            loggedCustInst.addToCart("Beef Tenderloin Steak", btsQuantityComboBox.getValue(), 10, 800f);
+            loggedCustInst.addToCart("Beef Tenderloin Steak", btsQuantityComboBox.getValue(), 10, 800);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -108,6 +108,7 @@ public class BeefSceneController implements Initializable {
     @FXML
     private void checkoutBtnOnClick(ActionEvent event) {
         if(loggedCustInst.checkOut()) {
+//            System.out.println(Cart.getCart().get(0).name);
             newSceneLoader.loadScene("CheckoutScene.fxml");
         }
         else {

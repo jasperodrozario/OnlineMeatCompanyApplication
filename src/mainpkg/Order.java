@@ -1,5 +1,6 @@
 package mainpkg;
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -7,8 +8,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 import static mainpkg.Database.anAlert;
 
 /**
@@ -16,36 +18,20 @@ import static mainpkg.Database.anAlert;
  * @author Jasper
  */
 
-public class Order {
+public class Order implements Serializable{
     int orderId;
     int customerId, riderId;
     String customerName, customerAddress, riderName;
-    ObservableList<Product> cartList;
+    ArrayList<Product> cartList;
     LocalDate orderDate;
     
-    public Order(int customerId, String customerName, ObservableList<Product> cartList, LocalDate orderDate, String customerAddress) {
+    public Order(int customerId, String customerName, ArrayList<Product> cartList, String customerAddress) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.cartList = cartList;
-        this.orderDate = orderDate;
         this.customerAddress = customerAddress;
-        this.orderId = this.generateUniqueOrderId();
-    }
-
-    private int generateUniqueOrderId() {
-        int uniqueId;
-        if(Order.getLastOrderInstance() != null) {
-            uniqueId = Order.getLastOrderInstance().orderId++;
-            return uniqueId;
-        }
-        else {
-            return uniqueId = 100000;
-        }
-    }
-    
-    public void associateRider(int riderId, String riderName) {
-        this.riderId = riderId;
-        this.riderName = riderName;
+        orderId = this.generateUniqueOrderId();
+        orderDate = LocalDate.now();
     }
     
     public static boolean addOrder(Order newOrder) {
@@ -68,12 +54,10 @@ public class Order {
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
-            System.out.println("fnfe");
             return false;
         }
         catch (IOException e) {
             e.printStackTrace();
-            System.out.println("ioe");
             return false;
         }
         finally {
@@ -84,7 +68,23 @@ public class Order {
             }
         }  
     }
+        
+    private int generateUniqueOrderId() {
+        int newId;
+        
+        if(Order.getLastOrderInstance() != null) {
+            newId = Order.getLastOrderInstance().orderId + 1;
+            return newId;
+        }
+        else {
+            return newId = 10000;
+        }
+    }
     
+    public void associateRider(int riderId, String riderName) {
+        this.riderId = riderId;
+        this.riderName = riderName;
+    }
     
     public static Order getOrderInstance(int orderId) {
         Order tempInst = null;
@@ -122,7 +122,7 @@ public class Order {
     }
  
     public static Order getLastOrderInstance() {
-        Order tempInst = null;
+        Order lastInst = null;
         File orderFile = new File("Order.bin");
         FileInputStream fis = null;
         ObjectInputStream ois = null;
@@ -131,7 +131,13 @@ public class Order {
                 fis = new FileInputStream(orderFile);
                 ois = new ObjectInputStream(fis);
                 while(true) {
-                    tempInst = (Order)ois.readObject();
+                    try {
+                        lastInst = (Order)ois.readObject();
+                    }
+                    catch (EOFException eof) {
+                        // End of file reached
+                        return lastInst;
+                    }
                 }
             }
             catch(FileNotFoundException e) {
@@ -150,11 +156,11 @@ public class Order {
                 }
                 catch(IOException e) {
                 }
-                return tempInst;
+                return lastInst;
             }
         }
         else {
-            return null;
+            return lastInst;
         }
     }
     
@@ -174,7 +180,7 @@ public class Order {
         return customerAddress;
     }
 
-    public ObservableList<Product> getCartList() {
+    public ArrayList<Product> getCartList() {
         return cartList;
     }
 

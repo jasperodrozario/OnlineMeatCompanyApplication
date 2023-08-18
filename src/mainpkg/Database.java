@@ -19,7 +19,7 @@ public class Database {
     
     static Alert anAlert = new Alert(Alert.AlertType.ERROR);
     
-    public static boolean addUser(String userType, int userId, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj, String address) {
+    public static boolean addUser(String userType, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj, String address) {
         
         File f1 = null;
         FileOutputStream fos = null;      
@@ -28,7 +28,7 @@ public class Database {
         if (userType == "Customer") {
             try {
                 f1 = new File("CustomerUser.bin");
-                Customer newUser = new Customer(userType, userId, userName, gender, password, address);
+                Customer newUser = new Customer(userType, userName, gender, password, address);
                 if (f1.exists()) {
                     fos = new FileOutputStream(f1, true);
                     oos = new AppendObjectOutputStream(fos);
@@ -57,10 +57,10 @@ public class Database {
                 }
             }
         }
-        if (userType == "Regulatory Officer") {
+        else if (userType == "Regulatory Officer") {
             try {
                 f1 = new File("RegulatoryOfficerUser.bin");
-                RegulatoryOfficer newUser = new RegulatoryOfficer(userType, userId, userName, gender, password, userDob, userDoj);
+                RegulatoryOfficer newUser = new RegulatoryOfficer(userType, userName, gender, password, userDob, userDoj);
                 if (f1.exists()) {
                     fos = new FileOutputStream(f1, true);
                     oos = new AppendObjectOutputStream(fos);
@@ -92,7 +92,7 @@ public class Database {
         else if (userType == "Affiliate Marketer") {
             try {
                 f1 = new File("AffiliateMarketerUser.bin");
-                AffiliateMarketer newUser = new AffiliateMarketer(userType, userId, userName, gender, password, userDob, userDoj);
+                AffiliateMarketer newUser = new AffiliateMarketer(userType, userName, gender, password, userDob, userDoj);
                 if (f1.exists()) {
                     fos = new FileOutputStream(f1, true);
                     oos = new AppendObjectOutputStream(fos);
@@ -124,7 +124,7 @@ public class Database {
         else if (userType == "Rider") {
             try {
                 f1 = new File("RiderUser.bin");
-                Rider newUser = new Rider(userType, userId, userName, gender, password, userDob, userDoj);
+                Rider newUser = new Rider(userType, userName, gender, password, userDob, userDoj);
                 if (f1.exists()) {
                     fos = new FileOutputStream(f1, true);
                     oos = new AppendObjectOutputStream(fos);
@@ -156,7 +156,7 @@ public class Database {
         else if (userType == "Account Officer") {
             try {
                 f1 = new File("AccountOfficerUser.bin");
-                AccountOfficer newUser = new AccountOfficer(userType, userId, userName, gender, password, userDob, userDoj);
+                AccountOfficer newUser = new AccountOfficer(userType, userName, gender, password, userDob, userDoj);
                 if (f1.exists()) {
                     fos = new FileOutputStream(f1, true);
                     oos = new AppendObjectOutputStream(fos);
@@ -188,7 +188,7 @@ public class Database {
         else if (userType == "Vendor") {
             try {
                 f1 = new File("VendorUser.bin");
-                Vendor newUser = new Vendor(userType, userId, userName, gender, password, userDob, userDoj);
+                Vendor newUser = new Vendor(userType, userName, gender, password, userDob, userDoj);
                 if (f1.exists()) {
                     fos = new FileOutputStream(f1, true);
                     oos = new AppendObjectOutputStream(fos);
@@ -220,7 +220,7 @@ public class Database {
         else if (userType == "CEO") {
             try {
                 f1 = new File("CEOUser.bin");
-                CEO newUser = new CEO(userType, userId, userName, gender, password, userDob, userDoj);
+                CEO newUser = new CEO(userType, userName, gender, password, userDob, userDoj);
                 if (f1.exists()) {
                     fos = new FileOutputStream(f1, true);
                     oos = new AppendObjectOutputStream(fos);
@@ -252,7 +252,7 @@ public class Database {
         else if (userType == "CCE") {
             try {
                 f1 = new File("CCEUser.bin");
-                CCE newUser = new CCE(userType, userId, userName, gender, password, userDob, userDoj);
+                CCE newUser = new CCE(userType, userName, gender, password, userDob, userDoj);
                 if (f1.exists()) {
                     fos = new FileOutputStream(f1, true);
                     oos = new AppendObjectOutputStream(fos);

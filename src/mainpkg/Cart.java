@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import static mainpkg.Database.anAlert;
@@ -16,7 +17,7 @@ import static mainpkg.Database.anAlert;
  * @author Jasper
  */
 
-public class Cart {
+public class Cart{
     
     public static boolean addProduct(Product newProduct) {
         File cartFile = new File("Cart.bin");
@@ -29,20 +30,17 @@ public class Cart {
             if(cartFile.exists()) {
                 tempCartItemsList = Cart.getCart();
                 for(Product item: tempCartItemsList) {
-                    if(item.name == newProduct.name) {
-                        flag = false;
+                    if(item.name.equals(newProduct.name)) {
                         item.quantity += newProduct.quantity;
                         item.price += newProduct.price * item.quantity;
                         return true;
                     }
                 }
-                if(flag){
-                    fos = new FileOutputStream(cartFile, true);
-                    oos = new AppendObjectOutputStream(fos);
-                    oos.writeObject(newProduct);
-                    oos.close();
-                    return true;
-                }
+                fos = new FileOutputStream(cartFile, true);
+                oos = new AppendObjectOutputStream(fos);
+                oos.writeObject(newProduct);
+                oos.close();
+                return true;
             }
             else {
                 fos = new FileOutputStream(cartFile);
@@ -100,6 +98,14 @@ public class Cart {
             }
             return cartItemsList;
         }
+    }
+    
+    public static ArrayList<Product> getCartArrayList() {
+        ArrayList<Product> cartItemsArrayList = new ArrayList();
+        for (Product item : Cart.getCart()) {
+            cartItemsArrayList.add(item);
+        }
+        return cartItemsArrayList;
     }
     
     public static void deleteCart() {

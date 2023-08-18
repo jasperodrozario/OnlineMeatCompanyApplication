@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -12,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -34,9 +34,8 @@ public class CheckoutSceneController implements Initializable {
     @FXML
     private TextField totalPriceTextField;
     
-    ObservableList<Product> cartItemsList = FXCollections.observableArrayList(Cart.getCart());
+    ObservableList<Product> cartItemsList = FXCollections.observableArrayList();
     Alert anAlert = new Alert(Alert.AlertType.INFORMATION);
-    Customer loggedUserInst;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -46,14 +45,14 @@ public class CheckoutSceneController implements Initializable {
         priceCol.setCellValueFactory(new PropertyValueFactory<Product, Float>("price"));
         
         cartItemsList = Cart.getCart();
-        cartItemListTableView.setItems(cartItemsList);
-    }    
+        for(Product cartItem: cartItemsList) {
+            cartItemListTableView.getItems().add(cartItem);
+        }
+    }
 
     @FXML
-    private void confirmOrderBtnOnClick(ActionEvent event) {
-        
-        if(loggedUserInst.confirmOrder()) {
-            System.out.println(Order.getLastOrderInstance().orderId);
+    private void confirmOrderBtnOnClick(MouseEvent event) {
+        if(LoggedUserInstance.custInst.confirmOrder()) {
             anAlert.setContentText("Order Placed Successfully!\nThank you for shopping with Bengal Meat.");
             anAlert.show();
             Cart.deleteCart();

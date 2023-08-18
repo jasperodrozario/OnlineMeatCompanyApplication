@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="447.0" prefWidth="666.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.ViewBinFileContentSceneController">
+<AnchorPane id="AnchorPane" prefHeight="519.0" prefWidth="666.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.ViewBinFileContentSceneController">
    <children>
       <TextArea fx:id="displayTextArea" layoutX="16.0" layoutY="14.0" prefHeight="279.0" prefWidth="634.0" />
       <Button layoutX="16.0" layoutY="322.0" mnemonicParsing="false" onMouseClicked="#openCustBinFileBtnOnClick" prefHeight="41.0" prefWidth="192.0" text="Open a CustomerUser.bin file" />
@@ -13,5 +13,6 @@
       <Button layoutX="215.0" layoutY="378.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="213.0" text="Open VendorUser.bin" />
       <Button layoutX="435.0" layoutY="322.0" mnemonicParsing="false" onAction="#openCartbtnOnClick" prefHeight="41.0" prefWidth="213.0" text="Open Cart.bin file" />
       <Button layoutX="435.0" layoutY="378.0" mnemonicParsing="false" onAction="#openPPLbtnOnClick" prefHeight="41.0" prefWidth="213.0" text="Open ProductPurchaseLog.bin file" />
+      <Button layoutX="16.0" layoutY="434.0" mnemonicParsing="false" onAction="#openOrderbtnOnClick" prefHeight="41.0" prefWidth="192.0" text="Open Order.bin file" />
    </children>
 </AnchorPane>

@@ -56,12 +56,56 @@ public class RegisterUserSceneController implements Initializable {
                 dojDatePicker.setDisable(true);
                 salaryTextField.setDisable(true);
                 addressTextField.setDisable(false);
+                newUserIdTextField.setText(Integer.toString(Customer.generateUniqueUserId()));
             }
-            else {
+            else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
                 dobDatePicker.setDisable(false);
                 dojDatePicker.setDisable(false);
                 salaryTextField.setDisable(false);
                 addressTextField.setDisable(true);
+                newUserIdTextField.setText(Integer.toString(RegulatoryOfficer.generateUniqueUserId()));
+            }
+            else if(userTypeComboBox.getValue().equals("Affiliate Marketer")) {
+                dobDatePicker.setDisable(false);
+                dojDatePicker.setDisable(false);
+                salaryTextField.setDisable(false);
+                addressTextField.setDisable(true);
+                newUserIdTextField.setText(Integer.toString(AffiliateMarketer.generateUniqueUserId()));
+            }
+            else if(userTypeComboBox.getValue().equals("Rider")) {
+                dobDatePicker.setDisable(false);
+                dojDatePicker.setDisable(false);
+                salaryTextField.setDisable(false);
+                addressTextField.setDisable(true);
+                newUserIdTextField.setText(Integer.toString(Rider.generateUniqueUserId()));
+            }
+            else if(userTypeComboBox.getValue().equals("Account Officer")) {
+                dobDatePicker.setDisable(false);
+                dojDatePicker.setDisable(false);
+                salaryTextField.setDisable(false);
+                addressTextField.setDisable(true);
+                newUserIdTextField.setText(Integer.toString(AccountOfficer.generateUniqueUserId()));
+            }
+            else if(userTypeComboBox.getValue().equals("Vendor")) {
+                dobDatePicker.setDisable(false);
+                dojDatePicker.setDisable(false);
+                salaryTextField.setDisable(false);
+                addressTextField.setDisable(true);
+                newUserIdTextField.setText(Integer.toString(Vendor.generateUniqueUserId()));
+            }
+            else if(userTypeComboBox.getValue().equals("CEO")) {
+                dobDatePicker.setDisable(false);
+                dojDatePicker.setDisable(false);
+                salaryTextField.setDisable(false);
+                addressTextField.setDisable(true);
+                newUserIdTextField.setText(Integer.toString(CEO.generateUniqueUserId()));
+            }
+            else if(userTypeComboBox.getValue().equals("CCE")) {
+                dobDatePicker.setDisable(false);
+                dojDatePicker.setDisable(false);
+                salaryTextField.setDisable(false);
+                addressTextField.setDisable(true);
+                newUserIdTextField.setText(Integer.toString(CCE.generateUniqueUserId()));
             }
         });
     }
@@ -75,8 +119,16 @@ public class RegisterUserSceneController implements Initializable {
         String address = addressTextField.getText();
         LocalDate dob = dobDatePicker.getValue();
         LocalDate doj = dojDatePicker.getValue();
-
-        addUserStatus = Database.addUser(userType, userId, name, true, password, dob, doj, address);
+        
+        addUserStatus = Database.addUser(userType, name, true, password, dob, doj, address);
+        
+        newUserIdTextField.setText("");
+        nameTextField.setText("");
+        passwordTextField.setText("");
+        salaryTextField.setText("");
+        addressTextField.setText("");
+        dobDatePicker.setValue(null);
+        dojDatePicker.setValue(null);
         
         if(addUserStatus) {
             anAlert.setContentText("User Added Successfully!");

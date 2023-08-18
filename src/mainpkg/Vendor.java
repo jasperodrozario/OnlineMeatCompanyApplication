@@ -1,6 +1,13 @@
 package mainpkg;
 
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.time.LocalDate;
+import static mainpkg.Database.anAlert;
 
 /**
  *
@@ -9,9 +16,9 @@ import java.time.LocalDate;
 
 public class Vendor extends Employee {
     
-    public Vendor(String userType, int userId, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
+    public Vendor(String userType, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
         this.userType = userType;
-        this.userId = userId;
+        this.userId = Vendor.generateUniqueUserId();
         this.userName = userName;
         this.password = password;
         this.userDob = userDob;
@@ -19,6 +26,61 @@ public class Vendor extends Employee {
         this.userDoj = userDoj;
         
     };
+    
+    public static int generateUniqueUserId() {
+        int newId;
+        
+        if(Vendor.getLastUserInstance() != null) {
+            newId = Vendor.getLastUserInstance().userId + 1;
+            return newId;
+        }
+        else {
+            return newId = 10000;
+        }
+    }
+    
+    public static Vendor getLastUserInstance() {
+        Vendor lastInst = null;
+        File userFile = new File("VendorUser.bin");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        if(userFile.exists()) {
+            try {            
+                fis = new FileInputStream(userFile);
+                ois = new ObjectInputStream(fis);
+                while(true) {
+                    try {
+                        lastInst = (Vendor)ois.readObject();
+                    }
+                    catch (EOFException eof) {
+                        // End of file reached
+                        return lastInst;
+                    }
+                }
+            }
+            catch(FileNotFoundException e) {
+                anAlert.setContentText("'VendorUser.bin' file not found!");
+                anAlert.show();
+            }
+            catch(ClassNotFoundException e) {
+                anAlert.setContentText("Class not found in 'VendorUser.bin' file!");
+                anAlert.show();
+            }
+            catch(IOException e) {
+            }
+            finally {
+                try {
+                    if(ois != null) ois.close();
+                }
+                catch(IOException e) {
+                }
+                return lastInst;
+            }
+        }
+        else {
+            return lastInst;
+        }
+    }
     
     @Override
     public boolean applyForLeave() {

@@ -45,7 +45,6 @@ public class ViewBinFileContentSceneController implements Initializable {
             while(true) {
                 tempObj = (Customer)ois.readObject();
                 tempStr += "Customer ID: " + tempObj.userId + ", Name: " + tempObj.userName + ", Gender: " + tempObj.gender + ", Password: " + tempObj.password + "\n";
-                displayTextArea.setText(tempStr);
             }
         }
         catch(FileNotFoundException e) {
@@ -63,6 +62,7 @@ public class ViewBinFileContentSceneController implements Initializable {
             }
             catch(IOException e) {
             }
+            displayTextArea.setText(tempStr);
         }
     }
 
@@ -79,7 +79,6 @@ public class ViewBinFileContentSceneController implements Initializable {
             while(true) {
                 tempObj = (RegulatoryOfficer)ois.readObject();
                 tempStr += "Regulatory Officer ID: " + tempObj.userId + ", Name: " + tempObj.userName + ", Gender: " + tempObj.gender + ", Password: " + tempObj.password + "\n";
-                displayTextArea.setText(tempStr);
             }
         }
         catch(FileNotFoundException e) {
@@ -97,6 +96,7 @@ public class ViewBinFileContentSceneController implements Initializable {
             }
             catch(IOException e) {
             }
+            displayTextArea.setText(tempStr);
         }
     }
 
@@ -113,7 +113,6 @@ public class ViewBinFileContentSceneController implements Initializable {
             while(true) {
                 tempObj = (AffiliateMarketer)ois.readObject();
                 tempStr += "AffiliateMarketer ID: " + tempObj.userId + ", Name: " + tempObj.userName + ", Gender: " + tempObj.gender + ", Password: " + tempObj.password + "\n";
-                displayTextArea.setText(tempStr);
             }
         }
         catch(FileNotFoundException e) {
@@ -132,6 +131,7 @@ public class ViewBinFileContentSceneController implements Initializable {
             }
             catch(IOException e) {
             }
+            displayTextArea.setText(tempStr);
         }
     }
 
@@ -148,7 +148,6 @@ public class ViewBinFileContentSceneController implements Initializable {
             while(true) {
                 tempObj = (Product)ois.readObject();
                 tempStr += tempObj.getProductInfoStr() + "\n";
-                displayTextArea.setText(tempStr);
             }
         }
         catch(FileNotFoundException e) {
@@ -167,6 +166,7 @@ public class ViewBinFileContentSceneController implements Initializable {
             }
             catch(IOException e) {
             }
+            displayTextArea.setText(tempStr);
         }
     }
 
@@ -183,7 +183,6 @@ public class ViewBinFileContentSceneController implements Initializable {
             while(true) {
                 tempObj = (Product)ois.readObject();
                 tempStr += tempObj.getProductInfoStr() + "\n";
-                displayTextArea.setText(tempStr);
             }
         }
         catch(FileNotFoundException e) {
@@ -201,6 +200,41 @@ public class ViewBinFileContentSceneController implements Initializable {
             }
             catch(IOException e) {
             }
+            displayTextArea.setText(tempStr);
+        }
+    }
+
+    @FXML
+    private void openOrderbtnOnClick(ActionEvent event) {
+        Order tempObj;
+        File fileInst = new File("Order.bin");
+        String tempStr = "";
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(fileInst);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempObj = (Order)ois.readObject();
+                tempStr += tempObj.getOrderInfoStr() + "\n";
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("File Not Found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+            displayTextArea.setText(tempStr);
         }
     }
 }
