@@ -1,6 +1,7 @@
 package mainpkg;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,7 +35,7 @@ public class CheckoutSceneController implements Initializable {
     @FXML
     private TextField totalPriceTextField;
     
-    ObservableList<Product> cartItemsList = FXCollections.observableArrayList();
+    ObservableList<Product> cartItemsList = FXCollections.observableArrayList(new Product("Beef bone in", 2, 10, 800f));
     Alert anAlert = new Alert(Alert.AlertType.INFORMATION);
     
     @Override
@@ -44,10 +45,11 @@ public class CheckoutSceneController implements Initializable {
         vatRateCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("vatRate"));
         priceCol.setCellValueFactory(new PropertyValueFactory<Product, Float>("price"));
         
-        cartItemsList = Cart.getCart();
-        for(Product cartItem: cartItemsList) {
-            cartItemListTableView.getItems().add(cartItem);
-        }
+//        cartItemsList = Cart.getCart();
+//        for(Product cartItem: cartItemsList) {
+//            cartItemListTableView.getItems().add(cartItem);
+//        }
+        cartItemListTableView.setItems(cartItemsList);
     }
 
     @FXML

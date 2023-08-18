@@ -52,7 +52,6 @@ public class Cart{
                 return true;
             }
             else {
-                System.out.println("cart er else");
                 fos = new FileOutputStream(cartFile);
                 oos = new ObjectOutputStream(fos);
                 oos.writeObject(newProduct);
