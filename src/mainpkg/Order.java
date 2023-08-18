@@ -11,7 +11,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import static mainpkg.Database.anAlert;
+import javafx.scene.control.Alert;
+
 
 /**
  *
@@ -24,6 +25,7 @@ public class Order implements Serializable{
     String customerName, customerAddress, riderName;
     ArrayList<Product> cartList;
     LocalDate orderDate;
+    static Alert errorAlert = new Alert(Alert.AlertType.ERROR);
     
     public Order(int customerId, String customerName, ArrayList<Product> cartList, String customerAddress) {
         this.customerId = customerId;
@@ -102,12 +104,12 @@ public class Order implements Serializable{
             }
         }
         catch(FileNotFoundException e) {
-            anAlert.setContentText("'Order.bin' file not found!");
-            anAlert.show();
+            errorAlert.setContentText("'Order.bin' file not found!");
+            errorAlert.show();
         }
         catch(ClassNotFoundException e) {
-            anAlert.setContentText("Class not found in 'Order.bin' file!");
-            anAlert.show();
+            errorAlert.setContentText("Class not found in 'Order.bin' file!");
+            errorAlert.show();
         }
         catch(IOException e) {
         }
@@ -141,12 +143,12 @@ public class Order implements Serializable{
                 }
             }
             catch(FileNotFoundException e) {
-                anAlert.setContentText("'Order.bin' file not found!");
-                anAlert.show();
+                errorAlert.setContentText("'Order.bin' file not found!");
+                errorAlert.show();
             }
             catch(ClassNotFoundException e) {
-                anAlert.setContentText("Class not found in 'Order.bin' file!");
-                anAlert.show();
+                errorAlert.setContentText("Class not found in 'Order.bin' file!");
+                errorAlert.show();
             }
             catch(IOException e) {
             }

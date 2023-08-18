@@ -8,10 +8,15 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleFloatProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
-import static mainpkg.Database.anAlert;
+import javafx.scene.control.Alert;
+
 
 /**
  *
@@ -21,11 +26,12 @@ public class Product implements Serializable{
     String name;
     int quantity, vatRate;
     float price;
+    static Alert errorAlert = new Alert(Alert.AlertType.ERROR);
     
     public Product(String name, int quantity, int vatRate, float price) {
         this.name = name;
         this.quantity = quantity;
-        this.price = price;
+        this.price = price*quantity;
         this.vatRate = vatRate;
     }
     
@@ -119,7 +125,7 @@ public class Product implements Serializable{
         }
     }
     
-    public static Product getProductInstance(String productName) {
+    public static Product getProductInstance(SimpleStringProperty productName) {
         Product tempInst = null;
         File userFile = new File("Cart.bin");
         FileInputStream fis = null;
@@ -129,18 +135,18 @@ public class Product implements Serializable{
             ois = new ObjectInputStream(fis);
             while(true) {
                 tempInst = (Product)ois.readObject();
-                if(tempInst.name == productName) {
+                if(tempInst.name.equals(productName)) {
                     return tempInst;
                 }
             }
         }
         catch(FileNotFoundException e) {
-            anAlert.setContentText("'Cart.bin' file not found!");
-            anAlert.show();
+            errorAlert.setContentText("'Cart.bin' file not found!");
+            errorAlert.show();
         }
         catch(ClassNotFoundException e) {
-            anAlert.setContentText("Class not found in 'Cart.bin' file!");
-            anAlert.show();
+            errorAlert.setContentText("Class not found in 'Cart.bin' file!");
+            errorAlert.show();
         }
         catch(IOException e) {
         }

@@ -8,9 +8,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import static mainpkg.Database.anAlert;
+import javafx.scene.control.Alert;
+
 
 /**
  *
@@ -19,30 +21,38 @@ import static mainpkg.Database.anAlert;
 
 public class Cart{
     
+    static Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+    
     public static boolean addProduct(Product newProduct) {
         File cartFile = new File("Cart.bin");
         ObservableList<Product> tempCartItemsList = FXCollections.observableArrayList();
         FileOutputStream fos = null;      
         ObjectOutputStream oos = null;
-
         boolean flag = true;
+        
         try {
             if(cartFile.exists()) {
                 tempCartItemsList = Cart.getCart();
+                fos = new FileOutputStream(cartFile);
+                oos = new ObjectOutputStream(fos);
                 for(Product item: tempCartItemsList) {
                     if(item.name.equals(newProduct.name)) {
+                        flag = false;
                         item.quantity += newProduct.quantity;
-                        item.price += newProduct.price * item.quantity;
-                        return true;
+                        item.price += newProduct.price;
                     }
                 }
-                fos = new FileOutputStream(cartFile, true);
-                oos = new AppendObjectOutputStream(fos);
-                oos.writeObject(newProduct);
+                if(flag) {
+                    tempCartItemsList.add(newProduct);
+                }
+                for(Product item: tempCartItemsList) {
+                    oos.writeObject(item);
+                }
                 oos.close();
                 return true;
             }
             else {
+                System.out.println("cart er else");
                 fos = new FileOutputStream(cartFile);
                 oos = new ObjectOutputStream(fos);
                 oos.writeObject(newProduct);
@@ -50,17 +60,14 @@ public class Cart{
                 return true;
             }
         }
-        catch (FileNotFoundException e) {
-           e.printStackTrace();
-        }
         catch (IOException e) {
-           e.printStackTrace();
+            return false;
         }
         finally {
             try {
-               if(oos != null) oos.close();
-            } 
-            catch (IOException e) {
+                oos.close();
+            }
+            catch(Exception e) {
             }
             return false;
         }
@@ -81,12 +88,12 @@ public class Cart{
             }
         }
         catch(FileNotFoundException e) {
-            anAlert.setContentText("'Cart.bin' file not found!");
-            anAlert.show();
+            errorAlert.setContentText("'Cart.bin' file not found!");
+            errorAlert.show();
         }
         catch(ClassNotFoundException e) {
-            anAlert.setContentText("Class not found in 'Cart.bin' file!");
-            anAlert.show();
+            errorAlert.setContentText("Class not found in 'Cart.bin' file!");
+            errorAlert.show();
         }
         catch(IOException e) {
         }
@@ -114,8 +121,8 @@ public class Cart{
             cartFile.delete();
         }
         else {
-            anAlert.setContentText("Cart file does not exist.");
-            anAlert.show();
+            errorAlert.setContentText("Cart file does not exist.");
+            errorAlert.show();
         }           
     }
 }
