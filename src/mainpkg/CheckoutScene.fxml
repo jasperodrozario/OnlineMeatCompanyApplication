@@ -16,7 +16,7 @@
          </font>
       </Label>
       <Button layoutX="254.0" layoutY="363.0" mnemonicParsing="false" onMouseClicked="#confirmOrderBtnOnClick" prefHeight="43.0" prefWidth="93.0" text="Confirm Order" />
-      <TableView fx:id="cartItemListTableView" layoutX="60.0" layoutY="76.0" prefHeight="224.0" prefWidth="486.0">
+      <TableView fx:id="cartItemListTableView" editable="true" layoutX="60.0" layoutY="76.0" prefHeight="224.0" prefWidth="486.0">
         <columns>
           <TableColumn fx:id="prodNameCol" prefWidth="140.0" text="Product Name" />
           <TableColumn fx:id="quantityCol" minWidth="0.0" prefWidth="113.0" text="Quantity" />

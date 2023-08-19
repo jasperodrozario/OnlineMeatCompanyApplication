@@ -25,14 +25,47 @@ import javafx.scene.control.Alert;
 public class Product implements Serializable{
     String name;
     int quantity, vatRate;
-    float price;
+    float price, orgPrice;
     static Alert errorAlert = new Alert(Alert.AlertType.ERROR);
     
     public Product(String name, int quantity, int vatRate, float price) {
         this.name = name;
         this.quantity = quantity;
-        this.price = price*quantity;
+        orgPrice = price;
+        this.price = orgPrice*quantity;
         this.vatRate = vatRate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int getVatRate() {
+        return vatRate;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setVatRate(int vatRate) {
+        this.vatRate = vatRate;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
     
     public String getProductInfoStr() {

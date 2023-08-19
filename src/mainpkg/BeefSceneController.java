@@ -108,7 +108,6 @@ public class BeefSceneController implements Initializable {
     @FXML
     private void checkoutBtnOnClick(ActionEvent event) {
         if(loggedCustInst.checkOut()) {
-//            System.out.println(Cart.getCart().get(0).name);
             newSceneLoader.loadScene("CheckoutScene.fxml");
         }
         else {
