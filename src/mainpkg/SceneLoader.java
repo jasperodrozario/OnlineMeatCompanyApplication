@@ -1,6 +1,7 @@
 package mainpkg;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -38,6 +39,14 @@ public class SceneLoader {
             System.out.println(e);
         }
         return null;
+    }
+    
+    public void switchScene(String fxmlFileName, Event event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(fxmlFileName));
+        Scene nextScene = new Scene(root);
+        Stage stg = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stg.setScene(nextScene);
+        stg.show();
     }
     
 }

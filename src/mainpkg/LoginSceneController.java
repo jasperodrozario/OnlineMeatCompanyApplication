@@ -56,11 +56,11 @@ public class LoginSceneController implements Initializable {
         else if(passwordTextField.getText().isEmpty()) {
             anAlert.setContentText("Enter a user ID and a password to login");
             anAlert.showAndWait();
-        } 
+        }
         else {
             if(userTypeComboBox.getValue().equals("Customer")) {
                 if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
-                    newSceneLoader.loadScene("CustomerDashboardScene.fxml");
+                    newSceneLoader.switchScene("CustomerDashboardScene.fxml", event);
                 }
                 else {
                     anAlert.setAlertType(Alert.AlertType.ERROR);
@@ -70,7 +70,7 @@ public class LoginSceneController implements Initializable {
             }
             else if(userTypeComboBox.getValue().equals("Rider")) {
                 if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
-                    newSceneLoader.loadScene("RiderDashboardScene.fxml");
+                    newSceneLoader.switchScene("RiderDashboardScene.fxml", event);
                 }
                 else {
                     anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
@@ -79,7 +79,7 @@ public class LoginSceneController implements Initializable {
             }
             else if(userTypeComboBox.getValue().equals("Vendor")) {
                 if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
-                    newSceneLoader.loadScene("VendorDashBoard.fxml");
+                    newSceneLoader.switchScene("VendorDashboardScene.fxml", event);
                 }
                 else {
                     anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
@@ -88,7 +88,7 @@ public class LoginSceneController implements Initializable {
             }
             else if(userTypeComboBox.getValue().equals("Affiliate Marketer")) {
                 if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
-                    newSceneLoader.loadScene("AffiliateMarketerDashboardScene.fxml");
+                    newSceneLoader.switchScene("AffiliateMarketerDashboardScene.fxml", event);
                 }
                 else {
                     anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
@@ -97,7 +97,7 @@ public class LoginSceneController implements Initializable {
             }
             else if(userTypeComboBox.getValue().equals("CEO")) {
                 if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
-                    newSceneLoader.loadScene("CEOdashboard.fxml");
+                    newSceneLoader.switchScene("CEOdashboardScene.fxml", event);
                 }
                 else {
                     anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
@@ -106,7 +106,7 @@ public class LoginSceneController implements Initializable {
             }
             else if(userTypeComboBox.getValue().equals("Account Officer")) {
                 if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
-                    newSceneLoader.loadScene("AccountOfficerDashBoard.fxml");
+                    newSceneLoader.switchScene("AccountOfficerDashboardScene.fxml", event);
                 }
                 else {
                     anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
@@ -115,7 +115,7 @@ public class LoginSceneController implements Initializable {
             }
             else if(userTypeComboBox.getValue().equals("Regulatory Officer")) {
                 if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
-                    newSceneLoader.loadScene("RegulatoryOfficerDashboardScene.fxml");
+                    newSceneLoader.switchScene("RegulatoryOfficerDashboardScene.fxml", event);
                 }
                 else {
                     anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
@@ -124,7 +124,7 @@ public class LoginSceneController implements Initializable {
             }
             else if(userTypeComboBox.getValue().equals("CCE")) {
                 if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
-                    newSceneLoader.loadScene("CCEDashboard.fxml");
+                    newSceneLoader.switchScene("CCEdashboardScene.fxml", event);
                 }
                 else {
                     anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
@@ -136,6 +136,7 @@ public class LoginSceneController implements Initializable {
 
     @FXML
     private void resetPassLabelOnClick(MouseEvent event) {
+        newSceneLoader.loadScene("ChangePasswordScene.fxml");
     }
     
     @FXML
@@ -151,23 +152,5 @@ public class LoginSceneController implements Initializable {
     private void switchToViewBinFileSceneOnClick(MouseEvent event) {
         newSceneLoader.loadScene("ViewBinFileContentScene.fxml");
     }
-
-    @FXML
-    private void accountOnClick(ActionEvent event) {
-        newSceneLoader.loadScene("AccountOfficerDashBoard.fxml");
-    }
-
-    private void customerBtnOnClick(MouseEvent event) {
-        newSceneLoader.loadScene("CustomerDashboardScene.fxml");
-    }
-
-    @FXML
-    private void vendorOnClick(ActionEvent event) {
-        newSceneLoader.loadScene("VendorDashBoard.fxml");
-    }
-
-    @FXML
-    private void openEmpListOnClick(ActionEvent event) {
-        newSceneLoader.loadScene("EmployeeList.fxml");
-    }
+    
 }

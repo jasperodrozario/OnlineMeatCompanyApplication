@@ -1,7 +1,6 @@
 package mainpkg;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -18,7 +17,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
-import javafx.util.converter.FloatStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 
 /**
@@ -30,7 +28,7 @@ import javafx.util.converter.IntegerStringConverter;
 public class CheckoutSceneController implements Initializable {
     
     @FXML
-    private TableView<ProductFXProperty> cartItemListTableView;
+    private TableView<Product> cartItemListTableView;
     @FXML
     private TableColumn<Product, String> prodNameCol;
     @FXML
@@ -42,31 +40,30 @@ public class CheckoutSceneController implements Initializable {
     @FXML
     private TextField totalPriceTextField;
     
-    ObservableList<ProductFXProperty> cartItemsList = FXCollections.observableArrayList();
+    ObservableList<Product> cartItemsList = FXCollections.observableArrayList();
     Alert anAlert = new Alert(Alert.AlertType.INFORMATION);
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         for(Product item: Cart.getCart()) {
-            ProductFXProperty tempProdFX = new ProductFXProperty(item.name, item.quantity, item.vatRate, item.orgPrice);
-            cartItemsList.add(tempProdFX);
+            Product tempProd = new Product(item.name, item.quantity, item.vatRate, item.orgPrice);
+            cartItemsList.add(tempProd);
         }
         cartItemListTableView.setItems(cartItemsList);
         
-        prodNameCol.setCellValueFactory(new PropertyValueFactory<ProductFXProperty, SimpleStringProperty>("name"));
+        prodNameCol.setCellValueFactory(new PropertyValueFactory<Product, String>("name"));
         
-        quantityCol.setCellValueFactory(new PropertyValueFactory<ProductFXProperty, SimpleIntegerProperty>("quantity"));
+        quantityCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("quantity"));
         quantityCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-        quantityCol.setOnEditCommit(new EventHandler<CellEditEvent<ProductFXProperty, SimpleIntegerProperty>>() {
+        quantityCol.setOnEditCommit(new EventHandler<CellEditEvent<Product, Integer>>() {
             @Override
-            public void handle(CellEditEvent<ProductFXProperty, Integer> event) {
-                ProductFXProperty prod = event.getRowValue();
+            public void handle(CellEditEvent<Product, Integer> event) {
+                Product prod = event.getRowValue();
                 prod.setQuantity(event.getNewValue());
                 prod.price = prod.orgPrice*prod.quantity;
                 Cart.deleteCart();
-                for(ProductFXProperty item: cartItemsList) {
-                    Product tempProd = new Product();
-                    Cart.addProduct(tempProd);
+                for(Product item: cartItemsList) {
+                    Cart.addProduct(item);
                 }
             }
         });
@@ -79,9 +76,13 @@ public class CheckoutSceneController implements Initializable {
     @FXML
     private void confirmOrderBtnOnClick(MouseEvent event) {
         if(LoggedUserInstance.custInst.confirmOrder()) {
+            for(Product item: cartItemsList) {
+                Product.addToProductPurchaseLogFile(item);
+            }
+            Cart.deleteCart();
             anAlert.setContentText("Order Placed Successfully!\nThank you for shopping with Bengal Meat.");
             anAlert.show();
-            Cart.deleteCart();
+
         }
         else{
             anAlert.setContentText("Oops! Something went wrong. Please, try again.");

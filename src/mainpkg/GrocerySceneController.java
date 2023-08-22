@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package mainpkg;
 
 import java.net.URL;
@@ -9,7 +5,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 
@@ -21,21 +16,13 @@ import javafx.scene.input.MouseEvent;
 public class GrocerySceneController implements Initializable {
 
     @FXML
-    private Button bbiAddToCartBtn;
+    private ComboBox<?> bmQuantityComboBox;
     @FXML
-    private ComboBox<?> bbiQuantityComboBox;
+    private ComboBox<?> mmQuantityComboBox;
     @FXML
-    private Button btcAddToCartBtn;
+    private ComboBox<?> cmQuantityComboBox;
     @FXML
-    private ComboBox<?> btcQuantityComboBox;
-    @FXML
-    private Button btsAddToCartBtn;
-    @FXML
-    private ComboBox<?> btsQuantityComboBox;
-    @FXML
-    private Button btbsAddToCartBtn;
-    @FXML
-    private ComboBox<?> btbsQuantityComboBox;
+    private ComboBox<?> fmQuantityComboBox;
 
     /**
      * Initializes the controller class.
@@ -63,6 +50,22 @@ public class GrocerySceneController implements Initializable {
 
     @FXML
     private void checkoutBtnOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void bmAddToCartBtnOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void mmAddToCartBtnOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void cmAddToCartBtnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void fmAddToCartBtnOnClick(ActionEvent event) {
     }
     
 }

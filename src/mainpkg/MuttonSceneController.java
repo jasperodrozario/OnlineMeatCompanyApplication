@@ -5,7 +5,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
 /**
@@ -15,18 +14,15 @@ import javafx.scene.control.ComboBox;
  */
 public class MuttonSceneController implements Initializable {
 
-    @FXML
-    private Button addToCartBtn;
-    @FXML
     private ComboBox<Integer> quantityBBIComboBox;
-    @FXML
-    private Button addToCartBtn2;
-    @FXML
     private ComboBox<Integer> quantityBBIComboBox2;
-    @FXML
-    private Button addToCartBtn21;
-    @FXML
     private ComboBox<Integer> quantityBBIComboBox21;
+    @FXML
+    private ComboBox<?> mbiQuantityComboBox;
+    @FXML
+    private ComboBox<?> msQuantityComboBox;
+    @FXML
+    private ComboBox<?> mblQuantityComboBox;
 
     /**
      * Initializes the controller class.
@@ -39,12 +35,21 @@ public class MuttonSceneController implements Initializable {
         quantityBBIComboBox21.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     }    
 
-    @FXML
-    private void BBIAddToCartOnClick(ActionEvent event) {
-    }
 
     @FXML
     private void checkoutBtnOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void mbiAddToCartBtnOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void msAddToCartBtnOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void mblAddToCartBtnOnClick(ActionEvent event) {
     }
     
 }
