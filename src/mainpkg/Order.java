@@ -25,6 +25,7 @@ public class Order implements Serializable{
     String customerName, customerAddress, riderName;
     ArrayList<Product> cartList;
     LocalDate orderDate;
+    boolean delivered = false;
     static Alert errorAlert = new Alert(Alert.AlertType.ERROR);
     
     public Order(int customerId, String customerName, ArrayList<Product> cartList, String customerAddress) {
@@ -123,6 +124,28 @@ public class Order implements Serializable{
         }
     }
  
+    public static Order getCustomerOrder(int customerId) {
+        Order tempInst = null;
+        File orderFile = new File("Order.bin");
+        try {
+            FileInputStream fis = new FileInputStream(orderFile);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (Order)ois.readObject();
+                if(!tempInst.delivered) {
+                    if(tempInst.customerId == customerId) {
+                        return tempInst;
+                    }
+                }
+            }
+        }
+        catch(Exception e) {
+        }
+        finally {
+            return tempInst;
+        }
+    }
+    
     public static Order getLastOrderInstance() {
         Order lastInst = null;
         File orderFile = new File("Order.bin");
