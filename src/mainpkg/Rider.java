@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import static mainpkg.Database.anAlert;
 
 /**
@@ -17,17 +16,14 @@ import static mainpkg.Database.anAlert;
 
 public class Rider extends Employee {
     
-    String TimeSlot;
-    ArrayList<Order> myOrder;
-    
     public Rider(String userType, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
         this.userType = userType;
-        this.userId = userId;
         this.userName = userName;
         this.password = password;
         this.userDob = userDob;
         this.gender = gender;
         this.userDoj = userDoj;
+        this.userId = Rider.generateUniqueUserId();
     };
     
     public static int generateUniqueUserId() {
@@ -86,7 +82,7 @@ public class Rider extends Employee {
     }
     
     public void acceptOrder(Order newOrder) {
-        myOrder.add(newOrder);
+        newOrder.associateRider(userId, userName);
     }
     
     @Override
@@ -104,4 +100,13 @@ public class Rider extends Employee {
     public boolean changePassword() {
         return true;
     }
+    
+    public boolean chatWithCustomer(int customerId, String msg) {
+        
+        if(LiveChat.liveChat(customerId, false, userId, true, msg)) return true;
+        else {
+            return false;
+        }
+    }
+    
 }

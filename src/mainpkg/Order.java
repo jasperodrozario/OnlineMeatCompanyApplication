@@ -11,6 +11,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
 
@@ -124,6 +126,28 @@ public class Order implements Serializable{
         }
     }
  
+    public static Order getRiderOrder(int riderId) {
+        Order tempInst = null;
+        File orderFile = new File("Order.bin");
+        try {
+            FileInputStream fis = new FileInputStream(orderFile);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (Order)ois.readObject();
+                if(!tempInst.delivered) {
+                    if(tempInst.riderId == riderId) {
+                        return tempInst;
+                    }
+                }
+            }
+        }
+        catch(Exception e) {
+        }
+        finally {
+            return tempInst;
+        }
+    }
+    
     public static Order getCustomerOrder(int customerId) {
         Order tempInst = null;
         File orderFile = new File("Order.bin");
@@ -186,6 +210,25 @@ public class Order implements Serializable{
         }
         else {
             return lastInst;
+        }
+    }
+    
+    public static ObservableList<Order> getAllOrders() {
+        ObservableList<Order> allOrders = FXCollections.observableArrayList();
+        Order tempInst = null;
+        File orderFile = new File("Order.bin");
+        try {
+            FileInputStream fis = new FileInputStream(orderFile);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (Order)ois.readObject();
+                allOrders.add(tempInst);
+            }
+        }
+        catch(Exception e) {
+        }
+        finally {
+            return allOrders;
         }
     }
     

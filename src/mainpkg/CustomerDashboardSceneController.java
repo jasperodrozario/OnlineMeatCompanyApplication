@@ -9,7 +9,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 
 /**
@@ -54,6 +53,16 @@ public class CustomerDashboardSceneController implements Initializable {
     @FXML
     private void groceryMenuItemOnClick(ActionEvent event) {
         customerBorderPane.setCenter(newSceneOpener.getSceneRoot("GroceryScene.fxml"));
+    }
+
+    @FXML
+    private void viewOrderMIOnClick(ActionEvent event) {
+        customerBorderPane.setCenter(newSceneOpener.getSceneRoot("TrackOrderScene.fxml"));
+    }
+
+    @FXML
+    private void orderHistMIOnClick(ActionEvent event) {
+        customerBorderPane.setCenter(newSceneOpener.getSceneRoot("ViewOrderHistoryScene.fxml"));
     }
     
 }

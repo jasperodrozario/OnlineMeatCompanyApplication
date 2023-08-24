@@ -27,6 +27,16 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#groceryMenuItemOnClick" text="Grocery Items" />
                </items></Menu>
+            <Menu mnemonicParsing="false" text="Track Order">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#viewOrderMIOnClick" text="View Orders to be Delivered" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Order History">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#orderHistMIOnClick" text="View Order History" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
    </top>

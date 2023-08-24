@@ -113,9 +113,8 @@ public class Customer extends User{
         return Order.addOrder(newOrder);
     }
     
-    public boolean chatWithRider(String msg) {
-        Order tempInst = Order.getCustomerOrder(this.userId);
-        if(LiveChat.liveChat(userId, true, tempInst.riderId, false, msg)) return true;
+    public boolean chatWithRider(int riderId, String msg) {
+        if(LiveChat.liveChat(userId, true, riderId, false, msg)) return true;
         else {
             return false;
         }
