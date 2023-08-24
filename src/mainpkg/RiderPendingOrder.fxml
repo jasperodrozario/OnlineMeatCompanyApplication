@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="766.0" prefWidth="1071.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <Label layoutX="412.0" layoutY="24.0" prefHeight="32.0" prefWidth="248.0" text="Rider-Pending order">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TableView layoutX="163.0" layoutY="104.0" prefHeight="511.0" prefWidth="746.0">
+        <columns>
+          <TableColumn fx:id="orderIDColumn" prefWidth="75.0" text="Order ID" />
+          <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date " />
+            <TableColumn fx:id="customerNameColumn" prefWidth="148.0" text="Customer Name" />
+            <TableColumn fx:id="addressColumn" minWidth="2.0" prefWidth="95.0" text="Address" />
+            <TableColumn fx:id="statusColumn" prefWidth="82.0" text="Status" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

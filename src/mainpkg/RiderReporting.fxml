@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="762.0" prefWidth="1133.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.RiderReportingController">
+   <children>
+      <Label layoutX="489.0" layoutY="31.0" text="Rider Reporting">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TableView layoutX="134.0" layoutY="93.0" prefHeight="495.0" prefWidth="866.0">
+        <columns>
+          <TableColumn fx:id="orderIDColumn" prefWidth="75.0" text="Order ID" />
+          <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date " />
+            <TableColumn fx:id="customerNameColumn" prefWidth="154.0" text="Customer Name" />
+            <TableColumn fx:id="locationColumn" prefWidth="75.0" text="Location" />
+            <TableColumn fx:id="riderNameColumn" prefWidth="119.0" text="Rider Name" />
+            <TableColumn fx:id="phoneNumberColumn" prefWidth="140.0" text="Phone Number" />
+            <TableColumn fx:id="statusColumn" prefWidth="75.0" text="Status" />
+            <TableColumn fx:id="commentColumn" prefWidth="152.0" text="Comment" />
+        </columns>
+      </TableView>
+      <Button layoutX="134.0" layoutY="631.0" mnemonicParsing="false" text="Sent to CCE" />
+   </children>
+</AnchorPane>

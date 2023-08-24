@@ -24,7 +24,7 @@
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="677.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="65.0" layoutY="357.0" text="beef meat 1KG">
+      <Label layoutX="90.0" layoutY="348.0" text="beef meat 1KG">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -50,5 +50,10 @@
          </image>
       </ImageView>
       <Label layoutX="940.0" layoutY="357.0" text="Chicken meat 1KG" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="64.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/62a57b06717388e271c262e8.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
