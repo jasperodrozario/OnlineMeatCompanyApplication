@@ -24,7 +24,7 @@ public class ChangePasswordSceneController implements Initializable {
     @FXML
     private TextField oldPasswordTextField;
     @FXML
-    private ComboBox<?> userTypeComboBox;
+    private ComboBox<String> userTypeComboBox;
     @FXML
     private TextField newPasswordTextField;
     @FXML
@@ -33,17 +33,14 @@ public class ChangePasswordSceneController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
     }    
 
     @FXML
-    private boolean chngPassBtnOnClick(MouseEvent event) {
-        return true;
-    }
-    
-    private void getUserInstance(User inst) {
+    private void chngPassBtnOnClick(MouseEvent event) {
         
     }
     

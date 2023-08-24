@@ -13,6 +13,7 @@ import static mainpkg.Database.anAlert;
  *
  * @author Jasper
  */
+
 public class CCE extends Employee{
     
     public CCE(String userType, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {

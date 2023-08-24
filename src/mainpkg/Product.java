@@ -8,10 +8,12 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
-import static mainpkg.Database.anAlert;
+import javafx.scene.control.Alert;
+
 
 /**
  *
@@ -20,13 +22,47 @@ import static mainpkg.Database.anAlert;
 public class Product implements Serializable{
     String name;
     int quantity, vatRate;
-    float price;
+    float price, orgPrice;
+    static Alert errorAlert = new Alert(Alert.AlertType.ERROR);
     
     public Product(String name, int quantity, int vatRate, float price) {
         this.name = name;
         this.quantity = quantity;
-        this.price = price;
+        orgPrice = price;
+        this.price = orgPrice*quantity;
         this.vatRate = vatRate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int getVatRate() {
+        return vatRate;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setVatRate(int vatRate) {
+        this.vatRate = vatRate;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
     
     public String getProductInfoStr() {
@@ -119,7 +155,7 @@ public class Product implements Serializable{
         }
     }
     
-    public static Product getProductInstance(String productName) {
+    public static Product getProductInstance(SimpleStringProperty productName) {
         Product tempInst = null;
         File userFile = new File("Cart.bin");
         FileInputStream fis = null;
@@ -129,18 +165,18 @@ public class Product implements Serializable{
             ois = new ObjectInputStream(fis);
             while(true) {
                 tempInst = (Product)ois.readObject();
-                if(tempInst.name == productName) {
+                if(tempInst.name.equals(productName)) {
                     return tempInst;
                 }
             }
         }
         catch(FileNotFoundException e) {
-            anAlert.setContentText("'Cart.bin' file not found!");
-            anAlert.show();
+            errorAlert.setContentText("'Cart.bin' file not found!");
+            errorAlert.show();
         }
         catch(ClassNotFoundException e) {
-            anAlert.setContentText("Class not found in 'Cart.bin' file!");
-            anAlert.show();
+            errorAlert.setContentText("Class not found in 'Cart.bin' file!");
+            errorAlert.show();
         }
         catch(IOException e) {
         }

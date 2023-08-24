@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.MuttonSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.MuttonSceneController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="220.0" layoutX="30.0" layoutY="90.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
          <effect>
@@ -27,12 +27,12 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="addToCartBtn" layoutX="140.0" layoutY="275.0" mnemonicParsing="false" onAction="#BBIAddToCartOnClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: yellow;" text="Add To Cart">
+      <Button layoutX="140.0" layoutY="275.0" mnemonicParsing="false" onAction="#mbiAddToCartBtnOnClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: FECB00;" text="Add To Cart">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <ComboBox fx:id="quantityBBIComboBox" layoutX="40.0" layoutY="276.0" prefHeight="25.0" prefWidth="92.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
+      <ComboBox fx:id="mbiQuantityComboBox" layoutX="41.0" layoutY="275.0" prefHeight="25.0" prefWidth="92.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
       <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="30.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/BeefBoneIn.jpg" />
@@ -49,12 +49,12 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="addToCartBtn2" layoutX="381.0" layoutY="274.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: yellow;" text="Add To Cart">
+      <Button layoutX="381.0" layoutY="275.0" mnemonicParsing="false" onAction="#msAddToCartBtnOnClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: FECB00;" text="Add To Cart">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <ComboBox fx:id="quantityBBIComboBox2" layoutX="280.0" layoutY="275.0" prefHeight="25.0" prefWidth="92.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
+      <ComboBox fx:id="msQuantityComboBox" layoutX="280.0" layoutY="275.0" prefHeight="25.0" prefWidth="92.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="220.0" layoutX="508.0" layoutY="89.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
          <effect>
             <DropShadow />
@@ -65,12 +65,12 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="addToCartBtn21" layoutX="619.0" layoutY="261.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: yellow;" text="Add To Cart">
+      <Button layoutX="620.0" layoutY="275.0" mnemonicParsing="false" onAction="#mblAddToCartBtnOnClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: FECB00;" text="Add To Cart">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <ComboBox fx:id="quantityBBIComboBox21" layoutX="508.0" layoutY="271.0" prefHeight="31.0" prefWidth="115.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
+      <ComboBox fx:id="mblQuantityComboBox" layoutX="519.0" layoutY="272.0" prefHeight="31.0" prefWidth="92.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
       <Label alignment="CENTER" layoutX="41.0" layoutY="253.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 1080" textAlignment="CENTER">
          <font>
             <Font size="11.0" />
@@ -96,6 +96,6 @@
             <Image url="@../img/mutton2.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="323.0" layoutY="497.0" mnemonicParsing="false" onAction="#checkoutBtnOnClick" text="Checkout" />
+      <Button layoutX="290.0" layoutY="485.0" mnemonicParsing="false" onAction="#checkoutBtnOnClick" prefHeight="40.0" prefWidth="149.0" text="Checkout" />
    </children>
 </AnchorPane>

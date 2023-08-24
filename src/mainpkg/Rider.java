@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import static mainpkg.Database.anAlert;
 
 /**
@@ -17,6 +18,7 @@ import static mainpkg.Database.anAlert;
 public class Rider extends Employee {
     
     String TimeSlot;
+    ArrayList<Order> myOrder;
     
     public Rider(String userType, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
         this.userType = userType;
@@ -81,6 +83,10 @@ public class Rider extends Employee {
         else {
             return lastInst;
         }
+    }
+    
+    public void acceptOrder(Order newOrder) {
+        myOrder.add(newOrder);
     }
     
     @Override
