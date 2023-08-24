@@ -4,45 +4,57 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="779.0" prefWidth="1157.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
-   <children>
-      <Label layoutX="272.0" layoutY="200.0" prefHeight="142.0" prefWidth="562.0" text="Welcome to The raider dashboard in Bengal meat" />
-      <MenuBar layoutX="17.0" layoutY="15.0" prefHeight="35.0" prefWidth="1074.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="776.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Receiving Delivery">
+          <Menu mnemonicParsing="false" text="Receive Delivary">
             <items>
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Live Chat">
+          <Menu mnemonicParsing="false" text="Pending Orders">
             <items>
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Delivery Feedback">
+          <Menu mnemonicParsing="false" text="Documaintation">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Route Planning">
+            <Menu mnemonicParsing="false" text="Live chat">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="About" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Choose slot">
+            <Menu mnemonicParsing="false" text="Reporting">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="About" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Receive payment">
+            <Menu mnemonicParsing="false" text="Safe &amp; Sesurity">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Feedback">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
                </items>
             </Menu>
         </menus>
       </MenuBar>
-   </children>
-</AnchorPane>
+   </top>
+   <center>
+      <Label prefHeight="68.0" prefWidth="559.0" text="Hello,Rider! to the dashboard in Bengal meat" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </center>
+</BorderPane>

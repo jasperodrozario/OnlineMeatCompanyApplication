@@ -16,7 +16,7 @@
       </Label>
    </top>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView prefHeight="674.0" prefWidth="1233.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
           <TableColumn fx:id="productIdColumn" prefWidth="183.00003051757812" text="Product ID" />
