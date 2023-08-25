@@ -53,7 +53,6 @@ public class BeefSceneController implements Initializable {
     private void bbiAddToCartBtnOnClick(MouseEvent event) {
         if(bbiQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Beef Bone In", bbiQuantityComboBox.getValue(), 10, 800);
-            
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }

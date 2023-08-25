@@ -216,7 +216,7 @@ public class ViewBinFileContentSceneController implements Initializable {
             ois = new ObjectInputStream(fis);
             while(true) {
                 tempObj = (Order)ois.readObject();
-                tempStr += tempObj.getOrderInfoStr() + "\n";
+                tempStr += tempObj.toString() + "\n";
             }
         }
         catch(FileNotFoundException e) {

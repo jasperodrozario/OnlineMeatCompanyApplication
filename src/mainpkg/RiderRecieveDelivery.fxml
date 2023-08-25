@@ -4,17 +4,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="509.0" prefWidth="826.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.RiderRecieveDeliveryController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="484.0" prefWidth="826.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.RiderRecieveDeliveryController">
    <children>
       <Label layoutX="38.0" layoutY="30.0" text="Receive Order:">
          <font>
             <Font name="System Bold Italic" size="21.0" />
          </font>
       </Label>
-      <TableView fx:id="recieveOrderTV" layoutX="38.0" layoutY="77.0" prefHeight="366.0" prefWidth="750.0">
+      <TableView fx:id="recieveOrderTV" layoutX="38.0" layoutY="77.0" prefHeight="317.0" prefWidth="750.0">
          <columns>
             <TableColumn fx:id="dateCol" editable="false" prefWidth="85.0" text="Date" />
             <TableColumn fx:id="orderIdCol" editable="false" prefWidth="94.0" text="Order ID" />
@@ -25,5 +26,7 @@
          </columns>
       </TableView>
       <Button layoutX="701.0" layoutY="30.0" mnemonicParsing="false" onAction="#rtrnHomeBtnOnClick" prefHeight="31.0" prefWidth="87.0" text="Return Home" />
+      <Button layoutX="456.0" layoutY="421.0" mnemonicParsing="false" onAction="#acceptOrderBtnOnClick" prefHeight="31.0" prefWidth="87.0" text="Accept Order" />
+      <TextField fx:id="orderIdTextField" layoutX="283.0" layoutY="421.0" prefHeight="31.0" prefWidth="156.0" promptText="Type in Order ID of choice" />
    </children>
 </AnchorPane>

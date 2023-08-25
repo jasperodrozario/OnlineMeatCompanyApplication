@@ -82,8 +82,8 @@ public class Rider extends Employee {
         }
     }
     
-    public void acceptOrder(Order newOrder) {
-        newOrder.associateRider(userId, userName);
+    public boolean acceptOrder(int orderId) {
+        return Order.associateRider(orderId, userId, userName);
     }
     
     @Override

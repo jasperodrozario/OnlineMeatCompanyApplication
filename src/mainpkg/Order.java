@@ -21,11 +21,13 @@ import javafx.scene.control.Alert;
  */
 
 public class Order implements Serializable{
-    int orderId, customerId, riderId, totalPrice;
-    String customerName, customerAddress, phoneNumber, riderName;
+    int orderId, customerId, totalPrice;
+    int riderId;
+    String riderName;
+    String customerName, customerAddress, phoneNumber;
     ArrayList<Product> cartList;
     LocalDate orderDate;
-    boolean delivered = false;
+    Boolean delivered = false;
     static Alert errorAlert = new Alert(Alert.AlertType.ERROR);
     
     public Order(int customerId, String customerName, ArrayList<Product> cartList, String phoneNumber, String customerAddress) {
@@ -86,9 +88,29 @@ public class Order implements Serializable{
         }
     }
     
-    public void associateRider(int riderId, String riderName) {
-        this.riderId = riderId;
-        this.riderName = riderName;
+    public static boolean associateRider(int orderId, int riderId, String riderName) {
+        ObservableList<Order> tempOrderList = Order.getAllOrders();
+        boolean flag = false;
+        for(Order order: tempOrderList) {
+            System.out.println(order.toString());
+            if(order.orderId == orderId) {
+                order.setRiderId(riderId);
+                order.setRiderName(riderName);
+                flag = true;
+                break;
+            }
+        }
+        if(flag) {
+            Order.deleteAllOrders();
+            for(Order order: tempOrderList) {
+                System.out.println(order.toString());
+                Order.addOrder(order);
+            }
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     
     public static Order getOrderInstance(int orderId) {
@@ -241,11 +263,13 @@ public class Order implements Serializable{
     
     public static ObservableList<Order> getAllOrders() {
         ObservableList<Order> allOrders = FXCollections.observableArrayList();
+        ObjectInputStream ois = null;
+        FileInputStream fis = null;
         Order tempInst = null;
         File orderFile = new File("Order.bin");
         try {
-            FileInputStream fis = new FileInputStream(orderFile);
-            ObjectInputStream ois = new ObjectInputStream(fis);
+            fis = new FileInputStream(orderFile);
+            ois = new ObjectInputStream(fis);
             while(true) {
                 tempInst = (Order)ois.readObject();
                 allOrders.add(tempInst);
@@ -254,10 +278,24 @@ public class Order implements Serializable{
         catch(Exception e) {
         }
         finally {
+            try{
+                if(ois != null) {
+                    ois.close();
+                }
+            }
+            catch(IOException e) {  
+            }
             return allOrders;
         }
     }
 
+    private static void deleteAllOrders() {
+        File orderFile = new File("Order.bin");
+        if(orderFile.exists()) {
+            orderFile.delete();
+        }
+    }
+    
     public int getOrderId() {
         return orderId;
     }
@@ -306,13 +344,23 @@ public class Order implements Serializable{
         return errorAlert;
     }
     
-    
-    
     public String getOrderInfoStr() {
         String toStr = "OrderID: " + orderId + ", CustomerId: " + customerId + ", Customer Name: " + customerName + ", Order Date: " + orderDate + ", Customer Addresss: " + customerAddress;
         return toStr;
     }
 
+    public void setRiderId(int riderId) {
+        this.riderId = riderId;
+    }
+
+    public void setRiderName(String riderName) {
+        this.riderName = riderName;
+    }
+
+    public void setDelivered(Boolean delivered) {
+        this.delivered = delivered;
+    }
+    
     @Override
     public String toString() {
         return "Order{" + "orderId = " + orderId + ", customerId = " + customerId + ", riderId = " + riderId + ", totalPrice = " + totalPrice + ", customerName = " + customerName + ", customerAddress = " + customerAddress + ", phoneNumber = " + phoneNumber + ", riderName = " + riderName + ", cartList = " + cartList + ", orderDate = " + orderDate + ", delivered = " + delivered + '}';
