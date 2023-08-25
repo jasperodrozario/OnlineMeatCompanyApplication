@@ -10,7 +10,7 @@
       <Button layoutX="16.0" layoutY="322.0" mnemonicParsing="false" onMouseClicked="#openCustBinFileBtnOnClick" prefHeight="41.0" prefWidth="192.0" text="Open a CustomerUser.bin file" />
       <Button layoutX="215.0" layoutY="322.0" mnemonicParsing="false" onMouseClicked="#openRegOffBinFileBtnOnClick" prefHeight="41.0" prefWidth="213.0" text="Open a RegulatoryOfficerUser.bin file" />
       <Button layoutX="16.0" layoutY="378.0" mnemonicParsing="false" onMouseClicked="#openAffMrkBinFileBtnOnClick" prefHeight="41.0" prefWidth="192.0" text="Open a AffiliateMarketerUser.bin file" />
-      <Button layoutX="215.0" layoutY="378.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="213.0" text="Open VendorUser.bin" />
+      <Button layoutX="215.0" layoutY="378.0" mnemonicParsing="false" onAction="#opeVendorbinOnClick" prefHeight="41.0" prefWidth="213.0" text="Open VendorUser.bin" />
       <Button layoutX="435.0" layoutY="322.0" mnemonicParsing="false" onAction="#openCartbtnOnClick" prefHeight="41.0" prefWidth="213.0" text="Open Cart.bin file" />
       <Button layoutX="435.0" layoutY="378.0" mnemonicParsing="false" onAction="#openPPLbtnOnClick" prefHeight="41.0" prefWidth="213.0" text="Open ProductPurchaseLog.bin file" />
       <Button layoutX="16.0" layoutY="434.0" mnemonicParsing="false" onAction="#openOrderbtnOnClick" prefHeight="41.0" prefWidth="192.0" text="Open Order.bin file" />

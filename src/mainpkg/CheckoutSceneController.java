@@ -1,5 +1,6 @@
 package mainpkg;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -36,10 +37,14 @@ public class CheckoutSceneController implements Initializable {
     @FXML
     private TableColumn<Product, Float> priceCol;
     @FXML
+    private TableColumn<Product, Float> pricePerUnitCol;
+    @FXML
     private TextField totalPriceTextField;
     
     ObservableList<Product> cartItemsList = FXCollections.observableArrayList();
     Alert anAlert = new Alert(Alert.AlertType.INFORMATION);
+    Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -58,6 +63,7 @@ public class CheckoutSceneController implements Initializable {
                 }
             }
         });
+        pricePerUnitCol.setCellValueFactory(new PropertyValueFactory<Product, Float>("orgPrice"));
         vatRateCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("vatRate"));
         priceCol.setCellValueFactory(new PropertyValueFactory<Product, Float>("price"));
         
@@ -71,18 +77,27 @@ public class CheckoutSceneController implements Initializable {
     }
 
     @FXML
-    private void confirmOrderBtnOnClick(MouseEvent event) {
-        if(LoggedUserInstance.custInst.confirmOrder()) {
-            for(Product item: cartItemsList) {
-                Product.addToProductPurchaseLogFile(item);
-            }
-            Cart.deleteCart();
-            anAlert.setContentText("Order Placed Successfully!\nThank you for shopping with Bengal Meat.");
-            anAlert.show();
+    private void confirmOrderBtnOnClick(MouseEvent event) throws IOException {
+        if(Cart.getCart().isEmpty()) {
+            errorAlert.setContentText("Your cart is empty. Add item(s) to the cart to checkout.");
+            errorAlert.show();
         }
-        else{
-            anAlert.setContentText("Oops! Something went wrong. Please, try again.");
-            anAlert.show();
+        else {
+            if(LoggedUserInstance.custInst.confirmOrder()) {
+                for(Product item: cartItemsList) {
+                    Product.addToProductPurchaseLogFile(item);
+                }
+                Cart.deleteCart();
+                totalPriceTextField.setText("");
+                cartItemsList.clear();
+                cartItemListTableView.setItems(cartItemsList);
+                anAlert.setContentText("Order Placed Successfully!\nThank you for shopping with Bengal Meat.");
+                anAlert.show();
+            }
+            else{
+                anAlert.setContentText("Something went wrong. Please, try again.");
+                anAlert.show();
+            }
         }
     }
     

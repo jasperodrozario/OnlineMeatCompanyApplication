@@ -57,7 +57,7 @@ public class GrocerySceneController implements Initializable {
     @FXML
     private void bmAddToCartBtnOnClick(ActionEvent event) {
         if(bmQuantityComboBox.getValue() != null) {
-            loggedCustInst.addToCart("Beef Mix", bmQuantityComboBox.getValue(), 5, 395);
+            loggedCustInst.addToCart("Beef Mix", bmQuantityComboBox.getValue(), 3, 80);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -70,7 +70,7 @@ public class GrocerySceneController implements Initializable {
     @FXML
     private void mmAddToCartBtnOnClick(ActionEvent event) {
         if(mmQuantityComboBox.getValue() != null) {
-            loggedCustInst.addToCart("Mutton Mix", mmQuantityComboBox.getValue(), 5, 395);
+            loggedCustInst.addToCart("Mutton Mix", mmQuantityComboBox.getValue(), 3, 100);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -83,7 +83,7 @@ public class GrocerySceneController implements Initializable {
     @FXML
     private void cmAddToCartBtnClick(ActionEvent event) {
         if(cmQuantityComboBox.getValue() != null) {
-            loggedCustInst.addToCart("Chicken Mix", cmQuantityComboBox.getValue(), 5, 395);
+            loggedCustInst.addToCart("Chicken Mix", cmQuantityComboBox.getValue(), 5, 63);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -96,7 +96,7 @@ public class GrocerySceneController implements Initializable {
     @FXML
     private void fmAddToCartBtnOnClick(ActionEvent event) {
         if(fmQuantityComboBox.getValue() != null) {
-            loggedCustInst.addToCart("Fish Mix", fmQuantityComboBox.getValue(), 5, 395);
+            loggedCustInst.addToCart("Fish Mix", fmQuantityComboBox.getValue(), 5, 70);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }

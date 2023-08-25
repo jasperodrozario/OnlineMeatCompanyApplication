@@ -92,8 +92,6 @@ public class Cart{
             }
         }
         catch(FileNotFoundException e) {
-            errorAlert.setContentText("'Cart.bin' file not found!");
-            errorAlert.show();
         }
         catch(ClassNotFoundException e) {
             errorAlert.setContentText("Class not found in 'Cart.bin' file!");

@@ -21,13 +21,11 @@ import javafx.scene.control.Alert;
  */
 
 public class Order implements Serializable{
-    int orderId, customerId, totalPrice;
-    int riderId;
-    String riderName;
-    String customerName, customerAddress, phoneNumber;
-    ArrayList<Product> cartList;
-    LocalDate orderDate;
-    Boolean delivered = false;
+    int orderId, customerId, totalPrice, riderId;
+    String riderName, customerName, customerAddress, phoneNumber, deliveryStatus;
+    static ArrayList<Product> cartList;
+    static LocalDate orderDate;
+    Boolean delivered;
     static Alert errorAlert = new Alert(Alert.AlertType.ERROR);
     
     public Order(int customerId, String customerName, ArrayList<Product> cartList, String phoneNumber, String customerAddress) {
@@ -39,6 +37,8 @@ public class Order implements Serializable{
         orderId = this.generateUniqueOrderId();
         orderDate = LocalDate.now();
         for(Product item: cartList) totalPrice += item.price;
+        delivered = false;
+        this.setDeliveryStatus(delivered);
     }
     
     public static boolean addOrder(Order newOrder) {
@@ -73,7 +73,7 @@ public class Order implements Serializable{
             } 
             catch (IOException e) {
             }
-        }  
+        }
     }
         
     private int generateUniqueOrderId() {
@@ -92,7 +92,6 @@ public class Order implements Serializable{
         ObservableList<Order> tempOrderList = Order.getAllOrders();
         boolean flag = false;
         for(Order order: tempOrderList) {
-            System.out.println(order.toString());
             if(order.orderId == orderId) {
                 order.setRiderId(riderId);
                 order.setRiderName(riderName);
@@ -103,7 +102,28 @@ public class Order implements Serializable{
         if(flag) {
             Order.deleteAllOrders();
             for(Order order: tempOrderList) {
-                System.out.println(order.toString());
+                Order.addOrder(order);
+            }
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    public static boolean updateDeliveryStatus(int orderId, int riderId) {
+        ObservableList<Order> tempOrderList = Order.getRiderOrder(riderId, false);
+        boolean flag = false;
+        for(Order order: tempOrderList) {
+            if(orderId == order.orderId) {
+                order.setDelivered(true);
+                flag = true;
+                break;
+            }
+        }
+        if(flag) {
+            Order.deleteAllOrders();
+            for(Order order: tempOrderList) {
                 Order.addOrder(order);
             }
             return true;
@@ -148,48 +168,126 @@ public class Order implements Serializable{
         }
     }
  
-    public static Order getRiderOrder(int riderId) {
+    public static ObservableList<Order> getNewOrders() {
+        ObservableList<Order> newOrd = FXCollections.observableArrayList();
         Order tempInst = null;
         File orderFile = new File("Order.bin");
+        ObjectInputStream ois = null;
+        FileInputStream fis = null;
+        
         try {
-            FileInputStream fis = new FileInputStream(orderFile);
-            ObjectInputStream ois = new ObjectInputStream(fis);
+            fis = new FileInputStream(orderFile);
+            ois = new ObjectInputStream(fis);
             while(true) {
                 tempInst = (Order)ois.readObject();
-                if(!tempInst.delivered) {
-                    if(tempInst.riderId == riderId) {
-                        return tempInst;
-                    }
+                if(tempInst.riderId == 0) {
+                    newOrd.add(tempInst);
                 }
             }
+        }
+        catch(FileNotFoundException e) {
+            e.printStackTrace();
         }
         catch(Exception e) {
         }
         finally {
-            return tempInst;
+            if(ois != null) {
+                try {
+                    ois.close();
+                }
+                catch(IOException e) {
+                }
+            }
+            return newOrd;
         }
     }
     
-    public static ObservableList<Order> getCustomerDeliveredOrder(int customerId) {
+    public static ObservableList<Order> getRiderOrder(int riderId, boolean delivered) {
+        ObservableList<Order> riderOrd = FXCollections.observableArrayList();
         Order tempInst = null;
-        ObservableList<Order> custOrd = FXCollections.observableArrayList();
         File orderFile = new File("Order.bin");
+        ObjectInputStream ois = null;
+        FileInputStream fis = null;
+        
         try {
-            FileInputStream fis = new FileInputStream(orderFile);
-            ObjectInputStream ois = new ObjectInputStream(fis);
+            fis = new FileInputStream(orderFile);
+            ois = new ObjectInputStream(fis);
             while(true) {
                 tempInst = (Order)ois.readObject();
-                if(tempInst.delivered) {
-                    if(tempInst.customerId == customerId) {
-                        custOrd.add(tempInst);
+                if(delivered) {
+                    if(tempInst.delivered) {
+                        if(tempInst.riderId == riderId) {
+                            riderOrd.add(tempInst);
+                        }
+                    }
+                }
+                else {
+                    if(!tempInst.delivered) {
+                        if(tempInst.riderId == riderId) {
+                            riderOrd.add(tempInst);
+                        }
                     }
                 }
             }
         }
-        catch(Exception e) {
+        catch(FileNotFoundException e) {
             e.printStackTrace();
         }
+        catch(Exception e) {
+        }
         finally {
+            if(ois != null) {
+                try {
+                    ois.close();
+                }
+                catch(IOException e) {
+                }
+            }
+            return riderOrd;
+        }
+    }
+    
+    public static ObservableList<Order> getCustomerOrder(int customerId, boolean delivered) {
+        ObservableList<Order> custOrd = FXCollections.observableArrayList();
+        Order tempInst = null;
+        File orderFile = new File("Order.bin");
+        ObjectInputStream ois = null;
+        FileInputStream fis = null;
+        
+        try {
+            fis = new FileInputStream(orderFile);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (Order)ois.readObject();
+                if(delivered) {
+                    if(tempInst.delivered) {
+                        if(tempInst.customerId == customerId) {
+                            custOrd.add(tempInst);
+                        }
+                    }
+                }
+                else {
+                    if(!tempInst.delivered) {
+                        if(tempInst.customerId == customerId) {
+                            custOrd.add(tempInst);
+                        }
+                    }
+                }
+            }
+        }
+        catch(FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch(Exception e) {
+        }
+        finally {
+            if(ois != null) {
+                try {
+                    ois.close();
+                }
+                catch(IOException e) {
+                }
+            }
             return custOrd;
         }
     }
@@ -198,9 +296,11 @@ public class Order implements Serializable{
         Order tempInst = null;
         ObservableList<Order> undeliveredList = FXCollections.observableArrayList();
         File orderFile = new File("Order.bin");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
         try {
-            FileInputStream fis = new FileInputStream(orderFile);
-            ObjectInputStream ois = new ObjectInputStream(fis);
+            fis = new FileInputStream(orderFile);
+            ois = new ObjectInputStream(fis);
             while(true) {
                 tempInst = (Order)ois.readObject();
                 if(!tempInst.delivered) {
@@ -214,6 +314,13 @@ public class Order implements Serializable{
             e.printStackTrace();
         }
         finally {
+            if(ois != null) {
+                try {
+                    ois.close();
+                }
+                catch(IOException e) {
+                }
+            }
             return undeliveredList;
         }
     }
@@ -275,6 +382,9 @@ public class Order implements Serializable{
                 allOrders.add(tempInst);
             }
         }
+        catch(FileNotFoundException e) {
+            e.printStackTrace();
+        }
         catch(Exception e) {
         }
         finally {
@@ -293,6 +403,9 @@ public class Order implements Serializable{
         File orderFile = new File("Order.bin");
         if(orderFile.exists()) {
             orderFile.delete();
+        }
+        else {
+            System.out.println("Order.bin file does not exist.");
         }
     }
     
@@ -336,8 +449,12 @@ public class Order implements Serializable{
         return orderDate;
     }
 
-    public boolean isDelivered() {
+    public boolean getDelivered() {
         return delivered;
+    }
+
+    public String getDeliveryStatus() {
+        return deliveryStatus;
     }
 
     public static Alert getErrorAlert() {
@@ -359,6 +476,16 @@ public class Order implements Serializable{
 
     public void setDelivered(Boolean delivered) {
         this.delivered = delivered;
+        this.setDeliveryStatus(delivered);
+    }
+
+    private void setDeliveryStatus(boolean delivered) {
+        if(delivered) {
+            this.deliveryStatus = "Delivered";
+        }
+        else {
+            this.deliveryStatus = "Pending";
+        }
     }
     
     @Override

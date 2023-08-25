@@ -4,25 +4,26 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 
 /**
  * FXML Controller class
  *
- * @author PC
+ * @author Jasper
  */
-public class RiderRecieveDeliveryController implements Initializable {
+
+public class RiderPendingOrderController implements Initializable {
 
     @FXML
-    private TableView<Order> recieveOrderTV;
+    private TableView<Order> pendingOrdersTV;
     @FXML
     private TableColumn<Order, LocalDate> dateCol;
     @FXML
@@ -36,12 +37,13 @@ public class RiderRecieveDeliveryController implements Initializable {
     @FXML
     private TableColumn<Order, String> deliveryStatusCol;
     @FXML
-    private TextField orderIdTextField;
+    private ComboBox<Integer> selectOrderCB;
     
-    Rider loggedUserInst = LoggedUserInstance.riderInst;
-    SceneLoader newSceneLoader = new SceneLoader();
-    Alert anInfoAlert = new Alert(Alert.AlertType.INFORMATION);
     Alert anErrorAlert = new Alert(Alert.AlertType.ERROR);
+    Alert anInfoAlert = new Alert(Alert.AlertType.INFORMATION);
+    SceneLoader sceneLoader = new SceneLoader();
+    Rider loggedUserInst = LoggedUserInstance.riderInst;
+    ObservableList<Order> orderList;
     
     /**
      * Initializes the controller class.
@@ -49,33 +51,34 @@ public class RiderRecieveDeliveryController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        dateCol.setCellValueFactory(new PropertyValueFactory<Order, LocalDate>("orderDate"));
         orderIdCol.setCellValueFactory(new PropertyValueFactory<Order, Integer>("orderId"));
-        locationCol.setCellValueFactory(new PropertyValueFactory<Order, String>("customerAddress"));
         riderNameCol.setCellValueFactory(new PropertyValueFactory<Order, String>("riderName"));
         phoneNumberCol.setCellValueFactory(new PropertyValueFactory<Order, String>("phoneNumber"));
         deliveryStatusCol.setCellValueFactory(new PropertyValueFactory<Order, String>("deliveryStatus"));
+        locationCol.setCellValueFactory(new PropertyValueFactory<Order, String>("customerAddress"));
+        dateCol.setCellValueFactory(new PropertyValueFactory<Order, LocalDate>("orderDate"));
         
-        recieveOrderTV.setItems(Order.getNewOrders());
-    }
-    
+        orderList = Order.getRiderOrder(loggedUserInst.userId, false);
+        
+        for(Order order: orderList) {
+            selectOrderCB.getItems().add(order.orderId);
+        }
+        pendingOrdersTV.setItems(orderList);
+    }    
+
     @FXML
     private void rtrnHomeBtnOnClick(ActionEvent event) throws IOException {
-        newSceneLoader.switchScene("RiderDashboardScene.fxml", event);
+        sceneLoader.switchScene("RiderDashboardScene.fxml", event);
     }
 
     @FXML
-    private void acceptOrderBtnOnClick(ActionEvent event) throws IOException {
-        if(loggedUserInst.acceptOrder(Integer.parseInt(orderIdTextField.getText()))) {
-            orderIdTextField.setText("");
-//            newSceneLoader.switchScene("RiderRecieveDelivery.fxml", event);
-            recieveOrderTV.setItems(Order.getNewOrders());
-            anInfoAlert.setContentText("Order accepted successfully!");
-            anInfoAlert.show();
+    private void updateDelStatBtnOnClick(ActionEvent event) {
+        if(loggedUserInst.updateDeliveryStatus(selectOrderCB.getValue())) {
+            pendingOrdersTV.setItems(Order.getRiderOrder(loggedUserInst.userId, false));
+            anInfoAlert.setContentText("Status updated successfully.");
         }
         else {
-            anErrorAlert.setContentText("Invalid Order ID selected.");
-            anErrorAlert.show();
+            anErrorAlert.setContentText("Something went wrong. Status was not updated.");
         }
     }
     

@@ -49,4 +49,11 @@ public class SceneLoader {
         stg.show();
     }
     
+    public void closeScene(String fxmlFileName, Event event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(fxmlFileName));
+        Scene thisScene = new Scene(root);
+        Stage stg = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stg.setScene(thisScene);
+        stg.close();
+    }
 }

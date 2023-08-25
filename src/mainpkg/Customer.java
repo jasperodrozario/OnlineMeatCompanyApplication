@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.time.LocalDate;
 import static mainpkg.Database.anAlert;
 
 /**
@@ -16,6 +17,7 @@ import static mainpkg.Database.anAlert;
 public class Customer extends User{
     
     public String address;
+    public static LocalDate date = LocalDate.now();
     
     public Customer(String userType, String userName, boolean gender, String password, String phoneNumber, String address) {
         this.userType = userType;
@@ -111,6 +113,7 @@ public class Customer extends User{
     
     public boolean confirmOrder() {
         Order newOrder = new Order(userId, userName, Cart.getCartArrayList(), phoneNumber, address);
+        Transaction newTrans = new Transaction(newOrder.orderId, Cart.getTotalPrice(), date);
         return Order.addOrder(newOrder);
     }
     

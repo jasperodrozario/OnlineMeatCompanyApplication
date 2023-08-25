@@ -92,7 +92,7 @@ public class BeefSceneController implements Initializable {
     @FXML
     private void btbsAddToCartBtnOnClick(MouseEvent event) {
         if(btbsQuantityComboBox.getValue() != null) {
-            loggedCustInst.addToCart("Beef T-Bone Steak", btbsQuantityComboBox.getValue(), 10, 1500);
+            loggedCustInst.addToCart("Beef T-Bone Steak", btbsQuantityComboBox.getValue(), 15, 1500);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -108,7 +108,7 @@ public class BeefSceneController implements Initializable {
             newSceneLoader.loadScene("CheckoutScene.fxml");
         }
         else {
-            anInfoAlert.setContentText("Your cart is empty. Add an item to the cart to checkout.");
+            anInfoAlert.setContentText("Your cart is empty. Add item(s) to the cart to checkout.");
             anInfoAlert.show();
         }
     }

@@ -110,4 +110,8 @@ public class Rider extends Employee {
         }
     }
     
+    public boolean updateDeliveryStatus(int OrderId) {
+        return Order.updateDeliveryStatus(OrderId, this.userId);
+    }
+    
 }

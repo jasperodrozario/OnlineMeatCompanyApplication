@@ -3,7 +3,6 @@ package mainpkg;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -61,7 +60,7 @@ public class FishSceneController implements Initializable {
     @FXML
     private void ruiAddToCartBtnOnClick(MouseEvent event) {
         if(ruiQuantityComboBox.getValue() != null) {
-            loggedCustInst.addToCart("Rui", ruiQuantityComboBox.getValue(), 5, 395);
+            loggedCustInst.addToCart("Rui", ruiQuantityComboBox.getValue(), 3, 400);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -74,7 +73,7 @@ public class FishSceneController implements Initializable {
     @FXML
     private void hilshaAddToCartBtnOnClick(MouseEvent event) {
         if(hilshaQuantityComboBox.getValue() != null) {
-            loggedCustInst.addToCart("Hilsha", hilshaQuantityComboBox.getValue(), 5, 395);
+            loggedCustInst.addToCart("Hilsha", hilshaQuantityComboBox.getValue(), 10, 1200);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -87,7 +86,7 @@ public class FishSceneController implements Initializable {
     @FXML
     private void prawnAddToCartBtnOnClick(MouseEvent event) {
         if(prawnQuantityComboBox.getValue() != null) {
-            loggedCustInst.addToCart("Prawn", prawnQuantityComboBox.getValue(), 5, 395);
+            loggedCustInst.addToCart("Prawn", prawnQuantityComboBox.getValue(), 5, 1000);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -100,7 +99,7 @@ public class FishSceneController implements Initializable {
     @FXML
     private void squidAddToCartBtnOnClick(MouseEvent event) {
         if(squidQuantityComboBox.getValue() != null) {
-            loggedCustInst.addToCart("Squid", squidQuantityComboBox.getValue(), 5, 395);
+            loggedCustInst.addToCart("Squid", squidQuantityComboBox.getValue(), 15, 600);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }

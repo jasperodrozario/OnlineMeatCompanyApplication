@@ -49,6 +49,10 @@ public class Product implements Serializable{
         return price;
     }
 
+    public float getOrgPrice() {
+        return orgPrice;
+    }
+    
     public void setName(String name) {
         this.name = name;
     }
@@ -63,6 +67,10 @@ public class Product implements Serializable{
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public void setOrgPrice(float orgPrice) {
+        this.orgPrice = orgPrice;
     }
     
     public String getProductInfoStr() {

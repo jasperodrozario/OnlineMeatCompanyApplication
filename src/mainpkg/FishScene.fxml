@@ -102,7 +102,7 @@
             <Font size="11.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="290.0" layoutY="266.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 800" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="290.0" layoutY="266.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 1200" textAlignment="CENTER">
          <font>
             <Font size="11.0" />
          </font>

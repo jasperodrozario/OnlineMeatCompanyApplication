@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
  *
  * @author Jasper
  */
+
 public class RiderDashboardSceneController implements Initializable {
 
     @FXML
@@ -35,7 +36,7 @@ public class RiderDashboardSceneController implements Initializable {
 
     @FXML
     private void pendingOrdersMIOnClick(ActionEvent event) {
-        riderDashBoardBP.setCenter(newSceneLoader.getSceneRoot("RiderRecieveDelivery.fxml"));
+        riderDashBoardBP.setCenter(newSceneLoader.getSceneRoot("RiderPendingOrder.fxml"));
     }
 
     @FXML

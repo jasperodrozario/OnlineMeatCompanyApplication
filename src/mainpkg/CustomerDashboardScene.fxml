@@ -42,7 +42,7 @@
       </MenuBar>
    </top>
    <center>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="791.0" prefWidth="940.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="791.0" prefWidth="940.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="263.0" layoutY="294.0" text="Welcome to Bengal Meat!">
                <font>

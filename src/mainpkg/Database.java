@@ -453,10 +453,11 @@ public class Database {
                 ois = new ObjectInputStream(fis);
                 while(true) {
                     tempInst = (RegulatoryOfficer)ois.readObject();
-                    if(tempInst.userId == userId && tempInst.password.equals(password)) {
-
+                    if(tempInst.userId == userId) {
+                        if(tempInst.password.equals(password)) {
                             flag = tempInst.login();
                             break;
+                        }
                     }
                     else {
                         flag = false;
