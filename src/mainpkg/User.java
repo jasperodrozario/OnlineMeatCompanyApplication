@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public abstract class User implements Serializable{
     protected int userId;
-    protected String userType, userName, password;
+    protected String userType, userName, password, phoneNumber;
     protected boolean gender;
     
     public abstract boolean login();

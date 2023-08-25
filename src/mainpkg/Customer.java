@@ -17,13 +17,14 @@ public class Customer extends User{
     
     public String address;
     
-    public Customer(String userType, String userName, boolean gender, String password, String address) {
+    public Customer(String userType, String userName, boolean gender, String password, String phoneNumber, String address) {
         this.userType = userType;
         this.userId = Customer.generateUniqueUserId();
         this.userName = userName;
         this.password = password;
         this.gender = gender;
         this.address = address;
+        this.phoneNumber = phoneNumber;
     };
     
     public static int generateUniqueUserId() {
@@ -109,7 +110,7 @@ public class Customer extends User{
     }
     
     public boolean confirmOrder() {
-        Order newOrder = new Order(userId, userName, Cart.getCartArrayList(), address);
+        Order newOrder = new Order(userId, userName, Cart.getCartArrayList(), phoneNumber, address);
         return Order.addOrder(newOrder);
     }
     

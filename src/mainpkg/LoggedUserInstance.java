@@ -9,14 +9,14 @@ import java.time.LocalDate;
 
 public class LoggedUserInstance {
     
-    static Customer custInst;
-    static Rider riderInst;
-    static RegulatoryOfficer regulatoryOfficerInst;
-    static AccountOfficer accountOfficerInst;
-    static Vendor vendorInst;
-    static AffiliateMarketer affiliateMarketerInst;
-    static CEO ceoInst;
-    static CCE cceInst;
+    static Customer custInst = null;
+    static Rider riderInst = null;
+    static RegulatoryOfficer regulatoryOfficerInst = null;
+    static AccountOfficer accountOfficerInst = null;
+    static Vendor vendorInst = null;
+    static AffiliateMarketer affiliateMarketerInst = null;
+    static CEO ceoInst = null;
+    static CCE cceInst = null;
     static LocalDate curDate = LocalDate.now();
     
     

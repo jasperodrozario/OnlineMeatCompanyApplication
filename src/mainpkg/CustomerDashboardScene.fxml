@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="customerBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.CustomerDashboardSceneController">
+<BorderPane fx:id="customerBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="791.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.CustomerDashboardSceneController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -41,18 +42,19 @@
       </MenuBar>
    </top>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="791.0" prefWidth="940.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="163.0" layoutY="238.0" text="Welcome to Bengal Meat!">
+            <Label layoutX="263.0" layoutY="294.0" text="Welcome to Bengal Meat!">
                <font>
                   <Font name="System Bold" size="34.0" />
                </font>
             </Label>
-            <Label layoutX="216.0" layoutY="304.0" text="Select a product from above to view it here.">
+            <Label layoutX="316.0" layoutY="360.0" text="Select a product from above to view it here.">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
+            <Button layoutX="419.0" layoutY="434.0" mnemonicParsing="false" onMouseClicked="#logoutBtnOnClick" prefHeight="39.0" prefWidth="103.0" text="Logout" />
          </children>
       </AnchorPane>
    </center>

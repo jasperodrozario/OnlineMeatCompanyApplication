@@ -29,8 +29,8 @@ public class Product implements Serializable{
         this.name = name;
         this.quantity = quantity;
         orgPrice = price;
-        this.price = orgPrice*quantity;
         this.vatRate = vatRate;
+        this.price = orgPrice*quantity + (orgPrice*quantity*vatRate)/100;
     }
 
     public String getName() {

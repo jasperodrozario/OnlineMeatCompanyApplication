@@ -15,7 +15,7 @@ import static mainpkg.Database.anAlert;
  */
 public class CEO extends Employee{
     
-    public CEO(String userType, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
+    public CEO(String userType, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj, String phoneNumber) {
         this.userType = userType;
         this.userId = CEO.generateUniqueUserId();
         this.userName = userName;
@@ -23,6 +23,7 @@ public class CEO extends Employee{
         this.userDob = userDob;
         this.gender = gender;
         this.userDoj = userDoj;
+        this.phoneNumber = phoneNumber;
     };
     
     public static int generateUniqueUserId() {

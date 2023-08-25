@@ -96,6 +96,7 @@
             <Image url="@../img/mutton2.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="290.0" layoutY="485.0" mnemonicParsing="false" onAction="#checkoutBtnOnClick" prefHeight="40.0" prefWidth="149.0" text="Checkout" />
+      <Button layoutX="290.0" layoutY="464.0" mnemonicParsing="false" onAction="#checkoutBtnOnClick" prefHeight="40.0" prefWidth="149.0" text="Checkout" />
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="628.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#rtrnHomeBtnOnClick" prefHeight="40.0" prefWidth="98.0" text="Return Home" textAlignment="CENTER" />
    </children>
 </AnchorPane>

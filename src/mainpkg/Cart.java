@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
@@ -70,6 +69,12 @@ public class Cart{
             }
             return false;
         }
+    }
+    
+    public static int getTotalPrice() {
+        int totalPrice = 0;
+        for(Product item: Cart.getCartArrayList()) totalPrice += item.price;
+        return totalPrice;
     }
     
     public static ObservableList<Product> getCart() {

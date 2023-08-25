@@ -123,5 +123,6 @@
          </font>
       </Label>
       <Button layoutX="307.0" layoutY="562.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#checkoutBtnOnClick" prefHeight="40.0" prefWidth="149.0" text="Checkout" />
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="613.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#rtrnHomeBtnOnClick" prefHeight="40.0" prefWidth="98.0" text="Return Home" textAlignment="CENTER" />
    </children>
 </AnchorPane>

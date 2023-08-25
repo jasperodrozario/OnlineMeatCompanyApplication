@@ -16,7 +16,7 @@ import static mainpkg.Database.anAlert;
 
 public class Vendor extends Employee {
     
-    public Vendor(String userType, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
+    public Vendor(String userType, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj, String phoneNumber) {
         this.userType = userType;
         this.userId = Vendor.generateUniqueUserId();
         this.userName = userName;
@@ -24,7 +24,7 @@ public class Vendor extends Employee {
         this.userDob = userDob;
         this.gender = gender;
         this.userDoj = userDoj;
-        
+        this.phoneNumber = phoneNumber;
     };
     
     public static int generateUniqueUserId() {

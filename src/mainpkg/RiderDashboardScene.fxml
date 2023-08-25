@@ -7,51 +7,40 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="776.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="riderDashBoardBP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="776.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.RiderDashboardSceneController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Receive Delivary">
+          <Menu mnemonicParsing="false" text="Recieve Delivery">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#incDelivMIOnClick" text="View Incoming Delivery Requests" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Pending Orders">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" onAction="#pendingOrdersMIOnClick" text="View Pending Orders" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Documaintation">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="Live chat">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
-               </items>
-            </Menu>
             <Menu mnemonicParsing="false" text="Reporting">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" onAction="#writeRprtMIOnClick" text="Write a report" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Safe &amp; Sesurity">
+            <Menu mnemonicParsing="false" text="Safety &amp; Security">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" onAction="#safetynSecMIOnClick" text="View safety &amp; security" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Feedback">
+            <Menu mnemonicParsing="false" text="Delivery History">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" onAction="#delivHistMIOnClick" text="View Delivery History" />
                </items>
             </Menu>
         </menus>
       </MenuBar>
    </top>
    <center>
-      <Label prefHeight="68.0" prefWidth="559.0" text="Hello,Rider! to the dashboard in Bengal meat" BorderPane.alignment="CENTER">
+      <Label prefHeight="68.0" prefWidth="639.0" text="Hello, Rider! Welcome to the Dashboard of Bengal Meat" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

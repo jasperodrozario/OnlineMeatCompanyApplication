@@ -1,14 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package mainpkg;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
@@ -21,48 +19,106 @@ import javafx.scene.input.MouseEvent;
 public class FishSceneController implements Initializable {
 
     @FXML
-    private Button bbiAddToCartBtn;
+    private ComboBox<Integer> ruiQuantityComboBox;
     @FXML
-    private ComboBox<Integer> bbiQuantityComboBox;
+    private ComboBox<Integer> hilshaQuantityComboBox;
+    @FXML
+    private ComboBox<Integer> prawnQuantityComboBox;
+    @FXML
+    private ComboBox<Integer> squidQuantityComboBox;
+    
+    Customer loggedCustInst = LoggedUserInstance.custInst;
+    SceneLoader newSceneLoader = new SceneLoader();
+    Alert anInfoAlert = new Alert(Alert.AlertType.INFORMATION);
+    Alert anErrorAlert = new Alert(Alert.AlertType.ERROR);
+    @FXML
+    private Button bbiAddToCartBtn;
     @FXML
     private Button btcAddToCartBtn;
     @FXML
-    private ComboBox<Integer> btcQuantityComboBox;
-    @FXML
     private Button btsAddToCartBtn;
     @FXML
-    private ComboBox<Integer> btsQuantityComboBox;
-    @FXML
     private Button btbsAddToCartBtn;
-    @FXML
-    private ComboBox<Integer> btbsQuantityComboBox;
 
+    
     /**
      * Initializes the controller class.
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-
+        ruiQuantityComboBox.getItems().addAll(1,2,3,4,5,6,7,8,9,10);
+        hilshaQuantityComboBox.getItems().addAll(1,2,3,4,5,6,7,8,9,10);
+        prawnQuantityComboBox.getItems().addAll(1,2,3,4,5,6,7,8,9,10);
+        squidQuantityComboBox.getItems().addAll(1,2,3,4,5,6,7,8,9,10);
+    }
+    
     @FXML
-    private void bbiAddToCartBtnOnClick(MouseEvent event) {
+    private void rtrnHomeBtnOnClick(MouseEvent event) throws IOException {
+        newSceneLoader.switchScene("CustomerDashboardScene.fxml", event);
     }
 
     @FXML
-    private void btcAddToCartBtnOnClick(MouseEvent event) {
+    private void ruiAddToCartBtnOnClick(MouseEvent event) {
+        if(ruiQuantityComboBox.getValue() != null) {
+            loggedCustInst.addToCart("Rui", ruiQuantityComboBox.getValue(), 5, 395);
+            anInfoAlert.setContentText("Item(s) has been added to your cart.");
+            anInfoAlert.show();
+        }
+        else {
+            anErrorAlert.setContentText("Select quantity first!");
+            anErrorAlert.show();
+        }
     }
 
     @FXML
-    private void btsAddToCartBtnOnClick(MouseEvent event) {
+    private void hilshaAddToCartBtnOnClick(MouseEvent event) {
+        if(hilshaQuantityComboBox.getValue() != null) {
+            loggedCustInst.addToCart("Hilsha", hilshaQuantityComboBox.getValue(), 5, 395);
+            anInfoAlert.setContentText("Item(s) has been added to your cart.");
+            anInfoAlert.show();
+        }
+        else {
+            anErrorAlert.setContentText("Select quantity first!");
+            anErrorAlert.show();
+        }
     }
 
     @FXML
-    private void btbsAddToCartBtnOnClick(MouseEvent event) {
+    private void prawnAddToCartBtnOnClick(MouseEvent event) {
+        if(prawnQuantityComboBox.getValue() != null) {
+            loggedCustInst.addToCart("Prawn", prawnQuantityComboBox.getValue(), 5, 395);
+            anInfoAlert.setContentText("Item(s) has been added to your cart.");
+            anInfoAlert.show();
+        }
+        else {
+            anErrorAlert.setContentText("Select quantity first!");
+            anErrorAlert.show();
+        }
     }
 
     @FXML
-    private void checkoutBtnOnClick(ActionEvent event) {
+    private void squidAddToCartBtnOnClick(MouseEvent event) {
+        if(squidQuantityComboBox.getValue() != null) {
+            loggedCustInst.addToCart("Squid", squidQuantityComboBox.getValue(), 5, 395);
+            anInfoAlert.setContentText("Item(s) has been added to your cart.");
+            anInfoAlert.show();
+        }
+        else {
+            anErrorAlert.setContentText("Select quantity first!");
+            anErrorAlert.show();
+        }
+    }
+
+    @FXML
+    private void checkoutBtnOnClick(MouseEvent event) {
+        if(loggedCustInst.checkOut()) {
+            newSceneLoader.loadScene("CheckoutScene.fxml");
+        }
+        else {
+            anInfoAlert.setContentText("Your cart is empty. Add an item to the cart to checkout.");
+            anInfoAlert.show();
+        }
     }
     
 }

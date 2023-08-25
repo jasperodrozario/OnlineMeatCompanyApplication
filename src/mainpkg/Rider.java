@@ -16,7 +16,7 @@ import static mainpkg.Database.anAlert;
 
 public class Rider extends Employee {
     
-    public Rider(String userType, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
+    public Rider(String userType, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj, String phoneNumber) {
         this.userType = userType;
         this.userName = userName;
         this.password = password;
@@ -24,6 +24,7 @@ public class Rider extends Employee {
         this.gender = gender;
         this.userDoj = userDoj;
         this.userId = Rider.generateUniqueUserId();
+        this.phoneNumber = phoneNumber;
     };
     
     public static int generateUniqueUserId() {

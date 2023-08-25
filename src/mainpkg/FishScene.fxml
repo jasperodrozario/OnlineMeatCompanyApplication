@@ -32,12 +32,12 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="bbiAddToCartBtn" layoutX="152.0" layoutY="290.0" mnemonicParsing="false" onMouseClicked="#bbiAddToCartBtnOnClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: FECB00;" text="Add To Cart">
+      <Button fx:id="bbiAddToCartBtn" layoutX="152.0" layoutY="290.0" mnemonicParsing="false" onMouseClicked="#ruiAddToCartBtnOnClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: FECB00;" text="Add To Cart">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <ComboBox fx:id="bbiQuantityComboBox" layoutX="41.0" layoutY="290.0" prefHeight="31.0" prefWidth="101.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
+      <ComboBox fx:id="ruiQuantityComboBox" layoutX="41.0" layoutY="290.0" prefHeight="31.0" prefWidth="101.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
       <ImageView fitHeight="129.0" fitWidth="188.0" layoutX="77.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/fish.jpg" />
@@ -54,12 +54,12 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="btcAddToCartBtn" layoutX="390.0" layoutY="290.0" mnemonicParsing="false" onMouseClicked="#btcAddToCartBtnOnClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: FECB00;" text="Add To Cart">
+      <Button fx:id="btcAddToCartBtn" layoutX="390.0" layoutY="290.0" mnemonicParsing="false" onMouseClicked="#hilshaAddToCartBtnOnClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: FECB00;" text="Add To Cart">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <ComboBox fx:id="btcQuantityComboBox" layoutX="283.0" layoutY="290.0" prefHeight="31.0" prefWidth="101.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
+      <ComboBox fx:id="hilshaQuantityComboBox" layoutX="283.0" layoutY="290.0" prefHeight="31.0" prefWidth="101.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
       <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="307.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/hilsha.jpg" />
@@ -70,23 +70,23 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="btsAddToCartBtn" layoutX="629.0" layoutY="290.0" mnemonicParsing="false" onMouseClicked="#btsAddToCartBtnOnClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: FECB00;" text="Add To Cart">
+      <Button fx:id="btsAddToCartBtn" layoutX="629.0" layoutY="290.0" mnemonicParsing="false" onMouseClicked="#prawnAddToCartBtnOnClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: FECB00;" text="Add To Cart">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <ComboBox fx:id="btsQuantityComboBox" layoutX="524.0" layoutY="290.0" prefHeight="31.0" prefWidth="101.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
+      <ComboBox fx:id="prawnQuantityComboBox" layoutX="524.0" layoutY="290.0" prefHeight="31.0" prefWidth="101.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
       <Label layoutX="52.0" layoutY="493.0" prefHeight="17.0" prefWidth="149.0" text="Squid 400gm">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="btbsAddToCartBtn" layoutX="152.0" layoutY="541.0" mnemonicParsing="false" onMouseClicked="#btbsAddToCartBtnOnClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: FECB00;" text="Add To Cart">
+      <Button fx:id="btbsAddToCartBtn" layoutX="152.0" layoutY="541.0" mnemonicParsing="false" onMouseClicked="#squidAddToCartBtnOnClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 12; -fx-background-color: FECB00;" text="Add To Cart">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <ComboBox fx:id="btbsQuantityComboBox" layoutX="45.0" layoutY="538.0" prefHeight="31.0" prefWidth="101.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
+      <ComboBox fx:id="squidQuantityComboBox" layoutX="45.0" layoutY="538.0" prefHeight="31.0" prefWidth="101.0" promptText="Quantity" style="-fx-background-radius: 12; -fx-background-color: light grey;" />
       <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="46.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/images%20(5).jpg" />
@@ -122,6 +122,7 @@
             <Image url="@../img/prawn.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="316.0" layoutY="593.0" mnemonicParsing="false" onAction="#checkoutBtnOnClick" prefHeight="40.0" prefWidth="149.0" text="Checkout" />
+      <Button layoutX="316.0" layoutY="593.0" mnemonicParsing="false" onMouseClicked="#checkoutBtnOnClick" prefHeight="40.0" prefWidth="149.0" text="Checkout" />
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="622.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#rtrnHomeBtnOnClick" prefHeight="40.0" prefWidth="98.0" text="Return Home" textAlignment="CENTER" />
    </children>
 </AnchorPane>

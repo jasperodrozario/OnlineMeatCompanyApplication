@@ -44,6 +44,8 @@ public class RegisterUserSceneController implements Initializable {
     
     Alert anAlert = new Alert(Alert.AlertType.INFORMATION);
     boolean addUserStatus;
+    @FXML
+    private TextField phoneNumberTF;
     
 
     @Override
@@ -116,16 +118,18 @@ public class RegisterUserSceneController implements Initializable {
         int userId = Integer.parseInt(newUserIdTextField.getText());
         String name = nameTextField.getText();
         String password = passwordTextField.getText();
+        String phoneNumber = phoneNumberTF.getText();
         String address = addressTextField.getText();
         LocalDate dob = dobDatePicker.getValue();
         LocalDate doj = dojDatePicker.getValue();
         
-        addUserStatus = Database.addUser(userType, name, true, password, dob, doj, address);
+        addUserStatus = Database.addUser(userType, name, true, password, dob, doj, phoneNumber, address);
         
         newUserIdTextField.setText("");
         nameTextField.setText("");
         passwordTextField.setText("");
         salaryTextField.setText("");
+        phoneNumberTF.setText("");
         addressTextField.setText("");
         dobDatePicker.setValue(null);
         dojDatePicker.setValue(null);

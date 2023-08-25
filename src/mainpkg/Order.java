@@ -15,28 +15,28 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
-
 /**
  *
  * @author Jasper
  */
 
 public class Order implements Serializable{
-    int orderId;
-    int customerId, riderId;
-    String customerName, customerAddress, riderName;
+    int orderId, customerId, riderId, totalPrice;
+    String customerName, customerAddress, phoneNumber, riderName;
     ArrayList<Product> cartList;
     LocalDate orderDate;
     boolean delivered = false;
     static Alert errorAlert = new Alert(Alert.AlertType.ERROR);
     
-    public Order(int customerId, String customerName, ArrayList<Product> cartList, String customerAddress) {
+    public Order(int customerId, String customerName, ArrayList<Product> cartList, String phoneNumber, String customerAddress) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.cartList = cartList;
+        this.phoneNumber = phoneNumber;
         this.customerAddress = customerAddress;
         orderId = this.generateUniqueOrderId();
         orderDate = LocalDate.now();
+        for(Product item: cartList) totalPrice += item.price;
     }
     
     public static boolean addOrder(Order newOrder) {
@@ -148,8 +148,33 @@ public class Order implements Serializable{
         }
     }
     
-    public static Order getCustomerOrder(int customerId) {
+    public static ObservableList<Order> getCustomerDeliveredOrder(int customerId) {
         Order tempInst = null;
+        ObservableList<Order> custOrd = FXCollections.observableArrayList();
+        File orderFile = new File("Order.bin");
+        try {
+            FileInputStream fis = new FileInputStream(orderFile);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (Order)ois.readObject();
+                if(tempInst.delivered) {
+                    if(tempInst.customerId == customerId) {
+                        custOrd.add(tempInst);
+                    }
+                }
+            }
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            return custOrd;
+        }
+    }
+    
+    public static ObservableList<Order> getUndeliveredOrder() {
+        Order tempInst = null;
+        ObservableList<Order> undeliveredList = FXCollections.observableArrayList();
         File orderFile = new File("Order.bin");
         try {
             FileInputStream fis = new FileInputStream(orderFile);
@@ -157,16 +182,17 @@ public class Order implements Serializable{
             while(true) {
                 tempInst = (Order)ois.readObject();
                 if(!tempInst.delivered) {
-                    if(tempInst.customerId == customerId) {
-                        return tempInst;
-                    }
+                    undeliveredList.add(tempInst);
                 }
             }
         }
+        catch(IOException e) {
+        }
         catch(Exception e) {
+            e.printStackTrace();
         }
         finally {
-            return tempInst;
+            return undeliveredList;
         }
     }
     
@@ -231,7 +257,7 @@ public class Order implements Serializable{
             return allOrders;
         }
     }
-    
+
     public int getOrderId() {
         return orderId;
     }
@@ -240,12 +266,28 @@ public class Order implements Serializable{
         return customerId;
     }
 
+    public int getRiderId() {
+        return riderId;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
     public String getCustomerName() {
         return customerName;
     }
 
-    public String getCustomerAdress() {
+    public String getCustomerAddress() {
         return customerAddress;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getRiderName() {
+        return riderName;
     }
 
     public ArrayList<Product> getCartList() {
@@ -255,10 +297,25 @@ public class Order implements Serializable{
     public LocalDate getOrderDate() {
         return orderDate;
     }
+
+    public boolean isDelivered() {
+        return delivered;
+    }
+
+    public static Alert getErrorAlert() {
+        return errorAlert;
+    }
+    
+    
     
     public String getOrderInfoStr() {
         String toStr = "OrderID: " + orderId + ", CustomerId: " + customerId + ", Customer Name: " + customerName + ", Order Date: " + orderDate + ", Customer Addresss: " + customerAddress;
         return toStr;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" + "orderId = " + orderId + ", customerId = " + customerId + ", riderId = " + riderId + ", totalPrice = " + totalPrice + ", customerName = " + customerName + ", customerAddress = " + customerAddress + ", phoneNumber = " + phoneNumber + ", riderName = " + riderName + ", cartList = " + cartList + ", orderDate = " + orderDate + ", delivered = " + delivered + '}';
     }
     
 }

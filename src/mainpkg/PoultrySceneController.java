@@ -1,5 +1,6 @@
 package mainpkg;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -8,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -16,13 +18,7 @@ import javafx.scene.control.ComboBox;
  */
 
 public class PoultrySceneController implements Initializable {
-
-    @FXML
-    private Button addToCartBtn2;
-    @FXML
-    private Button addToCartBtn21;
-    @FXML
-    private Button addToCartBtn211;
+    
     @FXML
     private ComboBox<Integer> wcsoQuantityComboBox;
     @FXML
@@ -32,10 +28,16 @@ public class PoultrySceneController implements Initializable {
     @FXML
     private ComboBox<Integer> cdsoQuantityComboBox;
     
-    Customer loggedCustInst;
-    SceneLoader newSceneLoader;
+    Customer loggedCustInst = LoggedUserInstance.custInst;
+    SceneLoader newSceneLoader = new SceneLoader();
     Alert anInfoAlert = new Alert(Alert.AlertType.INFORMATION);
     Alert anErrorAlert = new Alert(Alert.AlertType.ERROR);
+    @FXML
+    private Button addToCartBtn2;
+    @FXML
+    private Button addToCartBtn21;
+    @FXML
+    private Button addToCartBtn211;
     
     /**
      * Initializes the controller class.
@@ -47,7 +49,6 @@ public class PoultrySceneController implements Initializable {
         wcslQuantityComboBox.getItems().addAll(1,2,3,4,5,6,7,8,9,10);
         rcsQuantityComboBox.getItems().addAll(1,2,3,4,5,6,7,8,9,10);
         cdsoQuantityComboBox.getItems().addAll(1,2,3,4,5,6,7,8,9,10);
-        loggedCustInst = LoggedUserInstance.custInst;
     }
 
     @FXML
@@ -111,6 +112,10 @@ public class PoultrySceneController implements Initializable {
             anInfoAlert.setContentText("Your cart is empty. Add an item to the cart to checkout.");
             anInfoAlert.show();
         }
+    }
+    
+    private void rtrnHomeBtnOnClick(MouseEvent event) throws IOException {
+        newSceneLoader.switchScene("CustomerDashboardScene.fxml", event);
     }
     
 }

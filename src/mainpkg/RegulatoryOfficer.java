@@ -15,7 +15,7 @@ import static mainpkg.Database.anAlert;
  */
 public class RegulatoryOfficer extends Employee {
     
-    public RegulatoryOfficer(String userType, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj) {
+    public RegulatoryOfficer(String userType, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj, String phoneNumber) {
         this.userType = userType;
         this.userId = RegulatoryOfficer.generateUniqueUserId();
         this.userName = userName;
@@ -23,6 +23,7 @@ public class RegulatoryOfficer extends Employee {
         this.userDob = userDob;
         this.gender = gender;
         this.userDoj = userDoj;
+        this.phoneNumber = phoneNumber;
     };
     
     public static int generateUniqueUserId() {

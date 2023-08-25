@@ -2,8 +2,6 @@ package mainpkg;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -60,7 +58,7 @@ public class CheckoutSceneController implements Initializable {
             public void handle(CellEditEvent<Product, Integer> event) {
                 Product prod = event.getRowValue();
                 prod.setQuantity(event.getNewValue());
-                prod.price = prod.orgPrice*prod.quantity;
+                prod.price = prod.orgPrice*prod.quantity + (prod.orgPrice*prod.quantity*prod.vatRate)/100;
                 Cart.deleteCart();
                 for(Product item: cartItemsList) {
                     Cart.addProduct(item);
@@ -69,8 +67,9 @@ public class CheckoutSceneController implements Initializable {
         });
         
         vatRateCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("vatRate"));
-        
         priceCol.setCellValueFactory(new PropertyValueFactory<Product, Float>("price"));
+        
+        totalPriceTextField.setText(Integer.toString(Cart.getTotalPrice()));
     }
 
     @FXML
