@@ -43,14 +43,7 @@ public class CheckoutSceneController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        for(Product item: Cart.getCart()) {
-            Product tempProd = new Product(item.name, item.quantity, item.vatRate, item.orgPrice);
-            cartItemsList.add(tempProd);
-        }
-        cartItemListTableView.setItems(cartItemsList);
-        
         prodNameCol.setCellValueFactory(new PropertyValueFactory<Product, String>("name"));
-        
         quantityCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("quantity"));
         quantityCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         quantityCol.setOnEditCommit(new EventHandler<CellEditEvent<Product, Integer>>() {
@@ -65,9 +58,14 @@ public class CheckoutSceneController implements Initializable {
                 }
             }
         });
-        
         vatRateCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("vatRate"));
         priceCol.setCellValueFactory(new PropertyValueFactory<Product, Float>("price"));
+        
+        for(Product item: Cart.getCart()) {
+            Product tempProd = new Product(item.name, item.quantity, item.vatRate, item.orgPrice);
+            cartItemsList.add(tempProd);
+        }
+        cartItemListTableView.setItems(cartItemsList);
         
         totalPriceTextField.setText(Integer.toString(Cart.getTotalPrice()));
     }
@@ -81,7 +79,6 @@ public class CheckoutSceneController implements Initializable {
             Cart.deleteCart();
             anAlert.setContentText("Order Placed Successfully!\nThank you for shopping with Bengal Meat.");
             anAlert.show();
-
         }
         else{
             anAlert.setContentText("Oops! Something went wrong. Please, try again.");

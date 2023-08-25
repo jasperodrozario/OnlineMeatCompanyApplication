@@ -101,7 +101,7 @@ public class AccountOfficer extends Employee {
         return AuditReportEditAccountant.addReport(auditReportStr, curDate);
     }
     
-    public static boolean submitQuotationReport(String quotatioReportStr){
-        return QuotationReport.addReport(quotatioReportStr);
+    public static boolean submitQuotationReport(String quotationReportStr){
+        return QuotationReport.addReport(quotationReportStr);
     }
 }

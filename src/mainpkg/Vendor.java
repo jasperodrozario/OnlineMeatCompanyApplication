@@ -15,7 +15,6 @@ import static mainpkg.Database.anAlert;
  */
 
 public class Vendor extends Employee {
-    
     public Vendor(String userType, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj, String phoneNumber) {
         this.userType = userType;
         this.userId = Vendor.generateUniqueUserId();
@@ -98,8 +97,8 @@ public class Vendor extends Employee {
         return true;
     }
     
-    public static boolean updateVaccineStatus(String vaccineName, LocalDate vaccinationDate) {
-        Vaccine newVaccine = new Vaccine(vaccineName, vaccinationDate);
+    public boolean updateVaccineStatus(String vaccineName, LocalDate vaccinationDate) {
+        Vaccine newVaccine = new Vaccine(userId, userName, vaccineName, vaccinationDate);
         return newVaccine.addVaccine();
     }
 }

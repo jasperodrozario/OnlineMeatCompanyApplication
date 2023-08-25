@@ -41,7 +41,7 @@ public class RiderRecieveDeliveryController implements Initializable {
     static Rider loggedUserInst = LoggedUserInstance.riderInst;
     SceneLoader newSceneLoader = new SceneLoader();
     Alert anInfoAlert = new Alert(Alert.AlertType.INFORMATION);
-    
+    Alert anErrorAlert = new Alert(Alert.AlertType.ERROR);
     
     /**
      * Initializes the controller class.
@@ -70,7 +70,10 @@ public class RiderRecieveDeliveryController implements Initializable {
             anInfoAlert.setContentText("Order accepted successfully!");
             anInfoAlert.show();
         }
-
+        else {
+            anErrorAlert.setContentText("Invalid Order ID selected.");
+            anErrorAlert.show();
+        }
     }
     
 }
