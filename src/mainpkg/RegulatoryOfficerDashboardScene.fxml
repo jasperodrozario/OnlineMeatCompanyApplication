@@ -8,14 +8,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="regulatoryOfficerDashboardBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="723.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.RegulatoryOfficerDashboardSceneController">
+<BorderPane fx:id="regulatoryOfficerDashboardBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="723.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.RegulatoryOfficerDashboardSceneController">
    <top>
       <MenuBar prefHeight="25.0" prefWidth="663.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" style="-fx-background-color: #FECB00; -fx-background-radius: 5;" text="Quality Control">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#viewProdSpecsMenuItemOnClick" text="View Product Details" />
-                  <MenuItem mnemonicParsing="false" onAction="#verifyProdLblsMenuItemOnClick" text="Verify Product Labels" />
                </items></Menu>
             <Menu mnemonicParsing="false" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Training Sessions">
                <items>
@@ -31,8 +30,9 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#viewHlthConcRprtMenuItemOnClick" text="View Health Concern Report" />
                   <MenuItem mnemonicParsing="false" onAction="#viewRegRprtMenuItemOnClick" text="View Regulation Report" />
-                  <MenuItem mnemonicParsing="false" onAction="#viewAnmlCondRprtMenuItemOnClick" text="View Animal Condition Report" />
+                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
                   <MenuItem mnemonicParsing="false" onAction="#viewVaccRprtMenuItemOnClick" text="View Vaccination Report" />
+                  <MenuItem mnemonicParsing="false" onAction="#ViewSaleReportOnClick" text="View Sale Report" />
                </items></Menu>
         </menus>
       </MenuBar>
