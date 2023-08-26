@@ -71,7 +71,7 @@ public class VendorDashBoardController implements Initializable {
 
     @FXML
     private void contactInfoMenuItemOnClick(ActionEvent event) {
-        vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("ProductQualitySceneVendor.fxml"));
+        vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("ContactSceneVendor.fxml"));
     }
     
 }
