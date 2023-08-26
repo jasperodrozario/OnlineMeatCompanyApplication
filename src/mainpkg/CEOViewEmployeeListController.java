@@ -34,7 +34,7 @@ public class CEOViewEmployeeListController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         empIdCol.setCellValueFactory(new PropertyValueFactory<Employee, Integer>("userId"));
         empNameCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("userName"));
-        designationComboBox.getItems().addAll("Account Officer", "Regulatory Officer", "CCE", "Affliated Marketer", "Vendor");
+        designationComboBox.getItems().addAll("Account Officer", "Regulatory Officer", "CCE", "Affliate Marketer", "Vendor");
     }    
 
     @FXML
@@ -49,7 +49,7 @@ public class CEOViewEmployeeListController implements Initializable {
             empListTV.setItems(Database.getAllCCE());
         }
         else if(designationComboBox.getValue().equals("Affliated Marketer")) {
-            empListTV.setItems(Database.getAllAffliatedMarketers());
+            empListTV.setItems(Database.getAllAffiliateMarketers());
         }
         else if(designationComboBox.getValue().equals("Vendor")) {
             empListTV.setItems(Database.getAllVendors());

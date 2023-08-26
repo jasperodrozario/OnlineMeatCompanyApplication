@@ -1054,26 +1054,26 @@ public class Database {
         }
     }
     
-    public static ObservableList<Employee> getAllAccountOfficers() {
-        ObservableList<Employee> accOffList = FXCollections.observableArrayList();
-        AccountOfficer tempInst = null;
-        File userFile = new File("AccountOfficerUser.bin");
+    public static ObservableList<Employee> getAllRegulatoryOfficers() {
+        ObservableList<Employee> regOffList = FXCollections.observableArrayList();
+        RegulatoryOfficer tempInst = null;
+        File userFile = new File("RegulatoryOfficerUser.bin");
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         try {            
             fis = new FileInputStream(userFile);
             ois = new ObjectInputStream(fis);
             while(true) {
-                tempInst = (AccountOfficer)ois.readObject();
-                accOffList.add(tempInst);
+                tempInst = (RegulatoryOfficer)ois.readObject();
+                regOffList.add(tempInst);
             }
         }
         catch(FileNotFoundException e) {
-            anAlert.setContentText("'AccountOfficerUser.bin' file not found!");
+            anAlert.setContentText("'RegulatoryOfficerUser.bin' file not found!");
             anAlert.show();
         }
         catch(ClassNotFoundException e) {
-            anAlert.setContentText("Class not found in 'AccountOfficerUser.bin' file!");
+            anAlert.setContentText("Class not found in 'RegulatoryOfficerUser.bin' file!");
             anAlert.show();
         }
         catch(IOException e) {
@@ -1084,10 +1084,110 @@ public class Database {
             }
             catch(IOException e) {
             }
-            return accOffList;
+            return regOffList;
         }
     }
     
+    public static ObservableList<Employee> getAllVendors() {
+        ObservableList<Employee> vendorList = FXCollections.observableArrayList();
+        Vendor tempInst = null;
+        File userFile = new File("VendorUser.bin");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(userFile);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (Vendor)ois.readObject();
+                vendorList.add(tempInst);
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("'VendorUser.bin' file not found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            anAlert.setContentText("Class not found in 'VendorUser.bin' file!");
+            anAlert.show();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+            return vendorList;
+        }
+    }
     
+    public static ObservableList<Employee> getAllCCE() {
+        ObservableList<Employee> cceList = FXCollections.observableArrayList();
+        CCE tempInst = null;
+        File userFile = new File("CCEUser.bin");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(userFile);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (CCE)ois.readObject();
+                cceList.add(tempInst);
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("'CCEUser.bin' file not found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            anAlert.setContentText("Class not found in 'CCEUser.bin' file!");
+            anAlert.show();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+            return cceList;
+        }
+    }
+    
+    public static ObservableList<Employee> getAllAffiliateMarketers() {
+        ObservableList<Employee> affMarkList = FXCollections.observableArrayList();
+        AffiliateMarketer tempInst = null;
+        File userFile = new File("AffiliateMarketerUser.bin");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(userFile);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (AffiliateMarketer)ois.readObject();
+                affMarkList.add(tempInst);
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("'AffiliateMarketerUser.bin' file not found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            anAlert.setContentText("Class not found in 'AffiliateMarketerUser.bin' file!");
+            anAlert.show();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+            return affMarkList;
+        }
+    }
     
 }
