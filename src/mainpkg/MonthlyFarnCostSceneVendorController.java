@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
  *
  * @author DELL
  */
-public class MonthlyFarmCostSceneVendorController implements Initializable {
+public class MonthlyFarnCostSceneVendorController implements Initializable {
 
     /**
      * Initializes the controller class.
