@@ -6,7 +6,10 @@ package mainpkg;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
@@ -14,6 +17,13 @@ import javafx.fxml.Initializable;
  * @author DELL
  */
 public class FarmCostTableVendorController implements Initializable {
+
+    @FXML
+    private TableView<?> farmCostTable;
+    @FXML
+    private TableColumn<?, ?> monthTableCol;
+    @FXML
+    private TableColumn<?, ?> costTableCol;
 
     /**
      * Initializes the controller class.
