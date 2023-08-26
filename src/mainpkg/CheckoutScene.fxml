@@ -33,6 +33,6 @@
       </Label>
       <TextField fx:id="totalPriceTextField" editable="false" layoutX="108.0" layoutY="335.0" />
       <Button layoutX="545.0" layoutY="290.0" mnemonicParsing="false" onAction="#deleteCartBtnOnClick" onMouseClicked="#confirmOrderBtnOnClick" prefHeight="26.0" prefWidth="93.0" text="Delete Cart" />
-      <ComboBox fx:id="availCoupCB" layoutX="28.0" layoutY="297.0" prefHeight="25.0" prefWidth="114.0" promptText="Avail Coupon" />
+      <ComboBox fx:id="availCoupCB" layoutX="28.0" layoutY="297.0" prefHeight="25.0" prefWidth="135.0" promptText="Avail Coupon" />
    </children>
 </AnchorPane>

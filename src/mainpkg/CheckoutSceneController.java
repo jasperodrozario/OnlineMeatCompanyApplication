@@ -90,29 +90,44 @@ public class CheckoutSceneController implements Initializable {
         }
         else if(Cart.getTotalPrice() >= 2000 && Cart.getTotalPrice() < 5000) {
             availCoupCB.getItems().clear();
-            availCoupCB.getItems().addAll("Tk300 discount", "Free 400gm of Roast Chicken (Sonali)");
+            availCoupCB.getItems().addAll("Tk300 Discount", "Free 400gm of Roast Chicken (Sonali)");
         }
         else if(Cart.getTotalPrice() >= 1000 && Cart.getTotalPrice() < 2000) {
             availCoupCB.getItems().clear();
-            availCoupCB.getItems().addAll("Tk100 discount", "One Free Mutton Mix 250gm");
+            availCoupCB.getItems().addAll("Tk100 Discount", "One Free Mutton Mix 250gm");
         }
-        
-        if(availCoupCB.getValue().equals("10% Discount")) {
-            discountedPrice = Cart.getTotalPrice()*(10/100);
-            totalPriceTextField.setText(Float.toString(discountedPrice));
-        }
-        if(availCoupCB.getValue().equals("5% Discount")) {
-            discountedPrice = Cart.getTotalPrice()*(5/100);
-            totalPriceTextField.setText(Float.toString(discountedPrice));
-        }
-        if(availCoupCB.getValue().equals("10% Discount")) {
-            discountedPrice = Cart.getTotalPrice()-300;
-            totalPriceTextField.setText(Float.toString(discountedPrice));
-        }
-        if(availCoupCB.getValue().equals("10% Discount")) {
-            discountedPrice = Cart.getTotalPrice()*(10/100);
-            totalPriceTextField.setText(Float.toString(discountedPrice));
-        }
+        availCoupCB.getSelectionModel().selectedItemProperty().addListener(
+            (observable, oldValue, newValue) -> {
+                if(availCoupCB.getValue().equals("10% Discount")) {
+                    discountedPrice = Cart.getTotalPrice()*(10/100);
+                    totalPriceTextField.setText(Float.toString(discountedPrice));
+                }
+                else if(availCoupCB.getValue().equals("5% Discount")) {
+                    discountedPrice = Cart.getTotalPrice()*(5/100);
+                    totalPriceTextField.setText(Float.toString(discountedPrice));
+                }
+                else if(availCoupCB.getValue().equals("Tk300 Discount")) {
+                    discountedPrice = Cart.getTotalPrice()-300;
+                    totalPriceTextField.setText(Float.toString(discountedPrice));
+                }
+                else if(availCoupCB.getValue().equals("Tk100 Discount")) {
+                    discountedPrice = Cart.getTotalPrice()-100;
+                    totalPriceTextField.setText(Float.toString(discountedPrice));
+                }
+                else if(availCoupCB.getValue().equals("Free 1kg of Beef Bone In")) {
+                    totalPriceTextField.setText(Float.toString(Cart.getTotalPrice()));
+                }
+                else if(availCoupCB.getValue().equals("Free 1kg of Chicken Drumstick (Skin On)")) {
+                    totalPriceTextField.setText(Float.toString(Cart.getTotalPrice()));
+                }
+                else if(availCoupCB.getValue().equals("Free 400gm of Roast Chicken (Sonali)")) {
+                    totalPriceTextField.setText(Float.toString(Cart.getTotalPrice()));
+                }
+                else if(availCoupCB.getValue().equals("One Free Mutton Mix 250gm")) {
+                    totalPriceTextField.setText(Float.toString(Cart.getTotalPrice()));
+                }
+            }
+        );
     }
 
     @FXML
