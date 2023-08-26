@@ -20,23 +20,7 @@ public class TaxReportAccountant implements Serializable{
     LocalDate date;
     String month;
 
-//    public TaxReportAccountant(int ammount, LocalDate date, String month) {
-//        this.ammount = ammount;
-//        this.date = date;
-//        this.month = month;
-//    }
-//
-//    public int getAmmount() {
-//        return ammount;
-//    }
-//
-//    public LocalDate getDate() {
-//        return date;
-//    }
-//
-//    public String getMonth() {
-//        return month;
-//    }
+
     
     
     public static boolean addTaxReport() {
