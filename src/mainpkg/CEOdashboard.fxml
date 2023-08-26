@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="ceoDashboardBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="1054.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.CEOdashboardController">
+<BorderPane fx:id="ceoDashboardBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="1054.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.CEOdashboardController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -19,10 +19,9 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#viewEmpListOnClick" text="View Employee List" />
                </items></Menu>
-          <Menu mnemonicParsing="false" text="View Stakeholder">
+          <Menu mnemonicParsing="false" text="Investors">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#vendorOnClick" text="Vendor" />
-                  <MenuItem mnemonicParsing="false" onAction="#investorOnClick" text="Investor" />
+                  <MenuItem mnemonicParsing="false" onAction="#investorOnClick" text="View Investor's List" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Financial Management">
