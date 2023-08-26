@@ -44,11 +44,11 @@ public class TransactionSceneVendorController implements Initializable {
     private void addVendorTransactionOnClick(ActionEvent event) {
         
         if(loggedUserInst.updateTransaction(productNameTextField.getText(), Integer.parseInt(productAmountTextField.getText()),Integer.parseInt(productPriceTextField.getText()),transactionDate.getValue())) {
-            anAlert.setContentText("Vaccine status successfully updated!");
+            anAlert.setContentText("Transaction status successfully updated!");
             anAlert.show();
         }
         else {
-            anAlert.setContentText("Oops! Couldn't update vaccine status. Try again.");
+            anAlert.setContentText("Oops! Couldn't update transaction status. Try again.");
             anAlert.show();
         }
         
