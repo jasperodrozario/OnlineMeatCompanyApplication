@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
 /**
@@ -1017,5 +1019,75 @@ public class Database {
             return tempInst;
         }
     }
+    
+    public static ObservableList<Employee> getAllAccountOfficers() {
+        ObservableList<Employee> accOffList = FXCollections.observableArrayList();
+        AccountOfficer tempInst = null;
+        File userFile = new File("AccountOfficerUser.bin");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(userFile);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (AccountOfficer)ois.readObject();
+                accOffList.add(tempInst);
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("'AccountOfficerUser.bin' file not found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            anAlert.setContentText("Class not found in 'AccountOfficerUser.bin' file!");
+            anAlert.show();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+            return accOffList;
+        }
+    }
+    
+    public static ObservableList<Employee> getAllAccountOfficers() {
+        ObservableList<Employee> accOffList = FXCollections.observableArrayList();
+        AccountOfficer tempInst = null;
+        File userFile = new File("AccountOfficerUser.bin");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {            
+            fis = new FileInputStream(userFile);
+            ois = new ObjectInputStream(fis);
+            while(true) {
+                tempInst = (AccountOfficer)ois.readObject();
+                accOffList.add(tempInst);
+            }
+        }
+        catch(FileNotFoundException e) {
+            anAlert.setContentText("'AccountOfficerUser.bin' file not found!");
+            anAlert.show();
+        }
+        catch(ClassNotFoundException e) {
+            anAlert.setContentText("Class not found in 'AccountOfficerUser.bin' file!");
+            anAlert.show();
+        }
+        catch(IOException e) {
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            }
+            catch(IOException e) {
+            }
+            return accOffList;
+        }
+    }
+    
+    
     
 }

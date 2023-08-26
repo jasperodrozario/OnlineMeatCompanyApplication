@@ -37,6 +37,7 @@ public class CEOdashboardController implements Initializable {
 
     @FXML
     private void viewEmpListOnClick(ActionEvent event) {
+        ceoDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("CEOViewEmployeeList.fxml"));
     }
 
     @FXML
