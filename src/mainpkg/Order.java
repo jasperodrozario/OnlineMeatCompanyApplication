@@ -112,8 +112,8 @@ public class Order implements Serializable{
         }
     }
     
-    public static boolean updateDeliveryStatus(int orderId, int riderId) {
-        ObservableList<Order> tempOrderList = Order.getRiderOrder(riderId, false);
+    public static boolean updateDeliveryStatus(int orderId) {
+        ObservableList<Order> tempOrderList = Order.getAllOrders();
         boolean flag = false;
         for(Order order: tempOrderList) {
             if(orderId == order.orderId) {

@@ -63,6 +63,7 @@ public class RiderPendingOrderController implements Initializable {
         for(Order order: orderList) {
             selectOrderCB.getItems().add(order.orderId);
         }
+        
         pendingOrdersTV.setItems(orderList);
     }    
 

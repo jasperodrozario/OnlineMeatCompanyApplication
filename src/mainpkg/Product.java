@@ -120,6 +120,23 @@ public class Product implements Serializable{
         int beefTehariCutCount = 0;
         int beefTenderloinSteakCount = 0;
         int beefTBoneSteakCount = 0;
+        int muttonBoneInCount = 0;
+        int muttonShankCount = 0;
+        int muttonBackLegCount = 0;
+        int wholeChickenSOCount = 0;
+        int wholeChickenSlCount = 0;
+        int roastChickenCount = 0;
+        int chickenDrumstickCount = 0;
+        int ruiCount = 0;
+        int hilshaCount = 0;
+        int prawnCount = 0;
+        int squidCount = 0;
+        int beefMixCount = 0;
+        int muttonMixCount = 0;
+        int chickenMixCount = 0;
+        int fishMixCount = 0;
+        
+        
         
         File thisFile = null;
         FileInputStream fis = null;
@@ -139,6 +156,51 @@ public class Product implements Serializable{
                 }
                 else if(tempInst.name.equals("Beef Tenderloin Steak")) {
                     beefTenderloinSteakCount += tempInst.quantity;
+                }
+                else if(tempInst.name.equals("Beef T-Bone Steak")) {
+                    beefTBoneSteakCount += tempInst.quantity;
+                }
+                else if(tempInst.name.equals("Beef T-Bone Steak")) {
+                    beefTBoneSteakCount += tempInst.quantity;
+                }
+                else if(tempInst.name.equals("Beef T-Bone Steak")) {
+                    beefTBoneSteakCount += tempInst.quantity;
+                }
+                else if(tempInst.name.equals("Beef T-Bone Steak")) {
+                    beefTBoneSteakCount += tempInst.quantity;
+                }
+                else if(tempInst.name.equals("Beef T-Bone Steak")) {
+                    beefTBoneSteakCount += tempInst.quantity;
+                }
+                else if(tempInst.name.equals("Beef T-Bone Steak")) {
+                    beefTBoneSteakCount += tempInst.quantity;
+                }
+                else if(tempInst.name.equals("Beef T-Bone Steak")) {
+                    beefTBoneSteakCount += tempInst.quantity;
+                }
+                else if(tempInst.name.equals("Beef T-Bone Steak")) {
+                    beefTBoneSteakCount += tempInst.quantity;
+                }
+                else if(tempInst.name.equals("Beef T-Bone Steak")) {
+                    beefTBoneSteakCount += tempInst.quantity;
+                }
+                else if(tempInst.name.equals("Beef T-Bone Steak")) {
+                    beefTBoneSteakCount += tempInst.quantity;
+                }
+                else if(tempInst.name.equals("Beef T-Bone Steak")) {
+                    beefTBoneSteakCount += tempInst.quantity;
+                }
+                else if(tempInst.name.equals("Beef T-Bone Steak")) {
+                    beefTBoneSteakCount += tempInst.quantity;
+                }
+                else if(tempInst.name.equals("Beef T-Bone Steak")) {
+                    beefTBoneSteakCount += tempInst.quantity;
+                }
+                else if(tempInst.name.equals("Beef T-Bone Steak")) {
+                    beefTBoneSteakCount += tempInst.quantity;
+                }
+                else if(tempInst.name.equals("Beef T-Bone Steak")) {
+                    beefTBoneSteakCount += tempInst.quantity;
                 }
                 else if(tempInst.name.equals("Beef T-Bone Steak")) {
                     beefTBoneSteakCount += tempInst.quantity;

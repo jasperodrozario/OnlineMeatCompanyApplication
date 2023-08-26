@@ -18,7 +18,7 @@ public class AuditReportEditAccountant {
         DataOutputStream dos = null;
         
         try{
-            f1 = new File(newFileName);
+            f1 = new File("Audit Report/" + newFileName);
             fos = new FileOutputStream(f1);
             dos = new DataOutputStream(fos);
             dos.writeUTF(auditReportStr);

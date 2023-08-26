@@ -29,5 +29,38 @@ public class CEOdashboardController implements Initializable {
     private void viewSaleRprtMenuItemOnClick(ActionEvent event) {
         ceoDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("SaleReport.fxml"));
     }
+
+    @FXML
+    private void viewAuditReportOnClick(ActionEvent event) {
+        ceoDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("AuditReportViewScene.fxml"));
+    }
+
+    @FXML
+    private void viewEmpListOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void vendorOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void investorOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void viewReportOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void liveChatOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void customersFeedbackOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void partnersOnClick(ActionEvent event) {
+    }
     
 }
