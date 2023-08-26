@@ -65,4 +65,11 @@ public class AccountOfficerDashBoardController implements Initializable {
     @FXML
     private void recordButtonOnClick(ActionEvent event) {
     }
+
+    @FXML
+    private void logOutButtonOnClick(ActionEvent event) {
+        
+//        newSceneOpener.switchScene("LoginScene.fxml", event);
+        
+    }
 }
