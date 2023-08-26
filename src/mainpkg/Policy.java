@@ -20,7 +20,7 @@ public class Policy implements Serializable{
     }
     
     
-    public boolean addPolicy() {
+    public boolean addPolicy(String policy) {
         
         File policyFile = null;
         FileOutputStream fos = null;

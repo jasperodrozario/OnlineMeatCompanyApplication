@@ -32,7 +32,6 @@ public class RegulatoryOfficerDashboardSceneController implements Initializable 
         regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("ProductDetailsScene.fxml"));
     }
 
-    @FXML
     private void verifyProdLblsMenuItemOnClick(ActionEvent event) {
         regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("ProductLabelsScene.fxml"));
     }
@@ -57,24 +56,44 @@ public class RegulatoryOfficerDashboardSceneController implements Initializable 
         regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("SupplierProductsScene.fxml"));
     }
 
-    @FXML
     private void viewHlthConcRprtMenuItemOnClick(ActionEvent event) {
         regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("HealthConcernReportScene.fxml"));
     }
 
-    @FXML
     private void viewRegRprtMenuItemOnClick(ActionEvent event) {
         regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("RegulationReportScene.fxml"));
     }
 
-    @FXML
     private void viewAnmlCondRprtMenuItemOnClick(ActionEvent event) {
         regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("AnimalConditionReportScene.fxml"));
     }
 
-    @FXML
     private void viewVaccRprtMenuItemOnClick(ActionEvent event) {
         regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("VaccinationUpdateSceneRegulatoryOfficer.fxml"));
+    }
+
+    @FXML
+    private void ViewSaleReportOnClick(ActionEvent event) {
+        regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("SaleReport.fxml"));
+    }
+
+    @FXML
+    private void policyOnClick(ActionEvent event) {
+         regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("PolicisesRegulatoryOfficer.fxml"));
+    }
+
+    @FXML
+    private void viewTransactionReportOnClick(ActionEvent event) {
+        regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("TransactionTableVendor.fxml"));
+    }
+
+    @FXML
+    private void farmcostOnClick(ActionEvent event) {
+        regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("FarmCostTableVendor.fxml"));
+    }
+
+    @FXML
+    private void viewVaccinationReportOnClick(ActionEvent event) {
     }
     
 }
