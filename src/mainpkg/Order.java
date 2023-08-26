@@ -89,6 +89,7 @@ public class Order implements Serializable{
     }
     
     public static boolean associateRider(int orderId, int riderId, String riderName) {
+//        Order.makeOrderCopy();
         ObservableList<Order> tempOrderList = Order.getAllOrders();
         boolean flag = false;
         for(Order order: tempOrderList) {
@@ -399,6 +400,51 @@ public class Order implements Serializable{
         }
     }
 
+//    private static void makeOrderCopy() {
+//        Order tempInst = null;
+//        File orderFile = new File("Order.bin");
+//        File orderFile2 = new File("Order2.bin");
+//        FileInputStream fis = null;
+//        ObjectInputStream ois = null;
+//        FileOutputStream fos = null;
+//        ObjectOutputStream oos = null;
+//        
+//        try {
+//            if(orderFile2.exists()) {
+//                fos = new FileOutputStream(orderFile2, true);
+//                oos = new AppendObjectOutputStream(fos);
+//            }
+//            else {
+//                fos = new FileOutputStream(orderFile2);
+//                oos = new ObjectOutputStream(fos);
+//            }
+//            fis = new FileInputStream(orderFile);
+//            ois = new ObjectInputStream(fis);
+//            while(true) {
+//                tempInst = (Order)ois.readObject();
+//                oos.writeObject(tempInst);
+//            }
+//        }
+//        catch(FileNotFoundException e) {
+//            errorAlert.setContentText("'Order.bin' file not found!");
+//            errorAlert.show();
+//        }
+//        catch(ClassNotFoundException e) {
+//            errorAlert.setContentText("Class not found in 'Order.bin' file!");
+//            errorAlert.show();
+//        }
+//        catch(IOException e) {
+//        }
+//        finally {
+//            try {
+//                if(ois != null) ois.close();
+//                if(oos != null) oos.close();
+//            }
+//            catch(IOException e) {
+//            }
+//        }
+//    }
+    
     private static void deleteAllOrders() {
         File orderFile = new File("Order.bin");
         if(orderFile.exists()) {
@@ -465,6 +511,11 @@ public class Order implements Serializable{
         String toStr = "OrderID: " + orderId + ", CustomerId: " + customerId + ", Customer Name: " + customerName + ", Order Date: " + orderDate + ", Customer Addresss: " + customerAddress;
         return toStr;
     }
+    
+    @Override
+    public String toString() {
+        return "Order{" + "orderId = " + orderId + ", customerId = " + customerId + ", riderId = " + riderId + ", totalPrice = " + totalPrice + ", customerName = " + customerName + ", customerAddress = " + customerAddress + ", phoneNumber = " + phoneNumber + ", riderName = " + riderName + ", cartList = " + cartList + ", orderDate = " + orderDate + ", delivered = " + delivered + '}';
+    }
 
     public void setRiderId(int riderId) {
         this.riderId = riderId;
@@ -488,9 +539,36 @@ public class Order implements Serializable{
         }
     }
     
-    @Override
-    public String toString() {
-        return "Order{" + "orderId = " + orderId + ", customerId = " + customerId + ", riderId = " + riderId + ", totalPrice = " + totalPrice + ", customerName = " + customerName + ", customerAddress = " + customerAddress + ", phoneNumber = " + phoneNumber + ", riderName = " + riderName + ", cartList = " + cartList + ", orderDate = " + orderDate + ", delivered = " + delivered + '}';
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        //Serializing LocalDate {orderDate}
+        out.defaultWriteObject();
+        out.writeInt(orderDate.getYear());
+        out.writeInt(orderDate.getMonthValue());
+        out.writeInt(orderDate.getDayOfMonth());
+        
+        //Serializing LocalDate {orderDate}
+        int size = cartList.size();
+        out.writeInt(size);
+        for (Product item : cartList) {
+            out.writeObject(item);
+        }
+    }
+
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        //Deserializing LocalDate {orderDate}
+        in.defaultReadObject();
+        int year = in.readInt();
+        int month = in.readInt();
+        int day = in.readInt();
+        orderDate = LocalDate.of(year, month, day);
+        
+        //Deserializing ArrayList {cartList}
+        int size = in.readInt();
+        cartList = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            Product item = (Product)in.readObject();
+            cartList.add(item);
+        }
     }
     
 }
