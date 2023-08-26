@@ -20,23 +20,7 @@ public class TaxReportAccountant implements Serializable{
     LocalDate date;
     String month;
 
-//    public TaxReportAccountant(int ammount, LocalDate date, String month) {
-//        this.ammount = ammount;
-//        this.date = date;
-//        this.month = month;
-//    }
-//
-//    public int getAmmount() {
-//        return ammount;
-//    }
-//
-//    public LocalDate getDate() {
-//        return date;
-//    }
-//
-//    public String getMonth() {
-//        return month;
-//    }
+
     
     
     public static boolean addTaxReport() {
@@ -74,31 +58,7 @@ public class TaxReportAccountant implements Serializable{
     }
     
     
-    public static TaxReportAccountant readFile() {
-        TaxReportAccountant studInst = null;
-        File newFile = new File("Tax Report.bin");
-
-        try {
-            FileInputStream fis = new FileInputStream(newFile);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            studInst = (TaxReportAccountant)ois.readObject();
-            ois.close();
-            return studInst;
-        }
-        catch(ClassNotFoundException e) {
-            e.printStackTrace();
-            return studInst;
-        }
-        catch(IOException e) {
-            return studInst;
-        }
-    }
     
-    public String getToString() {
-        String tempStr;
-        tempStr = date + ", " + month + ", " + ammount;
-        return tempStr;
-    }
     
             
     
