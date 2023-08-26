@@ -7,26 +7,44 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="ceoDashboardBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="1054.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.CEOdashboardController">
+<BorderPane fx:id="ceoDashboardBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="1054.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.CEOdashboardController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Audit Report" />
-          <Menu mnemonicParsing="false" text="Employee List" />
-          <Menu mnemonicParsing="false" text="Stakeholder Management">
+          <Menu mnemonicParsing="false" text="Audit Report">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#ViewAuditReportOnClick" text="View Audit Report" />
+               </items></Menu>
+          <Menu mnemonicParsing="false" text="Employee List">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#ViewEmpListOnClick" text="View Employee List" />
+               </items></Menu>
+          <Menu mnemonicParsing="false" text="View Stakeholder">
             <items>
-              <MenuItem mnemonicParsing="false" text="Vendor" />
-                  <MenuItem mnemonicParsing="false" text="Investor" />
+              <MenuItem mnemonicParsing="false" onAction="#VendorOnClick" text="Vendor" />
+                  <MenuItem mnemonicParsing="false" onAction="#InvestorOnClick" text="Investor" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Financial Management" />
+            <Menu mnemonicParsing="false" text="Financial Management">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#ViewReportOnClick" text="View Report" />
+               </items></Menu>
             <Menu mnemonicParsing="false" text="Sale Report">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#viewSaleRprtMenuItemOnClick" text="View Sale Report" />
                </items></Menu>
-            <Menu mnemonicParsing="false" text="Live Chat" />
-            <Menu mnemonicParsing="false" text="Customers Feedback" />
-            <Menu mnemonicParsing="false" text="Partners" />
+            <Menu mnemonicParsing="false" text="Live Chat">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#LiveChatOnClick" text="Live Chat" />
+               </items></Menu>
+            <Menu mnemonicParsing="false" text="Customers Feedback">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#CustomersFeedbackOnClick" text="View Customers Feedback" />
+               </items></Menu>
+            <Menu mnemonicParsing="false" text="Partners">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#PartnersOnClick" text="View Partners" />
+               </items></Menu>
         </menus>
       </MenuBar>
    </top>
