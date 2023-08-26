@@ -4,11 +4,13 @@
  */
 package mainpkg;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
@@ -28,9 +30,11 @@ public class TransactionSceneVendorController implements Initializable {
     @FXML
     private DatePicker transactionDate;
 
-    /**
-     * Initializes the controller class.
-     */
+    Alert anAlert = new Alert(Alert.AlertType.INFORMATION);
+    Vendor loggedUserInst = LoggedUserInstance.vendorInst;
+    
+    SceneLoader newSceneOpener = new SceneLoader();
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -41,7 +45,10 @@ public class TransactionSceneVendorController implements Initializable {
     }
 
     @FXML
-    private void goTableOnClick(ActionEvent event) {
+    private void goTableOnClick(ActionEvent event) throws IOException {
+        
+        newSceneOpener.switchScene("TransactionTableVendor.fxml", event);
+        
     }
     
 }
