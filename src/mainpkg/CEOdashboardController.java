@@ -40,9 +40,6 @@ public class CEOdashboardController implements Initializable {
         ceoDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("CEOViewEmployeeList.fxml"));
     }
 
-    @FXML
-    private void vendorOnClick(ActionEvent event) {
-    }
 
     @FXML
     private void investorOnClick(ActionEvent event) {
@@ -64,6 +61,11 @@ public class CEOdashboardController implements Initializable {
     @FXML
     private void partnersOnClick(ActionEvent event) {
         ceoDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("Partners.fxml"));
+    }
+
+    @FXML
+    private void LogOutOnClick(ActionEvent event) {
+        ceoDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("LoginScene.fxml"));
     }
     
 }
