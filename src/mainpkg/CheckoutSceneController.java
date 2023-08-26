@@ -48,9 +48,12 @@ public class CheckoutSceneController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        cartItemsList = Cart.getCart();
+        
         prodNameCol.setCellValueFactory(new PropertyValueFactory<Product, String>("name"));
         quantityCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("quantity"));
         quantityCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        
         quantityCol.setOnEditCommit(new EventHandler<CellEditEvent<Product, Integer>>() {
             @Override
             public void handle(CellEditEvent<Product, Integer> event) {
@@ -63,14 +66,10 @@ public class CheckoutSceneController implements Initializable {
                 }
             }
         });
+        
         pricePerUnitCol.setCellValueFactory(new PropertyValueFactory<Product, Float>("orgPrice"));
         vatRateCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("vatRate"));
         priceCol.setCellValueFactory(new PropertyValueFactory<Product, Float>("price"));
-        
-        for(Product item: Cart.getCart()) {
-            Product tempProd = new Product(item.name, item.quantity, item.vatRate, item.orgPrice);
-            cartItemsList.add(tempProd);
-        }
         cartItemListTableView.setItems(cartItemsList);
         
         totalPriceTextField.setText(Integer.toString(Cart.getTotalPrice()));
