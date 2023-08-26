@@ -70,8 +70,8 @@ public class Cart{
         }
     }
     
-    public static int getTotalPrice() {
-        int totalPrice = 0;
+    public static float getTotalPrice() {
+        float totalPrice = 0;
         for(Product item: Cart.getCartArrayList()) totalPrice += item.price;
         return totalPrice;
     }

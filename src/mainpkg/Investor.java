@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package mainpkg;
 
 import java.io.File;
@@ -27,7 +23,7 @@ public class Investor implements Serializable{
         this.investorsName = investorsName;
     }
 
-    public String getaddress() {
+    public String getAddress() {
         return address;
     }
 
@@ -35,13 +31,14 @@ public class Investor implements Serializable{
         return investorsName;
     }
 
-    public void setadddress(String address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
     public void setInvestorsName(String investorsName) {
         this.investorsName = investorsName;
     }
+    
     
     public static ObservableList<Investor> getAllInvestors() {
         ObservableList<Investor> investorsList = FXCollections.observableArrayList();

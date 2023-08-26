@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package mainpkg;
 
 import java.net.URL;
@@ -9,7 +5,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -38,7 +33,7 @@ public class InvestorsListController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        investorNameCol.setCellValueFactory(new PropertyValueFactory<Investor, String> ("investorName"));
+        investorNameCol.setCellValueFactory(new PropertyValueFactory<Investor, String> ("investorsName"));
         addressCol.setCellValueFactory(new PropertyValueFactory<Investor, String> ("address"));
     }    
 
@@ -46,6 +41,7 @@ public class InvestorsListController implements Initializable {
     private void AddInvestorOnClick(ActionEvent event) {
         CEO.addInvestors(NameTextField.getText(), addresstextfield.getText());
         NameTextField.setText("");
+        addresstextfield.setText("");
     }
 
     @FXML
