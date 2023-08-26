@@ -67,5 +67,10 @@ public class CustomerDashboardSceneController implements Initializable {
     private void logoutBtnOnClick(MouseEvent event) throws IOException {
         newSceneOpener.switchScene("LoginScene.fxml", event);
     }
+
+    @FXML
+    private void viewCartMIOnClick(ActionEvent event) {
+        newSceneOpener.loadScene("CheckoutScene.fxml");
+    }
     
 }

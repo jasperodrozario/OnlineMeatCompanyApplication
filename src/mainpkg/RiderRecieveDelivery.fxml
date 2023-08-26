@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="484.0" prefWidth="826.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.RiderRecieveDeliveryController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="484.0" prefWidth="863.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.RiderRecieveDeliveryController">
    <children>
-      <Label layoutX="38.0" layoutY="30.0" text="Receive Order:">
+      <Label layoutX="29.0" layoutY="30.0" text="Receive Order:">
          <font>
             <Font name="System Bold Italic" size="21.0" />
          </font>
       </Label>
-      <TableView fx:id="recieveOrderTV" layoutX="38.0" layoutY="77.0" prefHeight="317.0" prefWidth="750.0">
+      <Button layoutX="748.0" layoutY="30.0" mnemonicParsing="false" onAction="#rtrnHomeBtnOnClick" prefHeight="31.0" prefWidth="87.0" text="Return Home" />
+      <Button layoutX="462.0" layoutY="421.0" mnemonicParsing="false" onAction="#acceptOrderBtnOnClick" prefHeight="31.0" prefWidth="87.0" text="Accept Order" />
+      <ComboBox fx:id="selectOrderCB" layoutX="315.0" layoutY="421.0" prefHeight="31.0" prefWidth="127.0" promptText="Select an Order" />
+      <TableView fx:id="recieveOrderTV" layoutX="29.0" layoutY="84.0" prefHeight="317.0" prefWidth="806.0">
          <columns>
             <TableColumn fx:id="dateCol" editable="false" prefWidth="85.0" text="Date" />
             <TableColumn fx:id="orderIdCol" editable="false" prefWidth="94.0" text="Order ID" />
-            <TableColumn fx:id="locationCol" editable="false" prefWidth="196.0" text="Location" />
-            <TableColumn fx:id="riderNameCol" editable="false" prefWidth="152.0" text="Rider Name" />
-            <TableColumn fx:id="phoneNumberCol" editable="false" prefWidth="114.0" text="Phone Number" />
-            <TableColumn fx:id="deliveryStatusCol" prefWidth="108.0" text="Delivery Status" />
+            <TableColumn fx:id="custNameCol" editable="false" prefWidth="110.0" text="Customer Name" />
+            <TableColumn fx:id="locationCol" editable="false" prefWidth="149.0" text="Location" />
+            <TableColumn fx:id="riderNameCol" editable="false" prefWidth="106.0" text="Rider Name" />
+            <TableColumn fx:id="phoneNumberCol" editable="false" prefWidth="142.0" text="Phone Number" />
+            <TableColumn fx:id="deliveryStatusCol" prefWidth="119.0" text="Delivery Status" />
          </columns>
       </TableView>
-      <Button layoutX="701.0" layoutY="30.0" mnemonicParsing="false" onAction="#rtrnHomeBtnOnClick" prefHeight="31.0" prefWidth="87.0" text="Return Home" />
-      <Button layoutX="456.0" layoutY="421.0" mnemonicParsing="false" onAction="#acceptOrderBtnOnClick" prefHeight="31.0" prefWidth="87.0" text="Accept Order" />
-      <TextField fx:id="orderIdTextField" layoutX="283.0" layoutY="421.0" prefHeight="31.0" prefWidth="156.0" promptText="Type in Order ID of choice" />
    </children>
 </AnchorPane>

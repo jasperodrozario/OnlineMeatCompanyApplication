@@ -34,9 +34,12 @@ public class ViewOrderHistorySceneController implements Initializable {
     private TableColumn<Order, LocalDate> ordDateCol;
     @FXML
     private TableColumn<Order, String> riderNameCol;
+    @FXML
+    private TableColumn<Order, String> delvStatCol;
     
     SceneLoader newSceneLoader = new SceneLoader();
     ObservableList<Order> custOrder;
+
     
     /**
      * Initializes the controller class.
@@ -50,6 +53,7 @@ public class ViewOrderHistorySceneController implements Initializable {
         totalPriceCol.setCellValueFactory(new PropertyValueFactory<Order, Integer>("totalPrice"));
         ordDateCol.setCellValueFactory(new PropertyValueFactory<Order, LocalDate>("orderDate"));
         riderNameCol.setCellValueFactory(new PropertyValueFactory<Order, String>("riderName"));
+        delvStatCol.setCellValueFactory(new PropertyValueFactory<Order, String>("deliveryStatus"));
         
         custOrder = Order.getCustomerOrder(LoggedUserInstance.custInst.userId, true);
         for(Order order: Order.getCustomerOrder(LoggedUserInstance.custInst.userId, false)) {

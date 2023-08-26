@@ -116,14 +116,16 @@ public class Cart{
         return cartItemsArrayList;
     }
     
-    public static void deleteCart() {
+    public static boolean deleteCart() {
         File cartFile = new File("Cart.bin");
         if(cartFile.exists()) {
             cartFile.delete();
+            return true;
         }
         else {
             errorAlert.setContentText("Cart file does not exist.");
             errorAlert.show();
+            return false;
         }           
     }
 }

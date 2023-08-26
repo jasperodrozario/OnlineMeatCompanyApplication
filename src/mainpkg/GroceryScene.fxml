@@ -66,7 +66,7 @@
             <DropShadow />
          </effect>
       </Rectangle>
-      <Label layoutX="41.0" layoutY="481.0" prefHeight="17.0" prefWidth="149.0" text="Fish Mix 1000gm">
+      <Label layoutX="41.0" layoutY="481.0" prefHeight="17.0" prefWidth="149.0" text="Fish Mix 100gm">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

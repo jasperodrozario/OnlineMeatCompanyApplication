@@ -37,6 +37,8 @@ public class RiderPendingOrderController implements Initializable {
     @FXML
     private TableColumn<Order, String> deliveryStatusCol;
     @FXML
+    private TableColumn<Order, String> custNameCol;
+    @FXML
     private ComboBox<Integer> selectOrderCB;
     
     Alert anErrorAlert = new Alert(Alert.AlertType.ERROR);
@@ -44,6 +46,7 @@ public class RiderPendingOrderController implements Initializable {
     SceneLoader sceneLoader = new SceneLoader();
     Rider loggedUserInst = LoggedUserInstance.riderInst;
     ObservableList<Order> orderList;
+    
     
     /**
      * Initializes the controller class.
@@ -57,6 +60,7 @@ public class RiderPendingOrderController implements Initializable {
         deliveryStatusCol.setCellValueFactory(new PropertyValueFactory<Order, String>("deliveryStatus"));
         locationCol.setCellValueFactory(new PropertyValueFactory<Order, String>("customerAddress"));
         dateCol.setCellValueFactory(new PropertyValueFactory<Order, LocalDate>("orderDate"));
+        custNameCol.setCellValueFactory(new PropertyValueFactory<Order, String>("customerName"));
         
         orderList = Order.getRiderOrder(loggedUserInst.userId, false);
         

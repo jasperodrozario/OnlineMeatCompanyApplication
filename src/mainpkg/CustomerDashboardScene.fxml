@@ -38,6 +38,11 @@
                   <MenuItem mnemonicParsing="false" onAction="#orderHistMIOnClick" text="View Order History" />
                </items>
             </Menu>
+            <Menu mnemonicParsing="false" text="View Cart">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#viewCartMIOnClick" text="My Cart" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
    </top>

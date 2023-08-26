@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="398.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.ViewOrderHistorySceneController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="398.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.ViewOrderHistorySceneController">
    <children>
-      <TableView fx:id="orderHistTV" layoutX="24.0" layoutY="60.0" prefHeight="312.0" prefWidth="631.0">
+      <TableView fx:id="orderHistTV" layoutX="24.0" layoutY="61.0" prefHeight="312.0" prefWidth="765.0">
         <columns>
           <TableColumn fx:id="orderIdCol" prefWidth="66.0" text="Order Id" />
           <TableColumn fx:id="custNameCol" prefWidth="121.0" text="Customer Name" />
@@ -17,13 +17,14 @@
             <TableColumn fx:id="totalPriceCol" prefWidth="92.0" text="Total Price" />
             <TableColumn fx:id="ordDateCol" prefWidth="100.0" text="Order Date" />
             <TableColumn fx:id="riderNameCol" prefWidth="135.0" text="Deliveryman" />
+            <TableColumn fx:id="delvStatCol" prefWidth="135.0" text="Delivery Status" />
         </columns>
       </TableView>
-      <Label layoutX="25.0" layoutY="20.0" text="Order History:">
+      <Label layoutX="24.0" layoutY="21.0" text="Order History:">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="528.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#rtrnToDashboardBtnOnClick" prefHeight="38.0" prefWidth="127.0" text="Return to Dashboard" />
+      <Button layoutX="662.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#rtrnToDashboardBtnOnClick" prefHeight="38.0" prefWidth="127.0" text="Return to Dashboard" />
    </children>
 </AnchorPane>

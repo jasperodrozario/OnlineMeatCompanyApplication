@@ -8,9 +8,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 
@@ -36,12 +36,17 @@ public class RiderRecieveDeliveryController implements Initializable {
     @FXML
     private TableColumn<Order, String> deliveryStatusCol;
     @FXML
-    private TextField orderIdTextField;
+    private TableColumn<Order, String> custNameCol;
+    @FXML
+    private ComboBox<Integer> selectOrderCB;
+    
     
     Rider loggedUserInst = LoggedUserInstance.riderInst;
     SceneLoader newSceneLoader = new SceneLoader();
     Alert anInfoAlert = new Alert(Alert.AlertType.INFORMATION);
     Alert anErrorAlert = new Alert(Alert.AlertType.ERROR);
+    
+    
     
     /**
      * Initializes the controller class.
@@ -55,8 +60,12 @@ public class RiderRecieveDeliveryController implements Initializable {
         riderNameCol.setCellValueFactory(new PropertyValueFactory<Order, String>("riderName"));
         phoneNumberCol.setCellValueFactory(new PropertyValueFactory<Order, String>("phoneNumber"));
         deliveryStatusCol.setCellValueFactory(new PropertyValueFactory<Order, String>("deliveryStatus"));
+        custNameCol.setCellValueFactory(new PropertyValueFactory<Order, String>("customerName"));
         
         recieveOrderTV.setItems(Order.getNewOrders());
+        for(Order order: Order.getNewOrders()) {
+            selectOrderCB.getItems().add(order.orderId);
+        }
     }
     
     @FXML
@@ -66,8 +75,7 @@ public class RiderRecieveDeliveryController implements Initializable {
 
     @FXML
     private void acceptOrderBtnOnClick(ActionEvent event) throws IOException {
-        if(loggedUserInst.acceptOrder(Integer.parseInt(orderIdTextField.getText()))) {
-            orderIdTextField.setText("");
+        if(loggedUserInst.acceptOrder(selectOrderCB.getValue())) {
 //            newSceneLoader.switchScene("RiderRecieveDelivery.fxml", event);
             recieveOrderTV.setItems(Order.getNewOrders());
             anInfoAlert.setContentText("Order accepted successfully!");

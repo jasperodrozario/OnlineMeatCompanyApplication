@@ -5,10 +5,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
@@ -39,11 +41,14 @@ public class CheckoutSceneController implements Initializable {
     @FXML
     private TableColumn<Product, Float> pricePerUnitCol;
     @FXML
+    private ComboBox<String> availCoupCB;
+    @FXML
     private TextField totalPriceTextField;
     
     ObservableList<Product> cartItemsList = FXCollections.observableArrayList();
     Alert anAlert = new Alert(Alert.AlertType.INFORMATION);
     Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+    
     
     
     @Override
@@ -64,15 +69,22 @@ public class CheckoutSceneController implements Initializable {
                 for(Product item: cartItemsList) {
                     Cart.addProduct(item);
                 }
+                totalPriceTextField.setText(Integer.toString(Cart.getTotalPrice()));
             }
         });
         
         pricePerUnitCol.setCellValueFactory(new PropertyValueFactory<Product, Float>("orgPrice"));
         vatRateCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("vatRate"));
         priceCol.setCellValueFactory(new PropertyValueFactory<Product, Float>("price"));
-        cartItemListTableView.setItems(cartItemsList);
         
+        cartItemListTableView.setItems(cartItemsList);
         totalPriceTextField.setText(Integer.toString(Cart.getTotalPrice()));
+        if(Cart.getTotalPrice() >= 10000) availCoupCB.getItems().addAll("10% Discount", "Free 1kg of Beef Bone In");
+        else if(Cart.getTotalPrice() >= 2000)
+        else if(Cart.getTotalPrice() >= 1000 && Cart.getTotalPrice() < 2000) {
+            availCoupCB.getItems().clear();
+            availCoupCB.getItems().addAll("Tk100 discount", "One Free Mutton Mix 250gm");
+        }
     }
 
     @FXML
@@ -87,16 +99,27 @@ public class CheckoutSceneController implements Initializable {
                     Product.addToProductPurchaseLogFile(item);
                 }
                 Cart.deleteCart();
-                totalPriceTextField.setText("");
+                totalPriceTextField.setText("0");
                 cartItemsList.clear();
                 cartItemListTableView.setItems(cartItemsList);
                 anAlert.setContentText("Order Placed Successfully!\nThank you for shopping with Bengal Meat.");
                 anAlert.show();
             }
             else{
-                anAlert.setContentText("Something went wrong. Please, try again.");
-                anAlert.show();
+                errorAlert.setContentText("Something went wrong. Please, try again.");
+                errorAlert.show();
             }
+        }
+    }
+
+    @FXML
+    private void deleteCartBtnOnClick(ActionEvent event) {
+        if(Cart.deleteCart()) {
+            totalPriceTextField.setText("0");
+            cartItemsList.clear();
+            cartItemListTableView.setItems(cartItemsList);
+            anAlert.setContentText("Cart has been deleted.");
+            anAlert.show();
         }
     }
     

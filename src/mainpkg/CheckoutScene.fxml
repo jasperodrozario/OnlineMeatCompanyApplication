@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -15,7 +16,7 @@
             <Font name="System Bold Italic" size="17.0" />
          </font>
       </Label>
-      <Button layoutX="286.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#confirmOrderBtnOnClick" prefHeight="43.0" prefWidth="93.0" text="Confirm Order" />
+      <Button layoutX="280.0" layoutY="366.0" mnemonicParsing="false" onMouseClicked="#confirmOrderBtnOnClick" prefHeight="43.0" prefWidth="105.0" text="Confirm Order" />
       <TableView fx:id="cartItemListTableView" editable="true" layoutX="27.0" layoutY="62.0" prefHeight="224.0" prefWidth="611.0">
         <columns>
           <TableColumn fx:id="prodNameCol" prefWidth="140.0" text="Product Name" />
@@ -25,11 +26,13 @@
             <TableColumn fx:id="priceCol" prefWidth="125.0" text="Price" />
         </columns>
       </TableView>
-      <Label layoutX="27.0" layoutY="316.0" text="Total Price:">
+      <Label layoutX="27.0" layoutY="338.0" text="Total Price:">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="totalPriceTextField" editable="false" layoutX="108.0" layoutY="313.0" />
+      <TextField fx:id="totalPriceTextField" editable="false" layoutX="108.0" layoutY="335.0" />
+      <Button layoutX="545.0" layoutY="290.0" mnemonicParsing="false" onAction="#deleteCartBtnOnClick" onMouseClicked="#confirmOrderBtnOnClick" prefHeight="26.0" prefWidth="93.0" text="Delete Cart" />
+      <ComboBox fx:id="availCoupCB" layoutX="28.0" layoutY="297.0" prefHeight="25.0" prefWidth="114.0" promptText="Avail Coupon" />
    </children>
 </AnchorPane>
