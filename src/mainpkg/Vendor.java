@@ -103,5 +103,11 @@ public class Vendor extends Employee {
     }
     
     
+    public boolean updateFarmCost(String month, int cost){
+        FarmCostVendor newCost = new FarmCostVendor(month,cost);
+        return newCost.addFarmCost();
+    }
+    
+    
     
 }
