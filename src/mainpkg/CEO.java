@@ -4,8 +4,10 @@ import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import static mainpkg.Database.anAlert;
 
@@ -95,6 +97,41 @@ public class CEO extends Employee{
     @Override
     public boolean changePassword() {
         return true;
+    }
+    
+    public static boolean addPartners(String partnerName, String compName) {
+        Partners newPartner = new Partners(partnerName, compName);
+        File f1 = new File("Partners.bin");
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+            if (f1.exists()) {
+                fos = new FileOutputStream(f1, true);
+                oos = new AppendObjectOutputStream(fos);
+            }
+            else {
+                fos = new FileOutputStream(f1);
+                oos = new ObjectOutputStream(fos);
+            }
+            oos.writeObject(newPartner);
+            oos.close();
+            return true;
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        finally {
+            try {
+                if(oos != null) oos.close();
+            } 
+            catch (IOException e) {
+            }
+        }  
     }
     
 }

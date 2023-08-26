@@ -62,6 +62,7 @@ public class CEOdashboardController implements Initializable {
 
     @FXML
     private void partnersOnClick(ActionEvent event) {
+        ceoDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("Partners.fxml"));
     }
     
 }
