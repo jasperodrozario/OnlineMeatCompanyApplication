@@ -108,6 +108,9 @@ public class Vendor extends Employee {
         return newCost.addFarmCost();
     }
     
-    
+    public boolean updateTransaction(String product, int amount, int price, LocalDate date){
+        TransactionVendor newTrans = new TransactionVendor(product,amount,price,date);
+        return newTrans.addTransactionReport();
+    }
     
 }
