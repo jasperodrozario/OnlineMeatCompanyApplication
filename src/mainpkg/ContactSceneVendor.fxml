@@ -7,18 +7,18 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="453.0" prefWidth="692.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="mainpkg.ContactSceneVendorController">
+<AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="767.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="mainpkg.ContactSceneVendorController">
    <children>
       <Label layoutX="47.0" layoutY="35.0" prefHeight="21.0" prefWidth="146.0" text="Contact Info:">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <TableView fx:id="InfoTable" layoutX="187.0" layoutY="67.0" prefHeight="347.0" prefWidth="398.0">
+      <TableView fx:id="InfoTable" layoutX="202.0" layoutY="67.0" prefHeight="540.0" prefWidth="506.0">
         <columns>
-          <TableColumn fx:id="designationCol" prefWidth="118.0" text="Designation" />
-          <TableColumn fx:id="phoneCol" prefWidth="110.0" text="Phone" />
-            <TableColumn fx:id="mailCol" prefWidth="168.0" text="Email" />
+          <TableColumn fx:id="designationCol" prefWidth="143.0" text="Designation" />
+          <TableColumn fx:id="phoneCol" prefWidth="139.0" text="Phone" />
+            <TableColumn fx:id="mailCol" prefWidth="223.0" text="Email" />
         </columns>
       </TableView>
    </children>
