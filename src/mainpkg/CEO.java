@@ -134,4 +134,39 @@ public class CEO extends Employee{
         }  
     }
     
+    public static boolean addInvestors(String investorName, String address) {
+        Investor newInvestor = new Investor(investorName, address);
+        File f1 = new File("Investor.bin");
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+            if (f1.exists()) {
+                fos = new FileOutputStream(f1, true);
+                oos = new AppendObjectOutputStream(fos);
+            }
+            else {
+                fos = new FileOutputStream(f1);
+                oos = new ObjectOutputStream(fos);
+            }
+            oos.writeObject(newInvestor);
+            oos.close();
+            return true;
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        finally {
+            try {
+                if(oos != null) oos.close();
+            } 
+            catch (IOException e) {
+            }
+        }  
+        
+    }
 }
