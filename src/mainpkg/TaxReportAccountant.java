@@ -58,31 +58,7 @@ public class TaxReportAccountant implements Serializable{
     }
     
     
-    public static TaxReportAccountant readFile() {
-        TaxReportAccountant studInst = null;
-        File newFile = new File("Tax Report.bin");
-
-        try {
-            FileInputStream fis = new FileInputStream(newFile);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            studInst = (TaxReportAccountant)ois.readObject();
-            ois.close();
-            return studInst;
-        }
-        catch(ClassNotFoundException e) {
-            e.printStackTrace();
-            return studInst;
-        }
-        catch(IOException e) {
-            return studInst;
-        }
-    }
     
-    public String getToString() {
-        String tempStr;
-        tempStr = date + ", " + month + ", " + ammount;
-        return tempStr;
-    }
     
             
     

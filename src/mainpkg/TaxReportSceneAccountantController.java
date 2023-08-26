@@ -23,8 +23,6 @@ public class TaxReportSceneAccountantController implements Initializable {
     private TextField taxAmmountTextField;
     @FXML
     private TextField taxMonthTextField;
-    @FXML
-    private TextArea textArea;
     
     Alert anAlert = new Alert(Alert.AlertType.INFORMATION);
 
@@ -53,12 +51,5 @@ public class TaxReportSceneAccountantController implements Initializable {
         
     }
 
-    @FXML
-    private void onClick(ActionEvent event) {
-        
-        TaxReportAccountant stud = TaxReportAccountant.readFile();
-        textArea.setText(stud.getToString());
-        
-    }
     
 }
