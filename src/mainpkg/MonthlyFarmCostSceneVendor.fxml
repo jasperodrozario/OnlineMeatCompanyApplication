@@ -18,5 +18,6 @@
       <TextField fx:id="monthTextField" layoutX="100.0" layoutY="73.0" />
       <TextField fx:id="costTextField" layoutX="464.0" layoutY="73.0" />
       <Button layoutX="315.0" layoutY="133.0" mnemonicParsing="false" onAction="#addCostOnClick" text="Add" />
+      <Button layoutX="551.0" layoutY="409.0" mnemonicParsing="false" onAction="#goTableOnClick" prefHeight="31.0" prefWidth="133.0" text="Go Table" />
    </children>
 </AnchorPane>
