@@ -105,6 +105,8 @@ public class AccountOfficer extends Employee {
         return QuotationReport.addReport(quotationReportStr);
     }
     
-    
+    public static boolean submitTaxReport(int ammount, LocalDate date, String month){
+        return TaxReportAccountant.addTaxReport();
+    }
     
 }
