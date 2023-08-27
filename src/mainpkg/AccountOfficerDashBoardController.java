@@ -44,7 +44,7 @@ public class AccountOfficerDashBoardController implements Initializable {
 
     @FXML
     private void dataAnalysisButtonOnClick(ActionEvent event) {
-        accountOfficerBorderPane.setCenter(newSceneOpener.getSceneRoot("AnalysisData.fxml"));
+        accountOfficerBorderPane.setCenter(newSceneOpener.getSceneRoot("SaleReport.fxml"));
     }
 
     @FXML
@@ -54,6 +54,7 @@ public class AccountOfficerDashBoardController implements Initializable {
 
     @FXML
     private void policiesButtonOnClick(ActionEvent event) {
+        accountOfficerBorderPane.setCenter(newSceneOpener.getSceneRoot("ViewPolicyScene.fxml"));
     }
 
     @FXML
@@ -63,6 +64,7 @@ public class AccountOfficerDashBoardController implements Initializable {
 
     @FXML
     private void recordButtonOnClick(ActionEvent event) {
+        
     }
 
     @FXML
