@@ -28,25 +28,22 @@ public class VendorDashBoardController implements Initializable {
         // TODO
     }    
 
-    @FXML
     private void productRequirementsMenuItemOnClick(ActionEvent event) {
         vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("ProductRequirementSceneVendor.fxml"));
         
     }
 
-    @FXML
     private void productQualityMenuItemOnClick(ActionEvent event) {
         vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("ProductQualitySceneVendor.fxml"));
     }
 
-    @FXML
     private void quotationReportsMenuItemOnClick(ActionEvent event) {
         vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("QuotationReportSceneVendor.fxml"));
     }
 
     @FXML
     private void productDemandMenuItemOnClick(ActionEvent event) {
-        vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("ProductDemandSceneVendor.fxml"));
+        vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("SaleReport.fxml"));
     }
 
     @FXML
@@ -72,6 +69,11 @@ public class VendorDashBoardController implements Initializable {
     @FXML
     private void contactInfoMenuItemOnClick(ActionEvent event) {
         vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("ContactSceneVendor.fxml"));
+    }
+
+    @FXML
+    private void policyMenuItemOnClick(ActionEvent event) {
+        vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("ViewPolicyScene.fxml"));
     }
     
 }
