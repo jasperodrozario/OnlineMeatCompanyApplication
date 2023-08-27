@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -14,6 +15,9 @@ import javafx.fxml.Initializable;
  * @author Jasper
  */
 public class StartInstMeetingSceneController implements Initializable {
+
+    @FXML
+    private TextField gmlTF;
 
     /**
      * Initializes the controller class.
@@ -25,7 +29,7 @@ public class StartInstMeetingSceneController implements Initializable {
 
     @FXML
     private void strtMeetBtnOnClick(ActionEvent event) {
-        String url = "https://meet.google.com/aif-updb-pdu";
+        String url = gmlTF.getText();
 
         try {
             // Use the Desktop class to open the URL in the default web browser

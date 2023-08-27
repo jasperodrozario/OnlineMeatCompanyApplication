@@ -6,10 +6,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.StartInstMeetingSceneController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.StartInstMeetingSceneController">
    <children>
       <Label alignment="CENTER_RIGHT" layoutX="131.0" layoutY="160.0" prefHeight="23.0" prefWidth="105.0" text="Google Meet Link:" textAlignment="RIGHT" />
-      <TextField editable="false" layoutX="242.0" layoutY="159.0" prefHeight="25.0" prefWidth="228.0" promptText="https://meet.google.com/aif-updb-pdu" />
+      <TextField fx:id="gmlTF" editable="false" layoutX="242.0" layoutY="159.0" prefHeight="25.0" prefWidth="228.0" text="https://meet.google.com/aif-updb-pdu" />
       <Button layoutX="234.0" layoutY="245.0" mnemonicParsing="false" onAction="#strtMeetBtnOnClick" prefHeight="43.0" prefWidth="132.0" text="Start Meeting" />
       <Label layoutX="23.0" layoutY="22.0" text="Start an Instant Meeting Session:">
          <font>

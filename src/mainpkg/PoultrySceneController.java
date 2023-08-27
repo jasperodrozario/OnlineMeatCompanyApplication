@@ -55,6 +55,7 @@ public class PoultrySceneController implements Initializable {
     private void wcsoAddToCartBtnOnClick(ActionEvent event) {
         if(wcsoQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Whole Chicken (Skin On)", wcsoQuantityComboBox.getValue(), 5, 390);
+            wcsoQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -68,6 +69,7 @@ public class PoultrySceneController implements Initializable {
     private void wcslAddToCartBtnOnClick(ActionEvent event) {
         if(wcslQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Whole Chicken (Skinless)", wcslQuantityComboBox.getValue(), 5, 395);
+            wcslQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -81,6 +83,7 @@ public class PoultrySceneController implements Initializable {
     private void rcsAddToCartBtnOnClick(ActionEvent event) {
         if(rcsQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Roast Chicken (Sonali)", rcsQuantityComboBox.getValue(), 3, 312);
+            rcsQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -94,6 +97,7 @@ public class PoultrySceneController implements Initializable {
     private void cdsoAddToCartBtnOnClick(ActionEvent event) {
         if(cdsoQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Chicken Drumstick (Skin On)", cdsoQuantityComboBox.getValue(), 5, 530);
+            cdsoQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }

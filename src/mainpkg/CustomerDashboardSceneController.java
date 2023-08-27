@@ -72,5 +72,10 @@ public class CustomerDashboardSceneController implements Initializable {
     private void viewCartMIOnClick(ActionEvent event) {
         newSceneOpener.loadScene("CheckoutScene.fxml");
     }
+
+    @FXML
+    private void feedbackMIOnClick(ActionEvent event) {
+        newSceneOpener.loadScene("CheckoutScene.fxml");
+    }
     
 }

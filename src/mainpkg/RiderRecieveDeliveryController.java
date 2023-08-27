@@ -76,7 +76,6 @@ public class RiderRecieveDeliveryController implements Initializable {
     @FXML
     private void acceptOrderBtnOnClick(ActionEvent event) throws IOException {
         if(loggedUserInst.acceptOrder(selectOrderCB.getValue())) {
-//            newSceneLoader.switchScene("RiderRecieveDelivery.fxml", event);
             recieveOrderTV.setItems(Order.getNewOrders());
             anInfoAlert.setContentText("Order accepted successfully!");
             anInfoAlert.show();

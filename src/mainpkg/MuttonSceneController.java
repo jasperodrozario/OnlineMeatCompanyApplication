@@ -57,7 +57,7 @@ public class MuttonSceneController implements Initializable {
     private void mbiAddToCartBtnOnClick(ActionEvent event) {
         if(mbiQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Mutton Bone In", mbiQuantityComboBox.getValue(), 10, 1080);
-            
+            mbiQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -71,7 +71,7 @@ public class MuttonSceneController implements Initializable {
     private void msAddToCartBtnOnClick(ActionEvent event) {
         if(msQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Mutton Shank", msQuantityComboBox.getValue(), 10, 1550);
-            
+            msQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -85,7 +85,7 @@ public class MuttonSceneController implements Initializable {
     private void mblAddToCartBtnOnClick(ActionEvent event) {
         if(mblQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Mutton Back Leg", mblQuantityComboBox.getValue(), 10, 1300);
-            
+            mblQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }

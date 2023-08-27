@@ -58,6 +58,7 @@ public class GrocerySceneController implements Initializable {
     private void bmAddToCartBtnOnClick(ActionEvent event) {
         if(bmQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Beef Mix", bmQuantityComboBox.getValue(), 3, 80);
+            bmQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -71,6 +72,7 @@ public class GrocerySceneController implements Initializable {
     private void mmAddToCartBtnOnClick(ActionEvent event) {
         if(mmQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Mutton Mix", mmQuantityComboBox.getValue(), 3, 100);
+            mmQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -84,6 +86,7 @@ public class GrocerySceneController implements Initializable {
     private void cmAddToCartBtnClick(ActionEvent event) {
         if(cmQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Chicken Mix", cmQuantityComboBox.getValue(), 5, 63);
+            cmQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -97,6 +100,7 @@ public class GrocerySceneController implements Initializable {
     private void fmAddToCartBtnOnClick(ActionEvent event) {
         if(fmQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Fish Mix", fmQuantityComboBox.getValue(), 5, 70);
+            fmQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }

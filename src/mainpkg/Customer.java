@@ -124,4 +124,8 @@ public class Customer extends User{
         }
     }
     
+    public boolean giveFeedback(int orderId, String feedbackStr) {
+        return(CustomerFeedback.addCustomerFeedback(orderId, this.userId, this.userName, feedbackStr));
+    }
+    
 }

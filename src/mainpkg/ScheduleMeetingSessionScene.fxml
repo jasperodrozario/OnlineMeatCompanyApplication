@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1">
+<AnchorPane id="AnchorPane" prefHeight="461.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.ScheduleMeetingSessionSceneController">
    <children>
-      <Label layoutX="248.0" layoutY="192.0" text="Schedule a meeting" />
+      <Label layoutX="18.0" layoutY="23.0" text="Schedule a Meeting Session">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font></Label>
+      <Label layoutX="18.0" layoutY="319.0" text="Meeting Description:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="meetDescTF" layoutX="18.0" layoutY="342.0" prefHeight="37.0" prefWidth="231.0" wrapText="true" />
+      <DatePicker fx:id="meetDateDP" layoutX="18.0" layoutY="278.0" prefHeight="27.0" prefWidth="153.0" />
+      <Label layoutX="18.0" layoutY="254.0" text="Select Meeting Date:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button layoutX="187.0" layoutY="400.0" mnemonicParsing="false" onAction="#addSchSessBtnOnClick" prefHeight="37.0" prefWidth="147.0" text="Add Scheduled Session" />
+      <TableView fx:id="schMeetSessTV" layoutX="18.0" layoutY="63.0" prefHeight="175.0" prefWidth="642.0">
+        <columns>
+          <TableColumn fx:id="schDateCol" prefWidth="223.0" text="Scheduled Date" />
+          <TableColumn fx:id="meetDescCol" prefWidth="256.0" text="Meeting Description" />
+            <TableColumn fx:id="meetStatCol" prefWidth="162.0" text="Meeting Status" />
+        </columns>
+      </TableView>
+      <Button layoutX="573.0" layoutY="19.0" mnemonicParsing="false" onAction="#rtrnBtnOnClick" prefHeight="35.0" prefWidth="87.0" text="Return Home" />
+      <Button layoutX="344.0" layoutY="400.0" mnemonicParsing="false" onAction="#markAsCompBtnOnClick" prefHeight="37.0" prefWidth="147.0" text="Mark as Completed" />
    </children>
 </AnchorPane>

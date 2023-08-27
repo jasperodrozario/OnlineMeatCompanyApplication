@@ -43,6 +43,11 @@
                   <MenuItem mnemonicParsing="false" onAction="#viewCartMIOnClick" text="My Cart" />
                </items>
             </Menu>
+            <Menu mnemonicParsing="false" text="Feedback">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#feedbackMIOnClick" text="Give us your feedback" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
    </top>

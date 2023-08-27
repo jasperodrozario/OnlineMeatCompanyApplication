@@ -53,6 +53,7 @@ public class BeefSceneController implements Initializable {
     private void bbiAddToCartBtnOnClick(MouseEvent event) {
         if(bbiQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Beef Bone In", bbiQuantityComboBox.getValue(), 10, 800);
+            bbiQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -66,6 +67,7 @@ public class BeefSceneController implements Initializable {
     private void btcAddToCartBtnOnClick(MouseEvent event) {
         if(btcQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Beef Tehari Cut", btcQuantityComboBox.getValue(), 10, 850);
+            btcQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -80,6 +82,7 @@ public class BeefSceneController implements Initializable {
     private void btsAddToCartBtnOnClick(MouseEvent event) {
         if(btsQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Beef Tenderloin Steak", btsQuantityComboBox.getValue(), 10, 1200);
+            btsQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -93,6 +96,7 @@ public class BeefSceneController implements Initializable {
     private void btbsAddToCartBtnOnClick(MouseEvent event) {
         if(btbsQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Beef T-Bone Steak", btbsQuantityComboBox.getValue(), 15, 1500);
+            btbsQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }

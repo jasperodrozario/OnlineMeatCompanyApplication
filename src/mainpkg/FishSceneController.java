@@ -61,6 +61,7 @@ public class FishSceneController implements Initializable {
     private void ruiAddToCartBtnOnClick(MouseEvent event) {
         if(ruiQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Rui", ruiQuantityComboBox.getValue(), 3, 400);
+            ruiQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -74,6 +75,7 @@ public class FishSceneController implements Initializable {
     private void hilshaAddToCartBtnOnClick(MouseEvent event) {
         if(hilshaQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Hilsha", hilshaQuantityComboBox.getValue(), 10, 1200);
+            hilshaQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -87,6 +89,7 @@ public class FishSceneController implements Initializable {
     private void prawnAddToCartBtnOnClick(MouseEvent event) {
         if(prawnQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Prawn", prawnQuantityComboBox.getValue(), 5, 1000);
+            prawnQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
@@ -100,6 +103,7 @@ public class FishSceneController implements Initializable {
     private void squidAddToCartBtnOnClick(MouseEvent event) {
         if(squidQuantityComboBox.getValue() != null) {
             loggedCustInst.addToCart("Squid", squidQuantityComboBox.getValue(), 15, 600);
+            squidQuantityComboBox.setValue(null);
             anInfoAlert.setContentText("Item(s) has been added to your cart.");
             anInfoAlert.show();
         }
