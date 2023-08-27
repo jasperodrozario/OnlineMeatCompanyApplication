@@ -13,6 +13,7 @@ import static mainpkg.Database.anAlert;
  *
  * @author DELL
  */
+
 public class AccountOfficer extends Employee {
     
     public AccountOfficer(String userType, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj, String phoneNumber) {

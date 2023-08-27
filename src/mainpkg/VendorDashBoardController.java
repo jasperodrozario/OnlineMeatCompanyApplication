@@ -4,6 +4,7 @@
  */
 package mainpkg;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -74,6 +75,11 @@ public class VendorDashBoardController implements Initializable {
     @FXML
     private void policyMenuItemOnClick(ActionEvent event) {
         vendorDashboardBorderPane.setCenter(newSceneOpener.getSceneRoot("ViewPolicyScene.fxml"));
+    }
+
+    @FXML
+    private void logoutBtnOnClick(ActionEvent event) throws IOException {
+        newSceneOpener.switchScene("LoginScene.fxml", event);
     }
     
 }

@@ -34,38 +34,6 @@ public class AffiliateMarketerDashboardController implements Initializable {
         affiliateMarketerDashboardBP.setCenter(newSceneLoader.getSceneRoot("AffiliateMarketerContentCreationScene.fxml"));
     }
 
-    @FXML
-    private void strtInstMeetMenuItemOnClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void schSessMenuItemOnClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void sessHistMenuItemOnClick(ActionEvent event) {
-    }
-
-
-    @FXML
-    private void policyOnClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void viewTransactionReportOnClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void farmcostOnClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void viewVaccinationReportOnClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void ViewSaleReportOnClick(ActionEvent event) {
-    }
 
     @FXML
     private void logoutButtonOnClick(ActionEvent event) throws IOException {
@@ -79,6 +47,7 @@ public class AffiliateMarketerDashboardController implements Initializable {
 
     @FXML
     private void viewCompGuideMIOnClick(ActionEvent event) {
+        affiliateMarketerDashboardBP.setCenter(newSceneLoader.getSceneRoot("ViewPolicyScene.fxml")); 
     }
     
 }

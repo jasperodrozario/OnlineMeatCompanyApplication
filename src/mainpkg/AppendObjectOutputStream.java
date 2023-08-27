@@ -8,6 +8,7 @@ import java.io.OutputStream;
  *
  * @author Jasper
  */
+
 class AppendObjectOutputStream extends ObjectOutputStream{
     public AppendObjectOutputStream(OutputStream out) throws IOException {
         super(out);

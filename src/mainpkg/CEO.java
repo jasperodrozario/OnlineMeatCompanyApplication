@@ -15,6 +15,7 @@ import javafx.scene.control.Alert;
  *
  * @author Jasper
  */
+
 public class CEO extends Employee{
     static Alert anAlert = new Alert(Alert.AlertType.ERROR);
     

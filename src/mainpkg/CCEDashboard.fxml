@@ -20,35 +20,24 @@
         <menus>
           <Menu mnemonicParsing="false" text="Feedback">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Customer feedback" />
-              <MenuItem mnemonicParsing="false" text="Rider feedback" />
-                  <MenuItem mnemonicParsing="false" onAction="#giveFeedbackAffiliateMIOnClick" text="Give feedback to Affiliate Marketer" />
+                  <MenuItem mnemonicParsing="false" onAction="#custFeedMIOnClick" text="Customer Feedback" />
+              <MenuItem mnemonicParsing="false" onAction="#riderFeedMIOnClick" text="Rider Feedback" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Customer">
             <items>
-              <MenuItem mnemonicParsing="false" text="Communicate" />
+              <MenuItem mnemonicParsing="false" onAction="#liveChatMIOnClick" text="Live Chat" />
                   <MenuItem mnemonicParsing="false" text="Inquiries" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Creat  Survay">
+          <Menu mnemonicParsing="false" text="Create  Survey">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#surveyMIOnClick" text="Write Survey" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Product information">
+            <Menu mnemonicParsing="false" text="Product Information">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="History">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Refund">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" onAction="#about" text="View Product Information" />
                </items>
             </Menu>
         </menus>

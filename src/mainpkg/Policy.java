@@ -12,6 +12,7 @@ import java.io.Serializable;
  *
  * @author Dell
  */
+
 public class Policy implements Serializable{
     String policy;
 

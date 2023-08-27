@@ -18,13 +18,6 @@
                   <MenuItem mnemonicParsing="false" onAction="#createContMIOnClick" text="Create Content" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Training Sessions">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#strtInstMeetMenuItemOnClick" text="Start an Instant Meeting" />
-                  <MenuItem mnemonicParsing="false" onAction="#schSessMenuItemOnClick" text="Schedule Session" />
-                  <MenuItem mnemonicParsing="false" onAction="#sessHistMenuItemOnClick" text="Session History" />
-               </items>
-            </Menu>
             <Menu mnemonicParsing="false" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Feedback">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#viewFeedbackMIOnClick" text="View Company Feedback" />
@@ -34,15 +27,6 @@
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#viewCompGuideMIOnClick" text="View Company Guidelines" />
               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Documentations and Records">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#policyOnClick" text="Policy" />
-                  <MenuItem mnemonicParsing="false" onAction="#viewTransactionReportOnClick" text="View Transaction Report" />
-                  <MenuItem mnemonicParsing="false" onAction="#farmcostOnClick" text="Farm Cost" />
-                  <MenuItem mnemonicParsing="false" onAction="#viewVaccinationReportOnClick" text="View Vaccination Report" />
-                  <MenuItem mnemonicParsing="false" onAction="#ViewSaleReportOnClick" text="View Sale Report" />
-               </items>
             </Menu>
          </menus>
       </MenuBar>
