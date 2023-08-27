@@ -95,6 +95,7 @@ public class RegulatoryOfficerDashboardSceneController implements Initializable 
 
     @FXML
     private void viewVaccinationReportOnClick(ActionEvent event) {
+        regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("VaccinationUpdateSceneRegulatoryOfficer.fxml"));
     }
 
     @FXML
