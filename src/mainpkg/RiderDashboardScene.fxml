@@ -36,6 +36,11 @@
                   <MenuItem mnemonicParsing="false" onAction="#delivHistMIOnClick" text="View Delivery History" />
                </items>
             </Menu>
+            <Menu mnemonicParsing="false" text="Live Chat">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#liveChatMIOnClick" text="Live Chat with Customer" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
    </top>

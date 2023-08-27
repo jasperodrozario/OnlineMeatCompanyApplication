@@ -77,5 +77,10 @@ public class CustomerDashboardSceneController implements Initializable {
     private void feedbackMIOnClick(ActionEvent event) {
         customerBorderPane.setCenter(newSceneOpener.getSceneRoot("CustomerFeedback.fxml"));
     }
+
+    @FXML
+    private void liveChatMIOnClick(ActionEvent event) {
+        customerBorderPane.setCenter(newSceneOpener.getSceneRoot("LiveChatCustomer.fxml"));
+    }
     
 }

@@ -43,6 +43,8 @@ public class RegisterUserSceneController implements Initializable {
     
     
     Alert anAlert = new Alert(Alert.AlertType.INFORMATION);
+    Alert anErrorAlert = new Alert(Alert.AlertType.ERROR);
+    
     boolean addUserStatus;
     @FXML
     private TextField phoneNumberTF;
@@ -123,24 +125,62 @@ public class RegisterUserSceneController implements Initializable {
         LocalDate dob = dobDatePicker.getValue();
         LocalDate doj = dojDatePicker.getValue();
         
-        addUserStatus = Database.addUser(userType, name, true, password, dob, doj, phoneNumber, address);
-        
-        newUserIdTextField.setText("");
-        nameTextField.setText("");
-        passwordTextField.setText("");
-        salaryTextField.setText("");
-        phoneNumberTF.setText("");
-        addressTextField.setText("");
-        dobDatePicker.setValue(null);
-        dojDatePicker.setValue(null);
-        
-        if(addUserStatus) {
-            anAlert.setContentText("User Added Successfully!");
-            anAlert.show();
+        if(dob.isAfter(doj)) {
+            anErrorAlert.setContentText("Date of birth cannot be after date of joining");
+            anErrorAlert.show();
+        }
+        else if(doj.getYear()-dob.getYear()<18) {
+            anErrorAlert.setContentText("Age must be above 18 to register as employee");
+            anErrorAlert.show();
+        }
+        else if(userTypeComboBox.getValue().equals(null)) {
+            anErrorAlert.setContentText("Fields cannot be empty");
+            anErrorAlert.show();
+        }
+        else if(name.equals(null)) {
+            anErrorAlert.setContentText("Fields cannot be empty");
+            anErrorAlert.show();
+        }
+        else if(password.equals(null)) {
+            anErrorAlert.setContentText("Fields cannot be empty");
+            anErrorAlert.show();
+        }
+        else if(phoneNumber.equals(null)) {
+            anErrorAlert.setContentText("Fields cannot be empty");
+            anErrorAlert.show();
+        }
+        else if(address.equals(null)) {
+            anErrorAlert.setContentText("Fields cannot be empty");
+            anErrorAlert.show();
+        }
+        else if(dob.equals(null)) {
+            anErrorAlert.setContentText("Fields cannot be empty");
+            anErrorAlert.show();
+        }
+        else if(doj.equals(null)) {
+            anErrorAlert.setContentText("Fields cannot be empty");
+            anErrorAlert.show();
         }
         else {
-            anAlert.setContentText("Oops! Something went wrong. Try Again.");
-            anAlert.show();
+            addUserStatus = Database.addUser(userType, name, true, password, dob, doj, phoneNumber, address);
+
+            newUserIdTextField.setText("");
+            nameTextField.setText("");
+            passwordTextField.setText("");
+            salaryTextField.setText("");
+            phoneNumberTF.setText("");
+            addressTextField.setText("");
+            dobDatePicker.setValue(null);
+            dojDatePicker.setValue(null);
+
+            if(addUserStatus) {
+                anAlert.setContentText("User Added Successfully!");
+                anAlert.show();
+            }
+            else {
+                anAlert.setContentText("Oops! Something went wrong. Try Again.");
+                anAlert.show();
+            }
         }
     }
     

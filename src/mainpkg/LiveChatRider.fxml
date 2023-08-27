@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="mainpkg.LiveChatRiderController">
+   <children>
+      <TextArea fx:id="messageTA" layoutX="25.0" layoutY="80.0" prefHeight="200.0" prefWidth="550.0" promptText="Write message..." />
+      <Button layoutX="209.0" layoutY="304.0" mnemonicParsing="false" onAction="#sendMsgBtnOnClick" prefHeight="36.0" prefWidth="105.0" text="Send Message" />
+      <ComboBox fx:id="customerIdCB" layoutX="25.0" layoutY="308.0" prefHeight="28.0" prefWidth="144.0" promptText="Select Customer ID" />
+      <Label layoutX="25.0" layoutY="40.0" text="Live Chat:">
+         <font>
+            <Font name="System Bold Italic" size="19.0" />
+         </font>
+      </Label>
+      <Button layoutX="487.0" layoutY="31.0" mnemonicParsing="false" onAction="#rtrnBtnOnClick" prefHeight="36.0" prefWidth="88.0" text="Return Home" />
+      <Button layoutX="332.0" layoutY="304.0" mnemonicParsing="false" onAction="#readChatBtnOnClick" prefHeight="36.0" prefWidth="105.0" text="View Chat" />
+   </children>
+</AnchorPane>

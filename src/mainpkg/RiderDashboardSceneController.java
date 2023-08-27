@@ -53,5 +53,10 @@ public class RiderDashboardSceneController implements Initializable {
     private void delivHistMIOnClick(ActionEvent event) {
         riderDashBoardBP.setCenter(newSceneLoader.getSceneRoot("RiderRecieveDelivery.fxml"));
     }
+
+    @FXML
+    private void liveChatMIOnClick(ActionEvent event) {
+        riderDashBoardBP.setCenter(newSceneLoader.getSceneRoot("LiveChatRider.fxml"));
+    }
     
 }

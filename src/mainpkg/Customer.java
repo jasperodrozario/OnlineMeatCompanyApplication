@@ -125,6 +125,11 @@ public class Customer extends User{
         }
     }
     
+    public String readRiderChat(int riderId) {
+        String msg = LiveChat.readChat(userId, this.userId);
+        return msg;
+    }
+    
     public boolean giveFeedback(int orderId, String feedbackStr) {
         return(CustomerFeedback.addCustomerFeedback(orderId, this.userId, this.userName, feedbackStr));
     }

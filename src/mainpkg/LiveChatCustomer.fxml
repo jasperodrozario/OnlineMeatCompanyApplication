@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.LiveChatCustomerController">
    <children>
-      <TextArea layoutX="25.0" layoutY="36.0" prefHeight="200.0" prefWidth="550.0" />
-      <Button layoutX="265.0" layoutY="292.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="71.0" text="Send" />
+      <TextArea fx:id="messageTA" layoutX="26.0" layoutY="72.0" prefHeight="200.0" prefWidth="550.0" promptText="Write message..." />
+      <Button layoutX="210.0" layoutY="296.0" mnemonicParsing="false" onAction="#sendMsgBtnOnClick" prefHeight="36.0" prefWidth="105.0" text="Send Message" />
+      <ComboBox fx:id="riderIdCB" layoutX="26.0" layoutY="300.0" prefHeight="28.0" prefWidth="126.0" promptText="Select Rider ID" />
+      <Label layoutX="26.0" layoutY="32.0" text="Live Chat:">
+         <font>
+            <Font name="System Bold Italic" size="19.0" />
+         </font>
+      </Label>
+      <Button layoutX="488.0" layoutY="23.0" mnemonicParsing="false" onAction="#rtrnHomeBtnOnClick" prefHeight="36.0" prefWidth="88.0" text="Return Home" />
+      <Button layoutX="333.0" layoutY="296.0" mnemonicParsing="false" onAction="#readChatBtnOnClick" prefHeight="36.0" prefWidth="105.0" text="View Chat" />
    </children>
 </AnchorPane>

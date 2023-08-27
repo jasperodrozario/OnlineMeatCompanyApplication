@@ -103,11 +103,15 @@ public class Rider extends Employee {
     }
     
     public boolean chatWithCustomer(int customerId, String msg) {
-        
         if(LiveChat.liveChat(customerId, false, userId, true, msg)) return true;
         else {
             return false;
         }
+    }
+    
+    public String readCustomerChat(int customerId) {
+        String msg = LiveChat.readChat(userId, this.userId);
+        return msg;
     }
     
     public boolean updateDeliveryStatus(int OrderId) {
