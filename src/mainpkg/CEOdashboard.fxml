@@ -25,9 +25,9 @@
                   <MenuItem mnemonicParsing="false" onAction="#investorOnClick" text="View Investor's List" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Financial Management">
+            <Menu mnemonicParsing="false" text="Policy">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#viewReportOnClick" text="View Report" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewPolicyMIOnClick" text="View Report" />
                </items></Menu>
             <Menu mnemonicParsing="false" text="Sale Report">
                <items>
@@ -50,7 +50,7 @@
       </MenuBar>
    </top>
    <center>
-      <Label prefHeight="73.0" prefWidth="627.0" text="Welcome To Bengal Meat" BorderPane.alignment="CENTER">
+      <Label prefHeight="73.0" prefWidth="627.0" text="View Policy" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>

@@ -9,13 +9,14 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
-import static mainpkg.Database.anAlert;
+import javafx.scene.control.Alert;
 
 /**
  *
  * @author Jasper
  */
 public class CEO extends Employee{
+    static Alert anAlert = new Alert(Alert.AlertType.ERROR);
     
     public CEO(String userType, String userName, boolean gender, String password, LocalDate userDob, LocalDate userDoj, String phoneNumber) {
         this.userType = userType;
