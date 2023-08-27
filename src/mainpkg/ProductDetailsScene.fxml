@@ -8,90 +8,308 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="609.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.ProductDetailsSceneController">
+<AnchorPane id="AnchorPane" prefHeight="656.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.ProductDetailsSceneController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="227.0" layoutX="40.0" layoutY="100.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="167.0" layoutX="14.0" layoutY="14.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
          <effect>
             <DropShadow />
          </effect>
       </Rectangle>
-      <Label layoutX="40.0" layoutY="45.0" text="Beef">
+      <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/BeefBoneIn.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="99.0" fitWidth="203.0" layoutX="217.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="167.0" layoutX="223.0" layoutY="14.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="234.0" layoutY="143.0" prefHeight="17.0" prefWidth="126.0" text="Beef Tehari Cut 1kg">
          <font>
-            <Font name="Arial Bold" size="24.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="40.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="223.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/BeefTehariCut.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="167.0" layoutX="437.0" layoutY="14.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="437.0" layoutY="143.0" prefHeight="17.0" prefWidth="167.0" text="Beef Tenderloin Steak 200gm">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="437.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/BeefTenderloinSteak.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="174.0" layoutX="650.0" layoutY="6.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="650.0" layoutY="135.0" prefHeight="17.0" prefWidth="149.0" text="Beef T-Bone Steak 300gm">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="650.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/BeefT-BoneSteak.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="14.0" layoutY="143.0" prefHeight="17.0" prefWidth="101.0" text="Beef Bone In 1kg">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="17.0" layoutY="159.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 800" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="234.0" layoutY="159.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 800" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="658.0" layoutY="159.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 800" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="443.0" layoutY="159.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 800" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="149.0" layoutX="13.0" layoutY="188.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="36.0" layoutY="302.0" prefHeight="17.0" prefWidth="126.0" text="Mutton Bone In 1kg">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="99.0" fitWidth="196.0" layoutX="37.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/BeefBoneIn.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="99.0" fitWidth="203.0" layoutX="273.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="227.0" layoutX="279.0" layoutY="100.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="149.0" layoutX="223.0" layoutY="186.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
          <effect>
             <DropShadow />
          </effect>
       </Rectangle>
-      <Label layoutX="290.0" layoutY="243.0" prefHeight="17.0" prefWidth="126.0" text="Beef Tehari Cut 1kg">
+      <Label layoutX="274.0" layoutY="285.0" prefHeight="17.0" prefWidth="126.0" text="Mutton Shank 1kg">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="279.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/BeefTehariCut.jpg" />
-         </image>
-      </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="227.0" layoutX="518.0" layoutY="99.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="149.0" layoutX="437.0" layoutY="184.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
          <effect>
             <DropShadow />
          </effect>
       </Rectangle>
-      <Label layoutX="529.0" layoutY="242.0" prefHeight="17.0" prefWidth="167.0" text="Beef Tenderloin Steak 200gm">
+      <Label layoutX="490.0" layoutY="285.0" prefHeight="17.0" prefWidth="126.0" text="Mutton Back Leg 1kg">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="518.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+      <Label alignment="CENTER" layoutX="52.0" layoutY="319.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 1080" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="301.0" layoutY="311.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 1550" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="515.0" layoutY="311.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 1300" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="93.0" fitWidth="149.0" layoutX="461.0" layoutY="187.0">
          <image>
-            <Image url="@../img/BeefTenderloinSteak.jpg" />
+            <Image url="@../img/mutton3.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="227.0" layoutX="40.0" layoutY="351.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+      <ImageView fitHeight="99.0" fitWidth="149.0" layoutX="250.0" layoutY="186.0">
+         <image>
+            <Image url="@../img/mutton2.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="149.0" layoutX="223.0" layoutY="340.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
          <effect>
             <DropShadow />
          </effect>
       </Rectangle>
-      <Label layoutX="51.0" layoutY="494.0" prefHeight="17.0" prefWidth="149.0" text="Beef T-Bone Steak 300gm">
+      <Label layoutX="252.0" layoutY="442.0" prefHeight="17.0" prefWidth="168.0" text="Whole Chicken (Skin On) 1kg">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <ImageView fitHeight="129.0" fitWidth="203.0" layoutX="40.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="99.0" fitWidth="203.0" layoutX="336.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="136.0" layoutX="438.0" layoutY="347.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="456.0" layoutY="443.0" prefHeight="17.0" prefWidth="168.0" text="Whole Chicken (Skinless) 1kg">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="149.0" layoutX="658.0" layoutY="187.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="671.0" layoutY="294.0" prefHeight="17.0" prefWidth="178.0" text="Roast Chicken (Sonali) 400gm">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="136.0" layoutX="13.0" layoutY="347.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="22.0" layoutY="451.0" prefHeight="17.0" prefWidth="187.0" text="Chicken Drumstick (Skin On) 1kg">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="93.0" fitWidth="149.0" layoutX="41.0" layoutY="351.0">
          <image>
-            <Image url="@../img/BeefT-BoneSteak.jpg" />
+            <Image url="@../img/9e82cbdb42202f6a67cfd397bd2ac5210.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="51.0" layoutY="243.0" prefHeight="17.0" prefWidth="101.0" text="Beef Bone In 1kg">
+      <ImageView fitHeight="99.0" fitWidth="156.0" layoutX="247.0" layoutY="348.0">
+         <image>
+            <Image url="@../img/A000479.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="99.0" fitWidth="149.0" layoutX="465.0" layoutY="348.0">
+         <image>
+            <Image url="@../img/A000480.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="99.0" fitWidth="167.0" layoutX="668.0" layoutY="188.0">
+         <image>
+            <Image url="@../img/4b14a4e9682c46c66d24ae0ce02b20d4.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="295.0" layoutY="460.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 390" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="506.0" layoutY="460.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 395" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="728.0" layoutY="311.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 312" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="76.0" layoutY="467.0" prefHeight="0.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 530" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="136.0" layoutX="650.0" layoutY="346.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <ImageView fitHeight="99.0" fitWidth="129.0" layoutX="702.0" layoutY="348.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/fish.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="710.0" layoutY="439.0" prefHeight="17.0" prefWidth="101.0" text="Rui 1kg">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="50.0" layoutY="266.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 800" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="705.0" layoutY="460.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 400" textAlignment="CENTER">
          <font>
             <Font size="11.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="290.0" layoutY="266.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 800" textAlignment="CENTER">
+      <ImageView fitHeight="99.0" fitWidth="203.0" layoutX="58.0" layoutY="474.0" pickOnBounds="true" preserveRatio="true" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="149.0" layoutX="13.0" layoutY="489.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="65.0" layoutY="583.0" prefHeight="17.0" prefWidth="126.0" text="Hilsha 1kg">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="99.0" fitWidth="99.0" layoutX="55.0" layoutY="489.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/hilsha.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="81.0" layoutY="605.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 1200" textAlignment="CENTER">
          <font>
             <Font size="11.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="51.0" layoutY="518.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 800" textAlignment="CENTER">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="149.0" layoutX="224.0" layoutY="492.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="277.0" layoutY="597.0" prefHeight="17.0" prefWidth="167.0" text="Prawn 1kg">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="295.0" layoutY="614.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 1000" textAlignment="CENTER">
          <font>
             <Font size="11.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="529.0" layoutY="266.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 800" textAlignment="CENTER">
+      <ImageView fitHeight="113.0" fitWidth="156.0" layoutX="248.0" layoutY="492.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/prawn.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="149.0" layoutX="438.0" layoutY="492.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="203.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="488.0" layoutY="592.0" prefHeight="17.0" prefWidth="149.0" text="Squid 400gm">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="93.0" fitWidth="156.0" layoutX="465.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/images%20(5).jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="492.0" layoutY="614.0" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: #c6c6c6; -fx-background-radius: 12;" text="Tk 600" textAlignment="CENTER">
          <font>
             <Font size="11.0" />
          </font>

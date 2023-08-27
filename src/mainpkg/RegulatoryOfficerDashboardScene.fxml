@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -28,10 +29,10 @@
                </items></Menu>
             <Menu mnemonicParsing="false" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Documentations and Records">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#viewHlthConcRprtMenuItemOnClick" text="View Health Concern Report" />
-                  <MenuItem mnemonicParsing="false" onAction="#viewRegRprtMenuItemOnClick" text="View Regulation Report" />
-                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                  <MenuItem mnemonicParsing="false" onAction="#viewVaccRprtMenuItemOnClick" text="View Vaccination Report" />
+                  <MenuItem mnemonicParsing="false" onAction="#policyOnClick" text="Policy" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewTransactionReportOnClick" text="View Transaction Report" />
+                  <MenuItem mnemonicParsing="false" onAction="#farmcostOnClick" text="Farm Cost" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewVaccinationReportOnClick" text="View Vaccination Report" />
                   <MenuItem mnemonicParsing="false" onAction="#ViewSaleReportOnClick" text="View Sale Report" />
                </items></Menu>
         </menus>
@@ -50,6 +51,11 @@
                   <Font size="15.0" />
                </font>
             </Label>
+            <Button layoutX="297.0" layoutY="357.0" mnemonicParsing="false" onAction="#logoutButtonOnClick" text="Log out">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </center>

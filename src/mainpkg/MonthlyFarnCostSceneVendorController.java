@@ -39,11 +39,11 @@ public class MonthlyFarnCostSceneVendorController implements Initializable {
     private void addCostOnClick(ActionEvent event) {
         
         if(loggedUserInst.updateFarmCost(monthTextField.getText(), Integer.parseInt(costTextField.getText()))) {
-            anAlert.setContentText("Vaccine status successfully updated!");
+            anAlert.setContentText("Monthly Cost status successfully updated!");
             anAlert.show();
         }
         else {
-            anAlert.setContentText("Oops! Couldn't update vaccine status. Try again.");
+            anAlert.setContentText("Oops! Couldn't update monthly cost status. Try again.");
             anAlert.show();
         }
         

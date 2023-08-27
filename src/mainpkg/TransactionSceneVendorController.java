@@ -42,6 +42,16 @@ public class TransactionSceneVendorController implements Initializable {
 
     @FXML
     private void addVendorTransactionOnClick(ActionEvent event) {
+        
+        if(loggedUserInst.updateTransaction(productNameTextField.getText(), Integer.parseInt(productAmountTextField.getText()),Integer.parseInt(productPriceTextField.getText()),transactionDate.getValue())) {
+            anAlert.setContentText("Transaction status successfully updated!");
+            anAlert.show();
+        }
+        else {
+            anAlert.setContentText("Oops! Couldn't update transaction status. Try again.");
+            anAlert.show();
+        }
+        
     }
 
     @FXML

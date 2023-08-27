@@ -101,4 +101,9 @@ public class RegulatoryOfficer extends Employee {
 //        
 //    }
     
+    public static boolean submitPolicy(String policy){
+        Policy newPolicy = new Policy(policy);
+        return newPolicy.addPolicy(policy);
+    }
+    
 }
