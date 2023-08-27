@@ -80,6 +80,11 @@ public class RiderPendingOrderController implements Initializable {
     private void updateDelStatBtnOnClick(ActionEvent event) {
         if(loggedUserInst.updateDeliveryStatus(selectOrderCB.getValue())) {
             pendingOrdersTV.setItems(Order.getRiderOrder(loggedUserInst.userId, false));
+            selectOrderCB.setValue(null);
+            selectOrderCB.getItems().clear();
+            for(Order order: Order.getRiderOrder(loggedUserInst.userId, false)) {
+                selectOrderCB.getItems().add(order.orderId);
+            }
             anInfoAlert.setContentText("Status updated successfully.");
         }
         else {

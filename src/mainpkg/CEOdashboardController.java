@@ -1,5 +1,6 @@
 package mainpkg;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -64,8 +65,13 @@ public class CEOdashboardController implements Initializable {
     }
 
     @FXML
-    private void LogOutOnClick(ActionEvent event) {
-        ceoDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("LoginScene.fxml"));
+    private void LogOutOnClick(ActionEvent event) throws IOException {
+        newSceneLoader.switchScene("LoginScene.fxml", event);
+    }
+
+    @FXML
+    private void writeFeedbackOnClick(ActionEvent event) {
+        ceoDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("CEOAffiliateMarketerFeedbackScene.fxml"));
     }
     
 }

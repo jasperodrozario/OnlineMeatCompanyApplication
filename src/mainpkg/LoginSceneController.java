@@ -88,7 +88,7 @@ public class LoginSceneController implements Initializable {
             }
             else if(userTypeComboBox.getValue().equals("Affiliate Marketer")) {
                 if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
-                    newSceneLoader.switchScene("AffiliateMarketerDashboardScene.fxml", event);
+                    newSceneLoader.switchScene("AffiliateMarketerDashboard.fxml", event);
                 }
                 else {
                     anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");

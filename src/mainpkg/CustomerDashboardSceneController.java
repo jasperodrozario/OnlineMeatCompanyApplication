@@ -75,7 +75,7 @@ public class CustomerDashboardSceneController implements Initializable {
 
     @FXML
     private void feedbackMIOnClick(ActionEvent event) {
-        newSceneOpener.loadScene("CheckoutScene.fxml");
+        customerBorderPane.setCenter(newSceneOpener.getSceneRoot("CustomerFeedback.fxml"));
     }
     
 }

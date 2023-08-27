@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,7 +17,7 @@ import javafx.collections.ObservableList;
  * @author Jasper
  */
 
-public class CustomerFeedback {
+public class CustomerFeedback implements Serializable{
     int orderId, customerId;
     String customerName, feedbackStr;
     LocalDate feedbackDate = LocalDate.now();
@@ -93,6 +94,17 @@ public class CustomerFeedback {
             }
             return allCustomerFeedbacks;
         }
+    }
+    
+    
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject();
+        out.writeObject(feedbackDate);
+    }
+
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        feedbackDate = (LocalDate)in.readObject();
     }
     
 }

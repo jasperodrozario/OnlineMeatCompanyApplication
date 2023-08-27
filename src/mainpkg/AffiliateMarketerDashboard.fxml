@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="affiliateMarketerDashboardBP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="723.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.AffiliateMarketerDashboardController">
+   <top>
+      <MenuBar prefHeight="25.0" prefWidth="663.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" style="-fx-background-color: #FECB00; -fx-background-radius: 5;" text="Content Creation">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#createContMIOnClick" text="Create Content" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Training Sessions">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#strtInstMeetMenuItemOnClick" text="Start an Instant Meeting" />
+                  <MenuItem mnemonicParsing="false" onAction="#schSessMenuItemOnClick" text="Schedule Session" />
+                  <MenuItem mnemonicParsing="false" onAction="#sessHistMenuItemOnClick" text="Session History" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Feedback">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#viewFeedbackMIOnClick" text="View Company Feedback" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Company Guidelines">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#viewCompGuideMIOnClick" text="View Company Guidelines" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" style="-fx-background-color: FECB00; -fx-background-radius: 5;" text="Documentations and Records">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#policyOnClick" text="Policy" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewTransactionReportOnClick" text="View Transaction Report" />
+                  <MenuItem mnemonicParsing="false" onAction="#farmcostOnClick" text="Farm Cost" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewVaccinationReportOnClick" text="View Vaccination Report" />
+                  <MenuItem mnemonicParsing="false" onAction="#ViewSaleReportOnClick" text="View Sale Report" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="575.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="62.0" layoutY="246.0" text="Welcome to Affiliate Marketer Dashboard">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="217.0" layoutY="308.0" text="Select an option from above to display here">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="308.0" layoutY="358.0" mnemonicParsing="false" onAction="#logoutButtonOnClick" prefHeight="38.0" prefWidth="108.0" text="Log out">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

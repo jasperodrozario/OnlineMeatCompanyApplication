@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="407.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.CEOAffiliateMarketerFeedbackSceneController">
+   <children>
+      <Button layoutX="26.0" layoutY="343.0" mnemonicParsing="false" onAction="#chooseFileBtnClick" prefHeight="33.0" prefWidth="149.0" text="Choose file to feedback" />
+      <TextArea fx:id="feedbackTA" layoutX="26.0" layoutY="54.0" prefHeight="224.0" prefWidth="548.0" promptText="Write feedback..." />
+      <TextField fx:id="feedbackFileNameTF" editable="false" layoutX="26.0" layoutY="307.0" promptText="Pick a file to display here" />
+      <Button layoutX="233.0" layoutY="340.0" mnemonicParsing="false" onAction="#submitFeedbackBtnOnClick" prefHeight="39.0" prefWidth="135.0" text="Submit Feedback" />
+      <Label layoutX="26.0" layoutY="14.0" text="Write Feedback to Affiliate Marketer:">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="487.0" layoutY="10.0" mnemonicParsing="false" onAction="#rtrnHomeBtnOnClick" prefHeight="33.0" prefWidth="87.0" text="Return Home" />
+   </children>
+</AnchorPane>

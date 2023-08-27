@@ -33,7 +33,7 @@ public class AuditReportViewSceneController implements Initializable {
     private void openAuditRprtBtnOnClick(ActionEvent event) {
         File f1 = new File("Audit Report");
         FileChooser fc = new FileChooser();
-//        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter(".bin"));
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter(".bin"));
         fc.setInitialDirectory(f1);
         File f = fc.showOpenDialog(null);
         if(f!=null) {

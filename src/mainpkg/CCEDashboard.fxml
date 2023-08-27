@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="659.0" prefWidth="1099.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.CCEDashboardController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="659.0" prefWidth="1099.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.CCEDashboardController">
    <center>
       <Label text="Hello, CUSTOMER CARE EXECUTIVE ! Welcome to the Dashboard" BorderPane.alignment="CENTER">
          <font>
@@ -22,6 +22,7 @@
             <items>
                   <MenuItem mnemonicParsing="false" text="Customer feedback" />
               <MenuItem mnemonicParsing="false" text="Rider feedback" />
+                  <MenuItem mnemonicParsing="false" onAction="#giveFeedbackAffiliateMIOnClick" text="Give feedback to Affiliate Marketer" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Customer">

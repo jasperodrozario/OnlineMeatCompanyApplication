@@ -77,6 +77,11 @@ public class RiderRecieveDeliveryController implements Initializable {
     private void acceptOrderBtnOnClick(ActionEvent event) throws IOException {
         if(loggedUserInst.acceptOrder(selectOrderCB.getValue())) {
             recieveOrderTV.setItems(Order.getNewOrders());
+            selectOrderCB.setValue(null);
+            selectOrderCB.getItems().clear();
+            for(Order order: Order.getNewOrders()) {
+                selectOrderCB.getItems().add(order.orderId);
+            }
             anInfoAlert.setContentText("Order accepted successfully!");
             anInfoAlert.show();
         }

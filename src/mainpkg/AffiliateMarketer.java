@@ -7,6 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.time.LocalDate;
+import java.util.Scanner;
+import javafx.stage.FileChooser;
 import static mainpkg.Database.anAlert;
 
 /**
@@ -97,4 +99,30 @@ public class AffiliateMarketer extends Employee {
     public boolean changePassword() {
         return true;
     }
+    
+    public boolean makeContent(String contTitle, String contDescription) {
+        return(AffiliateMarketerContent.writeContent(this.userId, contTitle, contDescription));
+    }
+    
+    public String viewFeedbackReport() {
+        File f1 = new File("AffiliateMarketer_Feedback");
+        FileChooser fc = new FileChooser();
+        fc.setInitialDirectory(f1);
+        File f = fc.showOpenDialog(null);
+        if(f!=null) {
+            try {
+                Scanner sc = new Scanner(f);
+                String str = "";
+                while(sc.hasNextLine()) {
+                    str += sc.nextLine()+"\n";
+                }
+                return str;
+            }
+            catch(FileNotFoundException e) {
+                return null;
+            }
+        }
+        return null;
+    }
+    
 }
