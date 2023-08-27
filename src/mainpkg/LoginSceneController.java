@@ -148,7 +148,6 @@ public class LoginSceneController implements Initializable {
         newSceneLoader.loadScene("RegisterUserScene.fxml");
     }
 
-    @FXML
     private void switchToViewBinFileSceneOnClick(MouseEvent event) {
         newSceneLoader.loadScene("ViewBinFileContentScene.fxml");
     }
