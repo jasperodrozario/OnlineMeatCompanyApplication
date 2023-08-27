@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 /**
  *
- * @author Jasper
+ * @author Dell
  */
 
 public abstract class Employee extends User{
