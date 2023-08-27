@@ -57,7 +57,7 @@ public class ScheduleMeetingSessionSceneController implements Initializable {
     private void addSchSessBtnOnClick(ActionEvent event) {
         LocalDate meetDate = meetDateDP.getValue();
         LocalTime meetTime = LocalTime.now();
-        if(MeetingSession.addMeetingSession(LocalDateTime.of(meetDate, meetTime), meetDescTF.getText())) {
+        if(LoggedUserInstance.regulatoryOfficerInst.addMeetingSession(LocalDateTime.of(meetDate, meetTime), meetDescTF.getText())) {
             anInfoAlert.setContentText("Meeting session added successfully.");
             anInfoAlert.show();
             schMeetSessTV.setItems(MeetingSession.getAllMeetingSessions());
