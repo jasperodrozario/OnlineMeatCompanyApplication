@@ -1,5 +1,6 @@
 package mainpkg;
 //i love filter
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -20,6 +21,7 @@ public class AccountOfficerDashBoardController implements Initializable {
     private BorderPane accountOfficerBorderPane;
     
     SceneLoader newSceneOpener = new SceneLoader();
+    SceneLoader newSceneLoader = new SceneLoader();
     
     
     
@@ -67,9 +69,9 @@ public class AccountOfficerDashBoardController implements Initializable {
     }
 
     @FXML
-    private void logOutButtonOnClick(ActionEvent event) {
+    private void logOutButtonOnClick(ActionEvent event) throws IOException{
         
-//        newSceneOpener.switchScene("LoginScene.fxml", event);
+        newSceneLoader.switchScene("LoginScene.fxml", event);
         
     }
 }
