@@ -57,6 +57,7 @@ public class CEOdashboardController implements Initializable {
 
     @FXML
     private void customersFeedbackOnClick(ActionEvent event) {
+        ceoDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("CustomerFeedback.fxml"));
     }
 
     @FXML

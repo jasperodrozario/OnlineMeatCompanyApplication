@@ -12,7 +12,7 @@ import javafx.scene.control.TextArea;
 /**
  * FXML Controller class
  *
- * @author Jasper
+ * @author Dell
  */
 public class AuditReportEditSceneController implements Initializable {
 
