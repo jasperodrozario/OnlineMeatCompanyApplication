@@ -14,7 +14,7 @@ import javafx.stage.FileChooser;
 /**
  * FXML Controller class
  *
- * @author Dell
+ * @author Jasper
  */
 public class AuditReportViewSceneController implements Initializable {
 

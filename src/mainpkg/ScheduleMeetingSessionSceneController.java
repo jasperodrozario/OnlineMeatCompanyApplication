@@ -19,7 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 /**
  * FXML Controller class
  *
- * @author Dell
+ * @author Jasper
  */
 
 public class ScheduleMeetingSessionSceneController implements Initializable {

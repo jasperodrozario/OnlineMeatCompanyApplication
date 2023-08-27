@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 /**
  * FXML Controller class
  *
- * @author Dell
+ * @author Jasper
  */
 public class StartInstMeetingSceneController implements Initializable {
 

@@ -20,7 +20,11 @@ public class AnalysisDataController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+<<<<<<< Updated upstream
         // NANIII!!!
+=======
+        // TODO
+>>>>>>> Stashed changes
     }    
     
 }

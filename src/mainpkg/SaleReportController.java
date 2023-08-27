@@ -11,7 +11,7 @@ import javafx.scene.control.Alert;
 /**
  * FXML Controller class
  *
- * @author Dell
+ * @author Jasper
  */
 public class SaleReportController implements Initializable {
 
