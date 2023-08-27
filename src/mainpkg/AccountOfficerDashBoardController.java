@@ -21,9 +21,6 @@ public class AccountOfficerDashBoardController implements Initializable {
     private BorderPane accountOfficerBorderPane;
     
     SceneLoader newSceneOpener = new SceneLoader();
-    SceneLoader newSceneLoader = new SceneLoader();
-    
-    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -71,7 +68,7 @@ public class AccountOfficerDashBoardController implements Initializable {
     @FXML
     private void logOutButtonOnClick(ActionEvent event) throws IOException{
         
-        newSceneLoader.switchScene("LoginScene.fxml", event);
+        newSceneOpener.switchScene("LoginScene.fxml", event);
         
     }
 }
