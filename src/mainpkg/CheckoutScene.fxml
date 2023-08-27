@@ -16,7 +16,10 @@
             <Font name="System Bold Italic" size="17.0" />
          </font>
       </Label>
-      <Button layoutX="280.0" layoutY="366.0" mnemonicParsing="false" onMouseClicked="#confirmOrderBtnOnClick" prefHeight="43.0" prefWidth="105.0" text="Confirm Order" />
+      <Button layoutX="280.0" layoutY="366.0" mnemonicParsing="false" onMouseClicked="#confirmOrderBtnOnClick" prefHeight="43.0" prefWidth="105.0" text="Place Order">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
       <TableView fx:id="cartItemListTableView" editable="true" layoutX="27.0" layoutY="62.0" prefHeight="224.0" prefWidth="611.0">
         <columns>
           <TableColumn fx:id="prodNameCol" prefWidth="140.0" text="Product Name" />

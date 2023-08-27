@@ -1,12 +1,15 @@
 package mainpkg;
 
+import java.awt.Desktop;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.net.URI;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import static mainpkg.Database.anAlert;
 
 /**
@@ -104,6 +107,25 @@ public class RegulatoryOfficer extends Employee {
     public static boolean submitPolicy(String policy){
         Policy newPolicy = new Policy(policy);
         return newPolicy.addPolicy(policy);
+    }
+    
+    public void startMeetingSession(String url) {
+        try {
+            // Use the Desktop class to open the URL in the default web browser
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                Desktop.getDesktop().browse(new URI(url));
+            } else {
+                System.out.println("Desktop browsing not supported.");
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public boolean addMeetingSession(LocalDateTime meetTime, String meetDesc) {
+        if(MeetingSession.addMeetingSession(meetTime, meetDesc)) return true;
+        return false;
     }
     
 }

@@ -111,8 +111,9 @@ public class Customer extends User{
         }
     }
     
-    public boolean confirmOrder() {
+    public boolean confirmOrder(float totalPrice) {
         Order newOrder = new Order(userId, userName, Cart.getCartArrayList(), phoneNumber, address);
+        newOrder.setTotalPrice(totalPrice);
         Transaction newTrans = new Transaction(newOrder.orderId, Cart.getTotalPrice(), date);
         return Order.addOrder(newOrder);
     }

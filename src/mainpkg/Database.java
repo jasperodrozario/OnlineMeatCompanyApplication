@@ -222,18 +222,25 @@ public class Database {
         else if (userType == "CEO") {
             try {
                 f1 = new File("CEOUser.bin");
-                CEO newUser = new CEO(userType, userName, gender, password, userDob, userDoj, phoneNumber);
-                if (f1.exists()) {
-                    fos = new FileOutputStream(f1, true);
-                    oos = new AppendObjectOutputStream(fos);
+                if(f1.exists()) {
+                    anAlert.setContentText("A CEO already exists. Cannot register Multiple CEO");
+                    anAlert.show();
+                    return false;
                 }
                 else {
-                    fos = new FileOutputStream(f1);
-                    oos = new ObjectOutputStream(fos);
+                    CEO newUser = new CEO(userType, userName, gender, password, userDob, userDoj, phoneNumber);
+                    if (f1.exists()) {
+                        fos = new FileOutputStream(f1, true);
+                        oos = new AppendObjectOutputStream(fos);
+                    }
+                    else {
+                        fos = new FileOutputStream(f1);
+                        oos = new ObjectOutputStream(fos);
+                    }
+                    oos.writeObject(newUser);
+                    oos.close();
+                    return true;
                 }
-                oos.writeObject(newUser);
-                oos.close();
-                return true;
             }
             catch (FileNotFoundException e) {
                 e.printStackTrace();

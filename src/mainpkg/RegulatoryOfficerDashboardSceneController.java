@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 
 /**
@@ -57,22 +56,6 @@ public class RegulatoryOfficerDashboardSceneController implements Initializable 
         regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("SupplierProductsScene.fxml"));
     }
 
-    private void viewHlthConcRprtMenuItemOnClick(ActionEvent event) {
-        regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("HealthConcernReportScene.fxml"));
-    }
-
-    private void viewRegRprtMenuItemOnClick(ActionEvent event) {
-        regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("RegulationReportScene.fxml"));
-    }
-
-    private void viewAnmlCondRprtMenuItemOnClick(ActionEvent event) {
-        regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("AnimalConditionReportScene.fxml"));
-    }
-
-    private void viewVaccRprtMenuItemOnClick(ActionEvent event) {
-        regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("VaccinationUpdateSceneRegulatoryOfficer.fxml"));
-    }
-
     @FXML
     private void ViewSaleReportOnClick(ActionEvent event) {
         regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("SaleReport.fxml"));
@@ -95,6 +78,7 @@ public class RegulatoryOfficerDashboardSceneController implements Initializable 
 
     @FXML
     private void viewVaccinationReportOnClick(ActionEvent event) {
+        regulatoryOfficerDashboardBorderPane.setCenter(newSceneLoader.getSceneRoot("VaccinationUpdateSceneRegulatoryOfficer.fxml"));
     }
 
     @FXML

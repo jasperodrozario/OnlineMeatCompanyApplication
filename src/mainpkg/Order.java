@@ -21,7 +21,8 @@ import javafx.scene.control.Alert;
  */
 
 public class Order implements Serializable{
-    int orderId, customerId, totalPrice, riderId;
+    int orderId, customerId, riderId;
+    Float totalPrice;
     String riderName, customerName, customerAddress, phoneNumber, deliveryStatus;
     static ArrayList<Product> cartList;
     static LocalDate orderDate;
@@ -36,7 +37,6 @@ public class Order implements Serializable{
         this.customerAddress = customerAddress;
         orderId = this.generateUniqueOrderId();
         orderDate = LocalDate.now();
-        for(Product item: cartList) totalPrice += item.price;
         delivered = false;
         this.setDeliveryStatus(delivered);
     }
@@ -467,7 +467,7 @@ public class Order implements Serializable{
         return riderId;
     }
 
-    public int getTotalPrice() {
+    public Float getTotalPrice() {
         return totalPrice;
     }
 
@@ -537,6 +537,10 @@ public class Order implements Serializable{
         else {
             this.deliveryStatus = "Pending";
         }
+    }
+
+    public void setTotalPrice(Float totalPrice) {
+        this.totalPrice = totalPrice;
     }
     
     private void writeObject(ObjectOutputStream out) throws IOException {

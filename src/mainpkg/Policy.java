@@ -20,7 +20,9 @@ public class Policy implements Serializable{
     }
     
     
-    public boolean addPolicy(String policy) {
+    public static boolean addPolicy(String policy) {
+        
+        Policy newPolicy = new Policy(policy);
         
         File policyFile = null;
         FileOutputStream fos = null;
@@ -36,7 +38,7 @@ public class Policy implements Serializable{
                 fos = new FileOutputStream(policyFile);
                 oos = new ObjectOutputStream(fos);
             }
-            oos.writeObject(this);
+            oos.writeObject(newPolicy);
             return true;
         }
         catch (FileNotFoundException e) {

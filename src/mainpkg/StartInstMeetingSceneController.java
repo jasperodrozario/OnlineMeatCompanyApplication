@@ -29,18 +29,6 @@ public class StartInstMeetingSceneController implements Initializable {
 
     @FXML
     private void strtMeetBtnOnClick(ActionEvent event) {
-        String url = gmlTF.getText();
-
-        try {
-            // Use the Desktop class to open the URL in the default web browser
-            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-                Desktop.getDesktop().browse(new URI(url));
-            } else {
-                System.out.println("Desktop browsing not supported.");
-            }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        LoggedUserInstance.regulatoryOfficerInst.startMeetingSession(gmlTF.getText());
     }
 }

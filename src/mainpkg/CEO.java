@@ -166,7 +166,6 @@ public class CEO extends Employee{
             } 
             catch (IOException e) {
             }
-        }  
-        
+        }
     }
 }

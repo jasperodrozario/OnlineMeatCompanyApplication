@@ -160,50 +160,50 @@ public class Product implements Serializable{
                 else if(tempInst.name.equals("Beef T-Bone Steak")) {
                     beefTBoneSteakCount += tempInst.quantity;
                 }
-                else if(tempInst.name.equals("Beef T-Bone Steak")) {
-                    beefTBoneSteakCount += tempInst.quantity;
+                else if(tempInst.name.equals("Mutton Bone In")) {
+                    muttonBoneInCount += tempInst.quantity;
                 }
-                else if(tempInst.name.equals("Beef T-Bone Steak")) {
-                    beefTBoneSteakCount += tempInst.quantity;
+                else if(tempInst.name.equals("Mutton Shank")) {
+                    muttonShankCount += tempInst.quantity;
                 }
-                else if(tempInst.name.equals("Beef T-Bone Steak")) {
-                    beefTBoneSteakCount += tempInst.quantity;
+                else if(tempInst.name.equals("Mutton Back Leg")) {
+                    muttonBackLegCount += tempInst.quantity;
                 }
-                else if(tempInst.name.equals("Beef T-Bone Steak")) {
-                    beefTBoneSteakCount += tempInst.quantity;
+                else if(tempInst.name.equals("Whole Chicken (Skin On)")) {
+                    wholeChickenSOCount += tempInst.quantity;
                 }
-                else if(tempInst.name.equals("Beef T-Bone Steak")) {
-                    beefTBoneSteakCount += tempInst.quantity;
+                else if(tempInst.name.equals("Whole Chicken (Skinless)")) {
+                    wholeChickenSlCount += tempInst.quantity;
                 }
-                else if(tempInst.name.equals("Beef T-Bone Steak")) {
-                    beefTBoneSteakCount += tempInst.quantity;
+                else if(tempInst.name.equals("Roast Chicken (Sonali)")) {
+                    roastChickenCount += tempInst.quantity;
                 }
-                else if(tempInst.name.equals("Beef T-Bone Steak")) {
-                    beefTBoneSteakCount += tempInst.quantity;
+                else if(tempInst.name.equals("Chicken Drumstick (Skin On)")) {
+                    chickenDrumstickCount += tempInst.quantity;
                 }
-                else if(tempInst.name.equals("Beef T-Bone Steak")) {
-                    beefTBoneSteakCount += tempInst.quantity;
+                else if(tempInst.name.equals("Rui")) {
+                    ruiCount += tempInst.quantity;
                 }
-                else if(tempInst.name.equals("Beef T-Bone Steak")) {
-                    beefTBoneSteakCount += tempInst.quantity;
+                else if(tempInst.name.equals("Hilsha")) {
+                    hilshaCount += tempInst.quantity;
                 }
-                else if(tempInst.name.equals("Beef T-Bone Steak")) {
-                    beefTBoneSteakCount += tempInst.quantity;
+                else if(tempInst.name.equals("Prawn")) {
+                    prawnCount += tempInst.quantity;
                 }
-                else if(tempInst.name.equals("Beef T-Bone Steak")) {
-                    beefTBoneSteakCount += tempInst.quantity;
+                else if(tempInst.name.equals("Squid")) {
+                    squidCount += tempInst.quantity;
                 }
-                else if(tempInst.name.equals("Beef T-Bone Steak")) {
-                    beefTBoneSteakCount += tempInst.quantity;
+                else if(tempInst.name.equals("Beef Mix")) {
+                    beefMixCount += tempInst.quantity;
                 }
-                else if(tempInst.name.equals("Beef T-Bone Steak")) {
-                    beefTBoneSteakCount += tempInst.quantity;
+                else if(tempInst.name.equals("Mutton Mix")) {
+                    muttonMixCount += tempInst.quantity;
                 }
-                else if(tempInst.name.equals("Beef T-Bone Steak")) {
-                    beefTBoneSteakCount += tempInst.quantity;
+                else if(tempInst.name.equals("Chicken Mix")) {
+                    chickenMixCount += tempInst.quantity;
                 }
-                else if(tempInst.name.equals("Beef T-Bone Steak")) {
-                    beefTBoneSteakCount += tempInst.quantity;
+                else if(tempInst.name.equals("Fish Mix")) {
+                    fishMixCount += tempInst.quantity;
                 }
             }
 
@@ -221,43 +221,58 @@ public class Product implements Serializable{
             pieDataSet.add(new PieChart.Data("Beef Tehari Cut", beefTehariCutCount));
             pieDataSet.add(new PieChart.Data("Beef Tenderloin Steak", beefTenderloinSteakCount));
             pieDataSet.add(new PieChart.Data("Beef T-Bone Steak", beefTBoneSteakCount)); 
+            pieDataSet.add(new PieChart.Data("Mutton Bone In", muttonBoneInCount));
+            pieDataSet.add(new PieChart.Data("Mutton Shank", muttonShankCount));
+            pieDataSet.add(new PieChart.Data("Mutton Back Leg", muttonBackLegCount));
+            pieDataSet.add(new PieChart.Data("Whole Chicken (Skin On)", wholeChickenSOCount)); 
+            pieDataSet.add(new PieChart.Data("Whole Chicken (Skinless)", wholeChickenSlCount));
+            pieDataSet.add(new PieChart.Data("Roast Chicken (Sonali)", roastChickenCount));
+            pieDataSet.add(new PieChart.Data("Chicken Drumstick (Skin On)", chickenDrumstickCount));
+            pieDataSet.add(new PieChart.Data("Rui", ruiCount)); 
+            pieDataSet.add(new PieChart.Data("Hilsha", hilshaCount));
+            pieDataSet.add(new PieChart.Data("Prawn", prawnCount));
+            pieDataSet.add(new PieChart.Data("Squid", squidCount));
+            pieDataSet.add(new PieChart.Data("Beef Mix", beefMixCount)); 
+            pieDataSet.add(new PieChart.Data("Mutton Mix", muttonMixCount));
+            pieDataSet.add(new PieChart.Data("Chicken Mix", chickenMixCount));
+            pieDataSet.add(new PieChart.Data("Fish Mix", fishMixCount)); 
             return pieDataSet;
         }
     }
     
-    public static Product getProductInstance(SimpleStringProperty productName) {
-        Product tempInst = null;
-        File userFile = new File("Cart.bin");
-        FileInputStream fis = null;
-        ObjectInputStream ois = null;
-        try {            
-            fis = new FileInputStream(userFile);
-            ois = new ObjectInputStream(fis);
-            while(true) {
-                tempInst = (Product)ois.readObject();
-                if(tempInst.name.equals(productName)) {
-                    return tempInst;
-                }
-            }
-        }
-        catch(FileNotFoundException e) {
-            errorAlert.setContentText("'Cart.bin' file not found!");
-            errorAlert.show();
-        }
-        catch(ClassNotFoundException e) {
-            errorAlert.setContentText("Class not found in 'Cart.bin' file!");
-            errorAlert.show();
-        }
-        catch(IOException e) {
-        }
-        finally {
-            try {
-                if(ois != null) ois.close();
-            }
-            catch(IOException e) {
-            }
-            return tempInst;
-        }
-    }
+//    public static Product getProductInstance(SimpleStringProperty productName) {
+//        Product tempInst = null;
+//        File userFile = new File("Cart.bin");
+//        FileInputStream fis = null;
+//        ObjectInputStream ois = null;
+//        try {            
+//            fis = new FileInputStream(userFile);
+//            ois = new ObjectInputStream(fis);
+//            while(true) {
+//                tempInst = (Product)ois.readObject();
+//                if(tempInst.name.equals(productName)) {
+//                    return tempInst;
+//                }
+//            }
+//        }
+//        catch(FileNotFoundException e) {
+//            errorAlert.setContentText("'Cart.bin' file not found!");
+//            errorAlert.show();
+//        }
+//        catch(ClassNotFoundException e) {
+//            errorAlert.setContentText("Class not found in 'Cart.bin' file!");
+//            errorAlert.show();
+//        }
+//        catch(IOException e) {
+//        }
+//        finally {
+//            try {
+//                if(ois != null) ois.close();
+//            }
+//            catch(IOException e) {
+//            }
+//            return tempInst;
+//        }
+//    }
     
 }

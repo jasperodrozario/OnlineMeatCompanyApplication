@@ -99,11 +99,11 @@ public class CheckoutSceneController implements Initializable {
         availCoupCB.getSelectionModel().selectedItemProperty().addListener(
             (observable, oldValue, newValue) -> {
                 if(availCoupCB.getValue().equals("10% Discount")) {
-                    discountedPrice = Cart.getTotalPrice()*(10/100);
+                    discountedPrice = Cart.getTotalPrice() - Cart.getTotalPrice()*0.1f;
                     totalPriceTextField.setText(Float.toString(discountedPrice));
                 }
                 else if(availCoupCB.getValue().equals("5% Discount")) {
-                    discountedPrice = Cart.getTotalPrice()*(5/100);
+                    discountedPrice = Cart.getTotalPrice() - Cart.getTotalPrice()*0.05f;
                     totalPriceTextField.setText(Float.toString(discountedPrice));
                 }
                 else if(availCoupCB.getValue().equals("Tk300 Discount")) {
@@ -137,7 +137,7 @@ public class CheckoutSceneController implements Initializable {
             errorAlert.show();
         }
         else {
-            if(LoggedUserInstance.custInst.confirmOrder()) {
+            if(LoggedUserInstance.custInst.confirmOrder(Float.parseFloat(totalPriceTextField.getText()))) {
                 for(Product item: cartItemsList) {
                     Product.addToProductPurchaseLogFile(item);
                 }

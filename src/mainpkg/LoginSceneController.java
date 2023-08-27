@@ -124,7 +124,7 @@ public class LoginSceneController implements Initializable {
             }
             else if(userTypeComboBox.getValue().equals("CCE")) {
                 if(Database.verifyUserPassword(userTypeComboBox.getValue(), Integer.parseInt(userIdTextField.getText()), passwordTextField.getText())) {
-                    newSceneLoader.switchScene("CCEdashboard.fxml", event);
+                    newSceneLoader.switchScene("CCEDashboard.fxml", event);
                 }
                 else {
                     anAlert.setContentText("Oops! The combination of userId and password is incorrect or something else went wrong. Try again!");
